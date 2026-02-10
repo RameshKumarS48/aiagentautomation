@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
  * Validates and removes content files with invalid YAML frontmatter
+ * Also removes entries that are clearly not AI agents
  */
 
 import { readdir, readFile, unlink } from 'fs/promises';
@@ -9,18 +10,18 @@ import { parse } from 'yaml';
 
 const CONTENT_DIR = './src/content/agents';
 
-// Names that are clearly not AI agents (navigation, meta entries)
+// Names/slugs that are clearly not AI agents
 const SKIP_PATTERNS = [
   /^getting-started/i,
   /^documentation$/i,
-  /^discord$/i,
+  /^discord/i,
   /^github$/i,
-  /^twitter$/i,
+  /^twitter/i,
   /^facebook$/i,
-  /^linkedin$/i,
+  /^linkedin/i,
   /^website$/i,
   /^youtube/i,
-  /^blog-post$/i,
+  /^blog-?post$/i,
   /^paper$/i,
   /^web$/i,
   /^docs$/i,
@@ -28,14 +29,62 @@ const SKIP_PATTERNS = [
   /^tweet$/i,
   /^founder/i,
   /^author/i,
-  /open-source-projects/i,
+  /^creator/i,
+  /^co-?founder/i,
+  /open-source-project/i,
   /closed-source/i,
   /thread-describing/i,
   /^x$/i,
+  /^announcement/i,
+  /^launch/i,
+  /^roadmap$/i,
+  /^community$/i,
+  /^telegram$/i,
+  /^slack/i,
+  /^subreddit$/i,
+  /^medium/i,
+  /^article$/i,
+  /^interview/i,
+  /^hugging-?face/i,
+  /^colab/i,
+  /chrome-extension$/i,
+  /vscode-extension$/i,
+  /docker-image$/i,
+  /^templates?$/i,
+  /^playground$/i,
+  /^waitlist$/i,
+  /^profile/i,
+  /^ycombinator/i,
+  /^license/i,
+  /^repo$/i,
+  /^meme$/i,
+  /step-by-step/i,
+  /^use-cases?$/i,
+  /^streamlit/i,
+  /local-demo$/i,
+  /project-(page|demo)$/i,
+  /^data-analysis$/i,
+  /^arxiv/i,
+  /^hackernews/i,
+  /^hit-us-up/i,
+  /-linkedin$/i,
+  /-twitter$/i,
+  /^x-twitter$/i,
+  /^x-post$/i,
+  /ceo$/i,
+  /cto$/i,
+  /-at-/i, // "person-at-company" patterns
 ];
 
 async function validateAndClean() {
-  const files = await readdir(CONTENT_DIR);
+  let files;
+  try {
+    files = await readdir(CONTENT_DIR);
+  } catch (err) {
+    console.log('Content directory not found, skipping cleanup');
+    return;
+  }
+
   const mdFiles = files.filter(f => f.endsWith('.md'));
 
   let removed = 0;
@@ -67,7 +116,15 @@ async function validateAndClean() {
 
       // Try to parse YAML
       const yaml = match[1];
-      const data = parse(yaml);
+      let data;
+      try {
+        data = parse(yaml);
+      } catch (yamlErr) {
+        console.log(`Removing (YAML error): ${file}`);
+        await unlink(filepath);
+        removed++;
+        continue;
+      }
 
       // Check for required fields
       if (!data.name || !data.category || !data.description) {
@@ -85,15 +142,23 @@ async function validateAndClean() {
         continue;
       }
 
+      // Check for malformed categories (containing markdown links)
+      if (data.category.includes('[') || data.category.includes('(')) {
+        console.log(`Removing (malformed category): ${file}`);
+        await unlink(filepath);
+        removed++;
+        continue;
+      }
+
       valid++;
     } catch (err) {
-      console.log(`Removing (YAML error): ${file} - ${err.message}`);
+      console.log(`Removing (error): ${file} - ${err.message}`);
       await unlink(filepath);
       removed++;
     }
   }
 
-  console.log(`\nDone! Valid: ${valid}, Removed: ${removed}`);
+  console.log(`\nCleanup complete! Valid: ${valid}, Removed: ${removed}`);
 }
 
 validateAndClean().catch(console.error);

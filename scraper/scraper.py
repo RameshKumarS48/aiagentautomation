@@ -12,7 +12,7 @@ import requests
 from pathlib import Path
 from datetime import datetime
 from typing import Optional, List
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 
 # Optional: Install with `pip install anthropic`
 try:
@@ -61,7 +61,105 @@ SOURCES = [
         "url": "https://api.github.com/repos/fr0gger/Awesome-GPT-Agents/readme",
         "type": "awesome-list"
     },
+    {
+        "name": "awesome-ai-tools",
+        "url": "https://api.github.com/repos/mahseema/awesome-ai-tools/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "open-llms",
+        "url": "https://api.github.com/repos/eugeneyan/open-llms/readme",
+        "type": "awesome-list"
+    },
 ]
+
+# Patterns to skip - these are NOT actual AI agents
+SKIP_PATTERNS = [
+    r'^(the\s+)?documentation$',
+    r'^discord(\s+invite)?$',
+    r'^github(\s+repository)?$',
+    r'^twitter$',
+    r'^x$',
+    r'^facebook$',
+    r'^linkedin$',
+    r'^website$',
+    r'^youtube',
+    r'^blog(-?\s*post)?$',
+    r'^paper$',
+    r'^web$',
+    r'^docs$',
+    r'^replit$',
+    r'^tweet$',
+    r'^founder',
+    r'^author',
+    r'^creator',
+    r'^co-?founder',
+    r'^open[\s-]?source[\s-]?projects?$',
+    r'^closed[\s-]?source',
+    r'^thread[\s-]?describing',
+    r'^getting[\s-]?started',
+    r'^installation$',
+    r'^demo(\s+video)?$',
+    r'^announcement$',
+    r'^launch',
+    r'^roadmap$',
+    r'^community$',
+    r'^telegram$',
+    r'^slack(\s+channel)?$',
+    r'^subreddit$',
+    r'^medium(\s+blog)?$',
+    r'^article$',
+    r'^interview',
+    r'^hugging[\s-]?face',
+    r'^colab',
+    r'^chrome[\s-]?extension$',
+    r'^vscode[\s-]?extension$',
+    r'^docker[\s-]?image$',
+    r'^templates?$',
+    r'^playground$',
+    r'^waitlist$',
+    r'^profile',
+    r'^ycombinator',
+    r'linkedin$',
+    r'^license',
+    r'^repo$',
+    r'^meme$',
+    r'^step[\s-]?by[\s-]?step',
+    r'^use[\s-]?cases?$',
+    r'^streamlit',
+    r'^local[\s-]?demo$',
+    r'^project[\s-]?(page|demo)$',
+    r'^data[\s-]?analysis$',
+    r'^arxiv',
+    r'^hackernews',
+]
+
+# Compile patterns for efficiency
+SKIP_COMPILED = [re.compile(p, re.IGNORECASE) for p in SKIP_PATTERNS]
+
+
+def should_skip_agent(name: str) -> bool:
+    """Check if an entry should be skipped based on name patterns."""
+    name_lower = name.lower().strip()
+
+    # Skip if matches any skip pattern
+    for pattern in SKIP_COMPILED:
+        if pattern.match(name_lower):
+            return True
+
+    # Skip if name is too long (likely a sentence/description, not a name)
+    if len(name) > 60 or name.count(' ') > 6:
+        return True
+
+    # Skip if contains percentage signs (tweet-like content)
+    if '%' in name:
+        return True
+
+    # Skip if it's just a person's name with role
+    if re.search(r'\b(founder|ceo|cto|cofounder|co-founder)\s*(at|of|@)', name_lower):
+        return True
+
+    return False
 
 
 def fetch_github_readme(api_url: str, token: Optional[str] = None) -> str:
@@ -70,15 +168,19 @@ def fetch_github_readme(api_url: str, token: Optional[str] = None) -> str:
     if token:
         headers["Authorization"] = f"token {token}"
 
-    response = requests.get(api_url, headers=headers)
-    if response.status_code == 200:
-        return response.text
-    else:
-        print(f"Failed to fetch {api_url}: {response.status_code}")
+    try:
+        response = requests.get(api_url, headers=headers, timeout=30)
+        if response.status_code == 200:
+            return response.text
+        else:
+            print(f"Failed to fetch {api_url}: {response.status_code}")
+            return ""
+    except Exception as e:
+        print(f"Error fetching {api_url}: {e}")
         return ""
 
 
-def parse_awesome_list(content: str) -> list[dict]:
+def parse_awesome_list(content: str) -> List[dict]:
     """Parse markdown awesome-list to extract agent entries."""
     agents = []
     current_category = "General"
@@ -86,11 +188,13 @@ def parse_awesome_list(content: str) -> list[dict]:
     lines = content.split('\n')
 
     for line in lines:
-        # Detect category headers
-        if line.startswith('## '):
-            current_category = line[3:].strip()
-            # Clean up category name
-            current_category = re.sub(r'\s*[🤖🔧💡📚🎯🛠️⚡🔥🌟]', '', current_category).strip()
+        # Detect category headers (## or ###)
+        if line.startswith('## ') or line.startswith('### '):
+            header_text = line.lstrip('#').strip()
+            # Clean up category name - remove emojis and special chars
+            current_category = re.sub(r'[^\w\s-]', '', header_text).strip()
+            if not current_category:
+                current_category = "General"
             continue
 
         # Parse list items with links: - [Name](url) - description
@@ -101,9 +205,16 @@ def parse_awesome_list(content: str) -> list[dict]:
             url = match.group(2).strip()
             description = match.group(3).strip()
 
-            # Skip if it's just a reference link or empty
-            if not name or 'badge' in url.lower():
+            # Skip if it's just a reference link, badge, or matches skip patterns
+            if not name or 'badge' in url.lower() or 'shields.io' in url.lower():
                 continue
+
+            if should_skip_agent(name):
+                continue
+
+            # Clean the description
+            description = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', description)  # Remove markdown links
+            description = description.strip(' -–:')
 
             agents.append({
                 'name': name,
@@ -126,31 +237,33 @@ Category: {agent['category']}
 Source URL: {agent['url']}
 Raw Description: {agent['description']}
 
-Generate a JSON object with these exact fields:
-- name: string (the agent name)
-- category: string (cleaned up category)
-- source_url: string (the URL)
-- description: string (2-3 sentence factual overview)
-- tech_stack: array of strings (likely technologies, or empty if unknown)
-- problem_solved: string (what problem this solves)
-- target_audience: string (who would use this)
-- inputs: array of strings (typical inputs required)
-- outputs: array of strings (what it produces)
-- workflow_steps: array of strings (5-7 step example workflow)
-- sample_prompt: string (example system prompt or pseudo-logic)
-- tools_used: array of strings (known tools/frameworks/APIs)
-- alternatives: array of 3 strings (similar tools)
-- is_open_source: string ("Yes", "No", or "Not publicly specified")
-- can_self_host: string ("Yes", "No", or "Not publicly specified")
-- skill_level: string ("Beginner", "Intermediate", "Advanced", or "Not publicly specified")
+Generate a JSON object with these exact fields. Be factual and specific based on the name and URL:
+
+{{
+  "name": "{agent['name']}",
+  "category": "string - clean category name, e.g. 'Autonomous Agents', 'Coding Assistants', 'Cybersecurity Tools'",
+  "source_url": "{agent['url']}",
+  "description": "string - 2-3 factual sentences about what this agent/tool does",
+  "tech_stack": ["array of likely technologies based on the project"],
+  "problem_solved": "string - the specific problem this solves",
+  "target_audience": "string - who would use this",
+  "inputs": ["array of 3-5 typical inputs"],
+  "outputs": ["array of 3-5 typical outputs"],
+  "workflow_steps": ["array of 5-7 workflow steps"],
+  "sample_prompt": "string - realistic example system prompt or usage",
+  "tools_used": ["array of known tools/frameworks/APIs"],
+  "alternatives": ["array of 3 similar tools - use real names of competing products"],
+  "is_open_source": "Yes/No/Not publicly specified - check if github.com in URL",
+  "can_self_host": "Yes/No/Not publicly specified",
+  "skill_level": "Beginner/Intermediate/Advanced"
+}}
 
 RULES:
-- Be factual and neutral
-- If information is unknown, use reasonable inference or "Not publicly specified"
-- No marketing language or hype
-- Base answers on the name, URL domain, and description provided
-
-Return ONLY valid JSON, no other text."""
+- Be factual based on the name, URL domain, and description
+- For GitHub projects, assume open source
+- Use specific, real alternative tool names
+- No marketing language
+- Return ONLY valid JSON"""
 
     try:
         response = client.messages.create(
@@ -159,15 +272,18 @@ Return ONLY valid JSON, no other text."""
             messages=[{"role": "user", "content": prompt}]
         )
 
-        # Extract JSON from response
         text = response.content[0].text
         # Clean up potential markdown code blocks
         text = re.sub(r'^```json\s*', '', text)
         text = re.sub(r'\s*```$', '', text)
+        text = text.strip()
 
         data = json.loads(text)
         return AgentData(**data)
 
+    except json.JSONDecodeError as e:
+        print(f"JSON parse error for {agent['name']}: {e}")
+        return None
     except Exception as e:
         print(f"Error generating content for {agent['name']}: {e}")
         return None
@@ -177,15 +293,23 @@ def generate_content_template(agent: dict) -> AgentData:
     """Generate template content without Claude API (for testing/low-cost mode)."""
     name = agent['name']
     category = agent['category']
+    url = agent['url']
+    desc = agent.get('description', '')
+
+    # Determine if likely open source
+    is_oss = "Yes" if "github.com" in url.lower() else "Not publicly specified"
+
+    # Clean category
+    clean_cat = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', category).strip()
 
     return AgentData(
         name=name,
-        category=category,
-        source_url=agent['url'],
-        description=f"{name} is an AI agent in the {category} category. {agent['description']}",
-        tech_stack=["Not publicly specified"],
-        problem_solved=f"This agent addresses automation challenges in the {category.lower()} domain.",
-        target_audience=f"Developers and teams working with {category.lower()} automation.",
+        category=clean_cat if clean_cat else "AI Tools",
+        source_url=url,
+        description=f"{name} is an AI agent in the {clean_cat} category. {desc}".strip(),
+        tech_stack=["Python", "LLM APIs"] if "github" in url else ["Not publicly specified"],
+        problem_solved=f"This tool addresses challenges in the {clean_cat.lower()} domain.",
+        target_audience=f"Developers and teams working with {clean_cat.lower()} automation.",
         inputs=["User configuration", "API credentials (if required)", "Task parameters"],
         outputs=["Automated task results", "Status reports", "Generated content or actions"],
         workflow_steps=[
@@ -193,40 +317,46 @@ def generate_content_template(agent: dict) -> AgentData:
             "Agent receives input data or trigger",
             "Agent processes the request using its core logic",
             "Agent interacts with external services if needed",
-            "Results are returned to the user or downstream system"
+            "Results are returned to the user"
         ],
-        sample_prompt=f"You are {name}, an AI assistant specialized in {category.lower()}. Help the user accomplish their task efficiently and accurately.",
-        tools_used=["Not publicly specified"],
+        sample_prompt=f"You are {name}, an AI assistant. Help the user accomplish their task efficiently.",
+        tools_used=["LLM APIs", "Python"] if "github" in url else ["Not publicly specified"],
         alternatives=["AutoGPT", "LangChain Agents", "CrewAI"],
-        is_open_source="Not publicly specified" if "github.com" not in agent['url'].lower() else "Yes (likely)",
-        can_self_host="Not publicly specified",
+        is_open_source=is_oss,
+        can_self_host="Yes" if is_oss == "Yes" else "Not publicly specified",
         skill_level="Intermediate"
     )
 
 
 def escape_yaml(text: str) -> str:
     """Escape quotes for YAML string values."""
-    return text.replace('"', '\\"')
+    if not text:
+        return ""
+    return text.replace('\\', '\\\\').replace('"', '\\"').replace('\n', ' ')
 
 
-def create_markdown_file(agent_data: AgentData, output_dir: Path) -> str:
+def create_markdown_file(agent_data: AgentData, output_dir: Path) -> Optional[str]:
     """Create a markdown content file for Astro."""
     # Create slug from name
     slug = re.sub(r'[^a-z0-9]+', '-', agent_data.name.lower()).strip('-')
 
+    if not slug or len(slug) < 2:
+        return None
+
     # Format arrays for YAML
     def yaml_list(items):
-        return '\n'.join(f'  - "{escape_yaml(item)}"' for item in items)
+        return '\n'.join(f'  - "{escape_yaml(str(item))}"' for item in items if item)
 
     # Escape string fields
     desc = escape_yaml(agent_data.description)
     problem = escape_yaml(agent_data.problem_solved)
     audience = escape_yaml(agent_data.target_audience)
+    category = escape_yaml(agent_data.category)
     date_str = datetime.now().strftime('%Y-%m-%d')
 
     content = f'''---
-name: "{agent_data.name}"
-category: "{agent_data.category}"
+name: "{escape_yaml(agent_data.name)}"
+category: "{category}"
 source_url: "{agent_data.source_url}"
 description: "{desc}"
 tech_stack:
@@ -255,8 +385,12 @@ last_updated: {date_str}
 '''
 
     filepath = output_dir / f"{slug}.md"
-    filepath.write_text(content)
-    return str(filepath)
+    try:
+        filepath.write_text(content)
+        return str(filepath)
+    except Exception as e:
+        print(f"Error writing {filepath}: {e}")
+        return None
 
 
 def main():
@@ -266,6 +400,11 @@ def main():
     content_dir = project_root / "src" / "content" / "agents"
     content_dir.mkdir(parents=True, exist_ok=True)
 
+    # Track existing files to avoid duplicates
+    existing_slugs = set()
+    for f in content_dir.glob("*.md"):
+        existing_slugs.add(f.stem)
+
     # Check for API key
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     use_claude = HAS_ANTHROPIC and api_key
@@ -274,6 +413,7 @@ def main():
         client = anthropic.Anthropic(api_key=api_key)
         print("Using Claude API for content generation")
     else:
+        client = None
         print("Using template-based content generation (set ANTHROPIC_API_KEY for AI generation)")
 
     # GitHub token (optional, increases rate limits)
@@ -288,44 +428,56 @@ def main():
 
         if content:
             agents = parse_awesome_list(content)
-            print(f"  Found {len(agents)} agents")
+            print(f"  Found {len(agents)} valid agents")
             all_agents.extend(agents)
 
-        # Rate limiting
-        time.sleep(1)
+        time.sleep(1)  # Rate limiting
 
-    # Deduplicate by name
+    # Deduplicate by name (case-insensitive)
     seen = set()
     unique_agents = []
     for agent in all_agents:
-        if agent['name'].lower() not in seen:
-            seen.add(agent['name'].lower())
+        name_key = agent['name'].lower().strip()
+        if name_key not in seen and len(name_key) > 1:
+            seen.add(name_key)
             unique_agents.append(agent)
 
-    print(f"\nTotal unique agents: {len(unique_agents)}")
+    print(f"\nTotal unique agents after filtering: {len(unique_agents)}")
 
     # Generate content files
     generated = 0
+    skipped = 0
+
     for i, agent in enumerate(unique_agents):
+        slug = re.sub(r'[^a-z0-9]+', '-', agent['name'].lower()).strip('-')
+
+        # Skip if already exists
+        if slug in existing_slugs:
+            skipped += 1
+            continue
+
         print(f"Processing {i+1}/{len(unique_agents)}: {agent['name']}")
 
         try:
-            if use_claude:
+            if use_claude and client:
                 agent_data = generate_content_with_claude(agent, client)
-                time.sleep(0.5)  # Rate limiting
+                time.sleep(0.5)  # Rate limiting for API
             else:
                 agent_data = generate_content_template(agent)
 
             if agent_data:
                 filepath = create_markdown_file(agent_data, content_dir)
-                print(f"  Created: {filepath}")
-                generated += 1
+                if filepath:
+                    print(f"  Created: {filepath}")
+                    generated += 1
+                    existing_slugs.add(slug)
 
         except Exception as e:
             print(f"  Error: {e}")
             continue
 
-    print(f"\nDone! Generated {generated} content files in {content_dir}")
+    print(f"\nDone! Generated {generated} new files, skipped {skipped} existing")
+    print(f"Total content files: {len(list(content_dir.glob('*.md')))}")
 
 
 if __name__ == "__main__":

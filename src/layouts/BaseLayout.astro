@@ -11,6 +11,7 @@ interface Props {
 
 const { title, description, canonical } = Astro.props;
 const siteUrl = 'https://aiagentautomation.site';
+const gaId = import.meta.env.PUBLIC_GA_ID || '';
 ---
 
 <!DOCTYPE html>
@@ -35,6 +36,19 @@ const siteUrl = 'https://aiagentautomation.site';
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
+
+  <!-- Google Analytics -->
+  {gaId && (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+      <script define:vars={{ gaId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', gaId);
+      </script>
+    </>
+  )}
 
   <!-- Schema.org -->
   <script type="application/ld+json" set:html={JSON.stringify({
