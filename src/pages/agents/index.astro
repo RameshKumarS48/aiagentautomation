@@ -1,84 +1,148 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AgentCard from '../../components/AgentCard.astro';
+import CategoryFilter from '../../components/CategoryFilter.astro';
 
 const agents = await getCollection('agents');
+
+// Build category stats
+const categoryMap = new Map<string, number>();
+agents.forEach(agent => {
+  const cat = agent.data.category;
+  categoryMap.set(cat, (categoryMap.get(cat) || 0) + 1);
+});
+
+const categories = Array.from(categoryMap.entries())
+  .map(([name, count]) => ({ name, count }))
+  .sort((a, b) => b.count - a.count);
+
+// Sort agents alphabetically
+const sortedAgents = agents.sort((a, b) => a.data.name.localeCompare(b.data.name));
 ---
 
 <BaseLayout
   title="All AI Agents - Complete Directory"
-  description="Browse our complete directory of AI agents and automation tools with technical documentation and usage guides."
+  description="Browse our complete directory of {agents.length} AI agents and automation tools with technical documentation and usage guides."
 >
-  <div class="container">
-    <h1>All AI Agents</h1>
-    <p class="subtitle">{agents.length} agents documented</p>
+  <!-- Header -->
+  <section class="pt-28 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="font-display text-4xl font-bold text-text-primary mb-4">All AI Agents</h1>
+      <p class="text-text-secondary text-lg">
+        Browse {agents.length} agents across {categories.length} categories
+      </p>
+    </div>
+  </section>
 
-    <ul class="agent-grid">
-      {agents
-        .sort((a, b) => a.data.name.localeCompare(b.data.name))
-        .map((agent) => (
-          <li class="agent-card">
-            <a href={`/agents/${agent.slug}/`}>
-              <span class="badge">{agent.data.category}</span>
-              <h2>{agent.data.name}</h2>
-              <p>{agent.data.description.slice(0, 120)}...</p>
-              <div class="meta">
-                <span>{agent.data.is_open_source === 'Yes' ? 'Open Source' : 'Proprietary'}</span>
-              </div>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+  <CategoryFilter categories={categories} />
+
+  <!-- Search and filter -->
+  <section class="py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row gap-4">
+        <div class="relative flex-1">
+          <input type="text"
+                 id="search-input"
+                 placeholder="Search agents..."
+                 class="w-full px-4 py-3 pl-12 bg-dark-card border border-dark-border rounded-xl
+                        text-text-primary placeholder:text-text-muted
+                        focus:outline-none focus:border-accent-blue/50
+                        transition-all duration-300" />
+          <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted"
+               fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <select id="sort-select"
+                class="px-4 py-3 bg-dark-card border border-dark-border rounded-xl
+                       text-text-primary focus:outline-none focus:border-accent-blue/50
+                       transition-all duration-300">
+          <option value="name">Sort by Name</option>
+          <option value="category">Sort by Category</option>
+          <option value="recent">Recently Updated</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agent Grid -->
+  <section class="py-8 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="agent-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sortedAgents.map(agent => (
+          <div class="agent-item"
+               data-name={agent.data.name.toLowerCase()}
+               data-category={agent.data.category.toLowerCase()}
+               data-date={agent.data.last_updated.getTime()}>
+            <AgentCard
+              name={agent.data.name}
+              slug={agent.slug}
+              description={agent.data.description}
+              category={agent.data.category}
+              isOpenSource={agent.data.is_open_source}
+              sourceUrl={agent.data.source_url}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div id="no-results" class="hidden text-center py-16">
+        <p class="text-text-secondary text-lg">No agents found matching your search.</p>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
-<style>
-  .subtitle {
-    color: #64748b;
-    margin-bottom: 2rem;
+<script>
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const sortSelect = document.getElementById('sort-select') as HTMLSelectElement;
+  const grid = document.getElementById('agent-grid');
+  const noResults = document.getElementById('no-results');
+  const items = document.querySelectorAll('.agent-item');
+
+  function filterAndSort() {
+    const query = searchInput.value.toLowerCase().trim();
+    const sortBy = sortSelect.value;
+    let visibleCount = 0;
+
+    const itemsArray = Array.from(items) as HTMLElement[];
+
+    // Filter
+    itemsArray.forEach(item => {
+      const name = item.dataset.name || '';
+      const category = item.dataset.category || '';
+      const matches = !query || name.includes(query) || category.includes(query);
+      item.style.display = matches ? '' : 'none';
+      if (matches) visibleCount++;
+    });
+
+    // Sort
+    itemsArray
+      .filter(item => item.style.display !== 'none')
+      .sort((a, b) => {
+        if (sortBy === 'name') {
+          return (a.dataset.name || '').localeCompare(b.dataset.name || '');
+        } else if (sortBy === 'category') {
+          return (a.dataset.category || '').localeCompare(b.dataset.category || '');
+        } else {
+          return Number(b.dataset.date || 0) - Number(a.dataset.date || 0);
+        }
+      })
+      .forEach(item => grid?.appendChild(item));
+
+    noResults?.classList.toggle('hidden', visibleCount > 0);
   }
 
-  .agent-grid {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
+  searchInput?.addEventListener('input', filterAndSort);
+  sortSelect?.addEventListener('change', filterAndSort);
 
-  .agent-card {
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    overflow: hidden;
+  // Check for URL query param
+  const urlParams = new URLSearchParams(window.location.search);
+  const q = urlParams.get('q');
+  if (q && searchInput) {
+    searchInput.value = q;
+    filterAndSort();
   }
-
-  .agent-card a {
-    display: block;
-    padding: 1.5rem;
-    text-decoration: none;
-  }
-
-  .agent-card:hover {
-    border-color: #2563eb;
-  }
-
-  .agent-card h2 {
-    font-size: 1.25rem;
-    color: #0f172a;
-    margin: 0.75rem 0;
-  }
-
-  .agent-card p {
-    color: #64748b;
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-  }
-
-  .meta {
-    font-size: 0.75rem;
-    color: #94a3b8;
-  }
-</style>
+</script>

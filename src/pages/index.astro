@@ -1,147 +1,103 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CategoryFilter from '../components/CategoryFilter.astro';
+import AgentCard from '../components/AgentCard.astro';
 
 const agents = await getCollection('agents');
-const categories = [...new Set(agents.map(a => a.data.category))].sort();
+
+// Build category stats
+const categoryMap = new Map<string, number>();
+agents.forEach(agent => {
+  const cat = agent.data.category;
+  categoryMap.set(cat, (categoryMap.get(cat) || 0) + 1);
+});
+
+const categories = Array.from(categoryMap.entries())
+  .map(([name, count]) => ({ name, count }))
+  .sort((a, b) => b.count - a.count);
+
+// Get featured/recent agents
+const featuredAgents = agents
+  .sort((a, b) => b.data.last_updated.getTime() - a.data.last_updated.getTime())
+  .slice(0, 12);
 ---
 
 <BaseLayout
-  title="AI Agent Documentation and Automation Tools"
-  description="Comprehensive documentation for AI agents:  and automation tools. Find guides, workflows, and technical details for popular AI automation solutions."
+  title="Discover the Best AI Agents"
+  description="The most comprehensive directory of AI agents and automation tools. Find documentation, workflows, and technical details for 250+ AI agents."
 >
-  <div class="container">
-    <section class="hero">
-      <h1>AI Agent Documentation</h1>
-      <p>Factual, technical documentation for AI agents and automation tools. No hype, just information.</p>
-    </section>
+  <Hero agentCount={agents.length} categoryCount={categories.length} />
 
-    <section class="categories">
-      <h2>Browse by Category</h2>
-      <div class="category-grid">
-        {categories.map((category) => (
-          <a href={`/categories/${category.toLowerCase().replace(/\s+/g, '-')}/`} class="category-card">
-            <h3>{category}</h3>
-            <p>{agents.filter(a => a.data.category === category).length} agents</p>
-          </a>
+  <CategoryFilter categories={categories} />
+
+  <!-- Featured Agents -->
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h2 class="font-display text-2xl font-bold text-text-primary">Featured Agents</h2>
+          <p class="text-text-secondary mt-1">Recently updated and popular AI agents</p>
+        </div>
+        <a href="/agents/" class="btn-secondary text-sm">
+          View All &rarr;
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featuredAgents.map(agent => (
+          <AgentCard
+            name={agent.data.name}
+            slug={agent.slug}
+            description={agent.data.description}
+            category={agent.data.category}
+            isOpenSource={agent.data.is_open_source}
+            sourceUrl={agent.data.source_url}
+          />
         ))}
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="recent">
-      <h2>Recently Updated</h2>
-      <ul class="agent-list">
-        {agents
-          .sort((a, b) => b.data.last_updated.getTime() - a.data.last_updated.getTime())
-          .slice(0, 10)
-          .map((agent) => (
-            <li>
-              <a href={`/agents/${agent.slug}/`}>
-                <span class="agent-name">{agent.data.name}</span>
-                <span class="badge">{agent.data.category}</span>
-              </a>
-              <p class="agent-desc">{agent.data.description.slice(0, 150)}...</p>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
+  <!-- Stats Section -->
+  <section class="py-16 border-t border-dark-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="font-display text-4xl font-bold gradient-text mb-2">{agents.length}+</div>
+          <div class="text-text-secondary">AI Agents</div>
+        </div>
+        <div class="text-center">
+          <div class="font-display text-4xl font-bold gradient-text mb-2">{categories.length}</div>
+          <div class="text-text-secondary">Categories</div>
+        </div>
+        <div class="text-center">
+          <div class="font-display text-4xl font-bold gradient-text mb-2">Weekly</div>
+          <div class="text-text-secondary">Updates</div>
+        </div>
+        <div class="text-center">
+          <div class="font-display text-4xl font-bold gradient-text mb-2">Free</div>
+          <div class="text-text-secondary">Forever</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="all-agents">
-      <h2>All Agents ({agents.length})</h2>
-      <ul class="agent-list">
-        {agents
-          .sort((a, b) => a.data.name.localeCompare(b.data.name))
-          .map((agent) => (
-            <li>
-              <a href={`/agents/${agent.slug}/`}>
-                <span class="agent-name">{agent.data.name}</span>
-                <span class="badge">{agent.data.category}</span>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-  </div>
+  <!-- CTA Section -->
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="card p-12">
+        <h2 class="font-display text-3xl font-bold text-text-primary mb-4">
+          Know an AI Agent We're Missing?
+        </h2>
+        <p class="text-text-secondary mb-8 max-w-xl mx-auto">
+          Help us build the most comprehensive AI agents directory. Submit your favorite tools and agents.
+        </p>
+        <a href="/submit/" class="btn-primary">
+          Submit an Agent
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
-
-<style>
-  .hero {
-    text-align: center;
-    padding: 3rem 0;
-    border-bottom: 1px solid #e2e8f0;
-    margin-bottom: 2rem;
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .hero p {
-    color: #64748b;
-    font-size: 1.125rem;
-  }
-
-  .category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .category-card {
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-decoration: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-
-  .category-card:hover {
-    border-color: #2563eb;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-
-  .category-card h3 {
-    color: #0f172a;
-    margin-bottom: 0.5rem;
-  }
-
-  .category-card p {
-    color: #64748b;
-    font-size: 0.875rem;
-    margin: 0;
-  }
-
-  .agent-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .agent-list li {
-    padding: 1rem 0;
-    border-bottom: 1px solid #e2e8f0;
-  }
-
-  .agent-list a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .agent-name {
-    font-weight: 600;
-    color: #0f172a;
-  }
-
-  .agent-desc {
-    color: #64748b;
-    font-size: 0.875rem;
-    margin-top: 0.5rem;
-  }
-</style>

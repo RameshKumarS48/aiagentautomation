@@ -1,0 +1,42 @@
+---
+interface Props {
+  categories: Array<{ name: string; count: number }>;
+  activeCategory?: string;
+}
+
+const { categories, activeCategory } = Astro.props;
+
+// Sort by count descending, take top categories
+const topCategories = categories
+  .filter(c => !c.name.includes('[') && !c.name.includes('(')) // Filter out malformed categories
+  .sort((a, b) => b.count - a.count)
+  .slice(0, 12);
+---
+
+<section class="py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-4 overflow-x-auto pb-4 scrollbar-hide">
+      <a href="/agents/"
+         class:list={["category-pill whitespace-nowrap", { active: !activeCategory }]}>
+        All Agents
+      </a>
+      {topCategories.map(cat => (
+        <a href={`/categories/${cat.name.toLowerCase().replace(/\s+/g, '-')}/`}
+           class:list={["category-pill whitespace-nowrap", { active: activeCategory === cat.name }]}>
+          {cat.name}
+          <span class="ml-1 text-text-muted">({cat.count})</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>

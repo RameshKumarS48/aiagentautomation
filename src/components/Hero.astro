@@ -1,0 +1,76 @@
+---
+interface Props {
+  agentCount: number;
+  categoryCount: number;
+}
+
+const { agentCount, categoryCount } = Astro.props;
+---
+
+<section class="relative pt-32 pb-20 overflow-hidden">
+  <!-- Background gradient -->
+  <div class="absolute inset-0 bg-gradient-hero"></div>
+
+  <!-- Decorative elements -->
+  <div class="absolute top-20 left-1/4 w-72 h-72 bg-accent-blue/10 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-accent-purple/10 rounded-full blur-3xl"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-dark-card border border-dark-border
+                text-sm text-text-secondary mb-8 animate-fade-in">
+      <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+      <span>{agentCount} agents indexed across {categoryCount} categories</span>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary mb-6
+               animate-slide-up" style="animation-delay: 0.1s">
+      Discover the Best
+      <span class="gradient-text"> AI Agents</span>
+      <br />in One Place
+    </h1>
+
+    <!-- Subtext -->
+    <p class="text-lg sm:text-xl text-text-secondary max-w-2xl mx-auto mb-10
+              animate-slide-up" style="animation-delay: 0.2s">
+      The most comprehensive directory of AI agents and automation tools.
+      Factual documentation, no hype.
+    </p>
+
+    <!-- Search bar -->
+    <div class="max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.3s">
+      <div class="relative">
+        <input type="text"
+               id="hero-search"
+               placeholder="Search agents by name, category, or use case..."
+               class="w-full px-6 py-4 pl-14 bg-dark-card border border-dark-border rounded-2xl
+                      text-text-primary placeholder:text-text-muted
+                      focus:outline-none focus:border-accent-blue/50 focus:shadow-glow
+                      transition-all duration-300" />
+        <svg class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted"
+             fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+
+      <!-- Quick links -->
+      <div class="flex flex-wrap justify-center gap-2 mt-4">
+        <span class="text-text-muted text-sm">Popular:</span>
+        <a href="/agents/autogpt/" class="text-sm text-accent-blue hover:underline">AutoGPT</a>
+        <a href="/agents/crewai/" class="text-sm text-accent-blue hover:underline">CrewAI</a>
+        <a href="/agents/langchain-agents/" class="text-sm text-accent-blue hover:underline">LangChain</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const searchInput = document.getElementById('hero-search') as HTMLInputElement;
+  searchInput?.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && searchInput.value.trim()) {
+      window.location.href = `/agents/?q=${encodeURIComponent(searchInput.value.trim())}`;
+    }
+  });
+</script>
