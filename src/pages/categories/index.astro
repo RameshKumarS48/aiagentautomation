@@ -1,0 +1,115 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const agents = await getCollection('agents');
+
+// Group by category
+const categoryMap = new Map<string, typeof agents>();
+agents.forEach(agent => {
+  const cat = agent.data.category;
+  if (!categoryMap.has(cat)) {
+    categoryMap.set(cat, []);
+  }
+  categoryMap.get(cat)!.push(agent);
+});
+
+const categories = Array.from(categoryMap.entries())
+  .sort((a, b) => a[0].localeCompare(b[0]));
+---
+
+<BaseLayout
+  title="AI Agent Categories - Browse by Type"
+  description="Browse AI agents and automation tools organized by category. Find the right tool for your specific use case."
+>
+  <div class="container">
+    <h1>Browse by Category</h1>
+    <p class="subtitle">{categories.length} categories, {agents.length} total agents</p>
+
+    <div class="categories">
+      {categories.map(([category, categoryAgents]) => (
+        <section class="category-section">
+          <h2 id={category.toLowerCase().replace(/\s+/g, '-')}>{category}</h2>
+          <p class="category-count">{categoryAgents.length} agents</p>
+          <ul class="agent-list">
+            {categoryAgents
+              .sort((a, b) => a.data.name.localeCompare(b.data.name))
+              .map(agent => (
+                <li>
+                  <a href={`/agents/${agent.slug}/`}>
+                    <strong>{agent.data.name}</strong>
+                    <span class="open-source">{agent.data.is_open_source === 'Yes' ? 'Open Source' : ''}</span>
+                  </a>
+                  <p>{agent.data.description.slice(0, 100)}...</p>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .subtitle {
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+
+  .category-section {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .category-section h2 {
+    margin-bottom: 0.25rem;
+  }
+
+  .category-count {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .agent-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .agent-list li {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 1rem;
+  }
+
+  .agent-list a {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .agent-list strong {
+    color: #0f172a;
+  }
+
+  .agent-list p {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin: 0.5rem 0 0 0;
+  }
+
+  .open-source {
+    font-size: 0.75rem;
+    color: #059669;
+    background: #d1fae5;
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+  }
+</style>

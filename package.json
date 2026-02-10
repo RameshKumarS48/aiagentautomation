@@ -1,0 +1,17 @@
+{
+  "name": "aiagentautomation",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/generate-sitemap.mjs",
+    "preview": "astro preview",
+    "scrape": "cd scraper && python3 scraper.py"
+  },
+  "dependencies": {
+    "astro": "^4.0.0"
+  },
+  "devDependencies": {
+    "yaml": "^2.8.2"
+  }
+}

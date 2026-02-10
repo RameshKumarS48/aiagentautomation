@@ -1,0 +1,139 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const agents = await getCollection('agents');
+  return agents.map((agent) => ({
+    params: { slug: agent.slug },
+    props: { agent },
+  }));
+}
+
+const { agent } = Astro.props;
+const { Content } = await agent.render();
+const data = agent.data;
+---
+
+<BaseLayout
+  title={`${data.name} - AI Agent Documentation`}
+  description={data.description}
+>
+  <article class="container">
+    <header class="agent-header">
+      <span class="badge badge-primary">{data.category}</span>
+      <h1>{data.name}</h1>
+      <p class="meta">Last updated: {data.last_updated.toLocaleDateString()}</p>
+    </header>
+
+    <section>
+      <h2>Overview</h2>
+      <p>{data.description}</p>
+    </section>
+
+    <section>
+      <h2>Problem It Solves</h2>
+      <p>{data.problem_solved}</p>
+      <p><strong>Target Audience:</strong> {data.target_audience}</p>
+    </section>
+
+    <section>
+      <h2>Inputs</h2>
+      <ul>
+        {data.inputs.map((input) => <li>{input}</li>)}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Outputs</h2>
+      <ul>
+        {data.outputs.map((output) => <li>{output}</li>)}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Example Workflow</h2>
+      <ol>
+        {data.workflow_steps.map((step) => <li>{step}</li>)}
+      </ol>
+    </section>
+
+    {data.sample_prompt && (
+      <section>
+        <h2>Sample System Prompt</h2>
+        <pre><code>{data.sample_prompt}</code></pre>
+      </section>
+    )}
+
+    <section>
+      <h2>Tools and Technologies Used</h2>
+      <div class="badges">
+        {data.tools_used.map((tool) => <span class="badge">{tool}</span>)}
+      </div>
+    </section>
+
+    <section>
+      <h2>Alternatives</h2>
+      <ul>
+        {data.alternatives.map((alt) => <li>{alt}</li>)}
+      </ul>
+    </section>
+
+    <section>
+      <h2>FAQs</h2>
+      <dl class="faq-list">
+        <dt>Is this agent open-source?</dt>
+        <dd>{data.is_open_source}</dd>
+
+        <dt>Can this agent be self-hosted?</dt>
+        <dd>{data.can_self_host}</dd>
+
+        <dt>What skill level is required?</dt>
+        <dd>{data.skill_level}</dd>
+      </dl>
+    </section>
+
+    {data.source_url && (
+      <section>
+        <h2>Source</h2>
+        <p><a href={data.source_url} target="_blank" rel="noopener noreferrer">View official project page</a></p>
+      </section>
+    )}
+
+    <!-- Additional markdown content if any -->
+    <div class="content">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .agent-header {
+    margin-bottom: 2rem;
+  }
+
+  .meta {
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .faq-list dt {
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+
+  .faq-list dd {
+    margin-left: 0;
+    color: #475569;
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+</style>

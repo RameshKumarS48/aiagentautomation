@@ -1,0 +1,147 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const agents = await getCollection('agents');
+const categories = [...new Set(agents.map(a => a.data.category))].sort();
+---
+
+<BaseLayout
+  title="AI Agent Documentation and Automation Tools"
+  description="Comprehensive documentation for AI agents:  and automation tools. Find guides, workflows, and technical details for popular AI automation solutions."
+>
+  <div class="container">
+    <section class="hero">
+      <h1>AI Agent Documentation</h1>
+      <p>Factual, technical documentation for AI agents and automation tools. No hype, just information.</p>
+    </section>
+
+    <section class="categories">
+      <h2>Browse by Category</h2>
+      <div class="category-grid">
+        {categories.map((category) => (
+          <a href={`/categories/${category.toLowerCase().replace(/\s+/g, '-')}/`} class="category-card">
+            <h3>{category}</h3>
+            <p>{agents.filter(a => a.data.category === category).length} agents</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="recent">
+      <h2>Recently Updated</h2>
+      <ul class="agent-list">
+        {agents
+          .sort((a, b) => b.data.last_updated.getTime() - a.data.last_updated.getTime())
+          .slice(0, 10)
+          .map((agent) => (
+            <li>
+              <a href={`/agents/${agent.slug}/`}>
+                <span class="agent-name">{agent.data.name}</span>
+                <span class="badge">{agent.data.category}</span>
+              </a>
+              <p class="agent-desc">{agent.data.description.slice(0, 150)}...</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="all-agents">
+      <h2>All Agents ({agents.length})</h2>
+      <ul class="agent-list">
+        {agents
+          .sort((a, b) => a.data.name.localeCompare(b.data.name))
+          .map((agent) => (
+            <li>
+              <a href={`/agents/${agent.slug}/`}>
+                <span class="agent-name">{agent.data.name}</span>
+                <span class="badge">{agent.data.category}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 3rem 0;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    color: #64748b;
+    font-size: 1.125rem;
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .category-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .category-card:hover {
+    border-color: #2563eb;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .category-card h3 {
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+  }
+
+  .category-card p {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  .agent-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .agent-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .agent-list a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .agent-name {
+    font-weight: 600;
+    color: #0f172a;
+  }
+
+  .agent-desc {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+</style>

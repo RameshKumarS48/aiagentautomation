@@ -1,0 +1,84 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const agents = await getCollection('agents');
+---
+
+<BaseLayout
+  title="All AI Agents - Complete Directory"
+  description="Browse our complete directory of AI agents and automation tools with technical documentation and usage guides."
+>
+  <div class="container">
+    <h1>All AI Agents</h1>
+    <p class="subtitle">{agents.length} agents documented</p>
+
+    <ul class="agent-grid">
+      {agents
+        .sort((a, b) => a.data.name.localeCompare(b.data.name))
+        .map((agent) => (
+          <li class="agent-card">
+            <a href={`/agents/${agent.slug}/`}>
+              <span class="badge">{agent.data.category}</span>
+              <h2>{agent.data.name}</h2>
+              <p>{agent.data.description.slice(0, 120)}...</p>
+              <div class="meta">
+                <span>{agent.data.is_open_source === 'Yes' ? 'Open Source' : 'Proprietary'}</span>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .subtitle {
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+
+  .agent-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .agent-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .agent-card a {
+    display: block;
+    padding: 1.5rem;
+    text-decoration: none;
+  }
+
+  .agent-card:hover {
+    border-color: #2563eb;
+  }
+
+  .agent-card h2 {
+    font-size: 1.25rem;
+    color: #0f172a;
+    margin: 0.75rem 0;
+  }
+
+  .agent-card p {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .meta {
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+</style>
