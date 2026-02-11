@@ -6,6 +6,9 @@ on:
     - cron: '0 0,12 * * *'
   workflow_dispatch: # Allow manual trigger
 
+permissions:
+  contents: write
+
 jobs:
   scrape-and-build:
     runs-on: ubuntu-latest
@@ -13,6 +16,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -34,15 +46,6 @@ jobs:
       - name: Clean up invalid entries
         run: |
           node scripts/cleanup-content.mjs
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install Node dependencies
-        run: npm ci
 
       - name: Build site
         run: npm run build

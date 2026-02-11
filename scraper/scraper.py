@@ -459,10 +459,13 @@ def main():
         print(f"Processing {i+1}/{len(unique_agents)}: {agent['name']}")
 
         try:
+            agent_data = None
             if use_claude and client:
                 agent_data = generate_content_with_claude(agent, client)
                 time.sleep(0.5)  # Rate limiting for API
-            else:
+
+            # Fall back to template if Claude fails or not available
+            if not agent_data:
                 agent_data = generate_content_template(agent)
 
             if agent_data:
