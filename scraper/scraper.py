@@ -37,6 +37,13 @@ try:
 except ImportError:
     HAS_GEMINI = False
 
+# Optional: Install with `pip install openai`
+try:
+    from openai import OpenAI
+    HAS_OPENAI = True
+except ImportError:
+    HAS_OPENAI = False
+
 
 @dataclass
 class AgentData:
@@ -420,6 +427,42 @@ Return ONLY valid JSON."""
         return None
 
 
+def generate_content_with_openai(agent: dict, client) -> Optional[AgentData]:
+    """Use OpenAI to generate structured content from raw agent data."""
+
+    prompt = f"""Generate a JSON object for this AI agent:
+
+Name: {agent['name']}
+Category: {agent['category']}
+URL: {agent['url']}
+Description: {agent['description']}
+
+Return JSON with fields: name, category, source_url, description, tech_stack (array), problem_solved, target_audience, inputs (array), outputs (array), workflow_steps (array), sample_prompt, tools_used (array), alternatives (array), is_open_source, can_self_host, skill_level.
+
+Return ONLY valid JSON."""
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            max_tokens=1500,
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        text = response.choices[0].message.content
+        json_match = re.search(r'\{[\s\S]*\}', text)
+        if not json_match:
+            return None
+
+        json_text = json_match.group()
+        cleaned = re.sub(r'[\x00-\x1f\x7f-\x9f]', ' ', json_text)
+        data = json.loads(cleaned)
+        return AgentData(**data)
+
+    except Exception as e:
+        print(f"Error generating content with OpenAI for {agent['name']}: {e}")
+        return None
+
+
 def generate_content_template(agent: dict) -> AgentData:
     """Generate template content without Claude API (for testing/low-cost mode)."""
     name = agent['name']
@@ -540,14 +583,17 @@ def main():
     anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
     groq_key = os.environ.get("GROQ_API_KEY")
     gemini_key = os.environ.get("GEMINI_API_KEY")
+    openai_key = os.environ.get("OPENAI_API_KEY")
 
     use_claude = HAS_ANTHROPIC and anthropic_key
     use_groq = HAS_GROQ and groq_key
     use_gemini = HAS_GEMINI and gemini_key
+    use_openai = HAS_OPENAI and openai_key
 
     claude_client = None
     groq_client = None
     gemini_model = None
+    openai_client = None
 
     if use_claude:
         claude_client = anthropic.Anthropic(api_key=anthropic_key)
@@ -562,7 +608,11 @@ def main():
         gemini_model = genai.GenerativeModel('gemini-1.5-flash')
         print("Gemini API available")
 
-    if not use_claude and not use_groq and not use_gemini:
+    if use_openai:
+        openai_client = OpenAI(api_key=openai_key)
+        print("OpenAI API available")
+
+    if not use_claude and not use_groq and not use_gemini and not use_openai:
         print("No AI API keys found - using template-based content generation")
 
     # GitHub token (optional, increases rate limits)
@@ -624,6 +674,11 @@ def main():
             if not agent_data and use_gemini and gemini_model:
                 agent_data = generate_content_with_gemini(agent, gemini_model)
                 time.sleep(0.5)
+
+            # Fall back to OpenAI
+            if not agent_data and use_openai and openai_client:
+                agent_data = generate_content_with_openai(agent, openai_client)
+                time.sleep(0.3)
 
             # Fall back to template if all AI APIs fail
             if not agent_data:
