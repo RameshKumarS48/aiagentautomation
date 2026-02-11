@@ -226,18 +226,27 @@ RULES:
         )
 
         text = response.choices[0].message.content
-        # Clean up markdown code blocks
-        text = re.sub(r'^```json\s*', '', text, flags=re.MULTILINE)
-        text = re.sub(r'\s*```\s*$', '', text, flags=re.MULTILINE)
-        text = text.strip()
+
+        # Extract JSON from response (handle markdown blocks and surrounding text)
+        # Try to find JSON object in the response
+        json_match = re.search(r'\{[\s\S]*\}', text)
+        if not json_match:
+            print(f"No JSON found in response: {text[:200]}...")
+            return None
+
+        json_text = json_match.group()
 
         # Try to parse JSON, with fallback for control character issues
         try:
-            data = json.loads(text)
-        except json.JSONDecodeError:
-            # Remove problematic control characters but preserve valid JSON escapes
-            cleaned = re.sub(r'(?<!\\)[\x00-\x1f]', lambda m: '\\n' if m.group() == '\n' else ' ', text)
-            data = json.loads(cleaned)
+            data = json.loads(json_text)
+        except json.JSONDecodeError as e:
+            # Remove problematic control characters
+            cleaned = re.sub(r'[\x00-\x1f\x7f-\x9f]', ' ', json_text)
+            try:
+                data = json.loads(cleaned)
+            except json.JSONDecodeError:
+                print(f"JSON parse error after cleaning: {e}")
+                return None
 
         # Get image for this category
         image_term = random.choice(IMAGE_TERMS.get(category, ["artificial intelligence"]))
