@@ -4448,6 +4448,13 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "blogs": {
+"building-your-first-ai-agent.md": {
+	id: "building-your-first-ai-agent.md";
+  slug: "building-your-first-ai-agent";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
 "getting-started-with-ai-agents.md": {
 	id: "getting-started-with-ai-agents.md";
   slug: "getting-started-with-ai-agents";
