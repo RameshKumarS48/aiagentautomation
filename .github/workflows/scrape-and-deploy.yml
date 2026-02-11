@@ -35,9 +35,10 @@ jobs:
         run: |
           pip install -r scraper/requirements.txt
 
-      - name: Run scraper with Claude API
+      - name: Run scraper with AI APIs
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd scraper

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 AI Agent Scraper - Collects AI agent data from GitHub awesome-lists and generates content.
-Uses Claude API for intelligent content generation from raw data.
+Uses Claude API or Groq API for intelligent content generation from raw data.
 """
 
 import os
@@ -21,6 +21,14 @@ try:
 except ImportError:
     HAS_ANTHROPIC = False
     print("Warning: anthropic package not installed. Run: pip install anthropic")
+
+# Optional: Install with `pip install groq`
+try:
+    from groq import Groq
+    HAS_GROQ = True
+except ImportError:
+    HAS_GROQ = False
+    print("Warning: groq package not installed. Run: pip install groq")
 
 
 @dataclass
@@ -289,6 +297,69 @@ RULES:
         return None
 
 
+def generate_content_with_groq(agent: dict, client) -> Optional[AgentData]:
+    """Use Groq to generate structured content from raw agent data."""
+
+    prompt = f"""You are generating factual, SEO-optimized documentation for an AI agent.
+
+INPUT DATA:
+Name: {agent['name']}
+Category: {agent['category']}
+Source URL: {agent['url']}
+Raw Description: {agent['description']}
+
+Generate a JSON object with these exact fields. Be factual and specific based on the name and URL:
+
+{{
+  "name": "{agent['name']}",
+  "category": "string - clean category name, e.g. 'Autonomous Agents', 'Coding Assistants', 'Cybersecurity Tools'",
+  "source_url": "{agent['url']}",
+  "description": "string - 2-3 factual sentences about what this agent/tool does",
+  "tech_stack": ["array of likely technologies based on the project"],
+  "problem_solved": "string - the specific problem this solves",
+  "target_audience": "string - who would use this",
+  "inputs": ["array of 3-5 typical inputs"],
+  "outputs": ["array of 3-5 typical outputs"],
+  "workflow_steps": ["array of 5-7 workflow steps"],
+  "sample_prompt": "string - realistic example system prompt or usage",
+  "tools_used": ["array of known tools/frameworks/APIs"],
+  "alternatives": ["array of 3 similar tools - use real names of competing products"],
+  "is_open_source": "Yes/No/Not publicly specified - check if github.com in URL",
+  "can_self_host": "Yes/No/Not publicly specified",
+  "skill_level": "Beginner/Intermediate/Advanced"
+}}
+
+RULES:
+- Be factual based on the name, URL domain, and description
+- For GitHub projects, assume open source
+- Use specific, real alternative tool names
+- No marketing language
+- Return ONLY valid JSON"""
+
+    try:
+        response = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            max_tokens=1500,
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        text = response.choices[0].message.content
+        # Clean up potential markdown code blocks
+        text = re.sub(r'^```json\s*', '', text)
+        text = re.sub(r'\s*```$', '', text)
+        text = text.strip()
+
+        data = json.loads(text)
+        return AgentData(**data)
+
+    except json.JSONDecodeError as e:
+        print(f"JSON parse error for {agent['name']}: {e}")
+        return None
+    except Exception as e:
+        print(f"Error generating content with Groq for {agent['name']}: {e}")
+        return None
+
+
 def generate_content_template(agent: dict) -> AgentData:
     """Generate template content without Claude API (for testing/low-cost mode)."""
     name = agent['name']
@@ -405,16 +476,26 @@ def main():
     for f in content_dir.glob("*.md"):
         existing_slugs.add(f.stem)
 
-    # Check for API key
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    use_claude = HAS_ANTHROPIC and api_key
+    # Check for API keys
+    anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
+    groq_key = os.environ.get("GROQ_API_KEY")
+
+    use_claude = HAS_ANTHROPIC and anthropic_key
+    use_groq = HAS_GROQ and groq_key
+
+    claude_client = None
+    groq_client = None
 
     if use_claude:
-        client = anthropic.Anthropic(api_key=api_key)
-        print("Using Claude API for content generation")
-    else:
-        client = None
-        print("Using template-based content generation (set ANTHROPIC_API_KEY for AI generation)")
+        claude_client = anthropic.Anthropic(api_key=anthropic_key)
+        print("Claude API available for content generation")
+
+    if use_groq:
+        groq_client = Groq(api_key=groq_key)
+        print("Groq API available as fallback")
+
+    if not use_claude and not use_groq:
+        print("No AI API keys found - using template-based content generation")
 
     # GitHub token (optional, increases rate limits)
     github_token = os.environ.get("GITHUB_TOKEN")
@@ -460,11 +541,18 @@ def main():
 
         try:
             agent_data = None
-            if use_claude and client:
-                agent_data = generate_content_with_claude(agent, client)
+
+            # Try Claude first
+            if use_claude and claude_client:
+                agent_data = generate_content_with_claude(agent, claude_client)
                 time.sleep(0.5)  # Rate limiting for API
 
-            # Fall back to template if Claude fails or not available
+            # Fall back to Groq if Claude fails
+            if not agent_data and use_groq and groq_client:
+                agent_data = generate_content_with_groq(agent, groq_client)
+                time.sleep(0.3)  # Rate limiting for API
+
+            # Fall back to template if all AI APIs fail
             if not agent_data:
                 agent_data = generate_content_template(agent)
 
