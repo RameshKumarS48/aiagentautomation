@@ -29,6 +29,13 @@ try:
 except ImportError:
     HAS_ANTHROPIC = False
 
+# Optional: Install with `pip install google-generativeai`
+try:
+    import google.generativeai as genai
+    HAS_GEMINI = True
+except ImportError:
+    HAS_GEMINI = False
+
 
 @dataclass
 class BlogPost:
@@ -336,6 +343,73 @@ Return ONLY valid JSON."""
         return None
 
 
+def generate_blog_with_gemini(topic: str, category: str, existing_agents: List[str], model) -> Optional[BlogPost]:
+    """Generate blog post using Google Gemini API."""
+
+    sample_agents = random.sample(existing_agents, min(10, len(existing_agents))) if existing_agents else []
+
+    prompt = f"""You are writing an SEO-optimized blog post for an AI agents directory website.
+
+TOPIC: {topic}
+CATEGORY: {category}
+AVAILABLE AGENTS FOR CROSS-LINKING: {', '.join(sample_agents[:5]) if sample_agents else 'None'}
+
+Generate a JSON object with these exact fields:
+
+{{
+  "title": "string - catchy, SEO-friendly title (50-60 chars)",
+  "slug": "string - URL-friendly slug from title",
+  "excerpt": "string - compelling 150-160 char meta description",
+  "tags": ["array of 4-6 relevant tags"],
+  "content": "string - full markdown blog post (800-1200 words)",
+  "read_time": number - estimated minutes to read (4-8),
+  "related_agents": ["array of 2-4 agent slugs"],
+  "featured": boolean
+}}
+
+Return ONLY valid JSON, no other text."""
+
+    try:
+        response = model.generate_content(prompt)
+        text = response.text
+
+        # Extract JSON from response
+        json_match = re.search(r'\{[\s\S]*\}', text)
+        if not json_match:
+            print(f"No JSON found in Gemini response")
+            return None
+
+        json_text = json_match.group()
+
+        # Clean and parse JSON
+        try:
+            data = json.loads(json_text)
+        except json.JSONDecodeError:
+            cleaned = re.sub(r'[\x00-\x1f\x7f-\x9f]', ' ', json_text)
+            data = json.loads(cleaned)
+
+        image_term = random.choice(IMAGE_TERMS.get(category, ["artificial intelligence"]))
+        image_url, image_alt = get_unsplash_image(image_term)
+
+        return BlogPost(
+            title=data['title'],
+            slug=data['slug'],
+            excerpt=data['excerpt'],
+            category=category,
+            tags=data['tags'],
+            content=data['content'],
+            image=image_url,
+            image_alt=image_alt,
+            read_time=data['read_time'],
+            related_agents=data.get('related_agents', []),
+            featured=data.get('featured', False)
+        )
+
+    except Exception as e:
+        print(f"Error generating blog with Gemini: {e}")
+        return None
+
+
 def escape_yaml(text: str) -> str:
     """Escape text for YAML."""
     if not text:
@@ -401,16 +475,27 @@ def main():
     # Setup API clients
     groq_key = os.environ.get("GROQ_API_KEY")
     anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
+    gemini_key = os.environ.get("GEMINI_API_KEY")
 
     groq_client = Groq(api_key=groq_key) if HAS_GROQ and groq_key else None
     claude_client = anthropic.Anthropic(api_key=anthropic_key) if HAS_ANTHROPIC and anthropic_key else None
+    gemini_model = None
+    if HAS_GEMINI and gemini_key:
+        genai.configure(api_key=gemini_key)
+        gemini_model = genai.GenerativeModel('gemini-1.5-flash')
 
+    available_apis = []
     if groq_client:
-        print("Using Groq API for blog generation")
-    elif claude_client:
-        print("Using Claude API for blog generation")
+        available_apis.append("Groq")
+    if gemini_model:
+        available_apis.append("Gemini")
+    if claude_client:
+        available_apis.append("Claude")
+
+    if available_apis:
+        print(f"Available APIs: {', '.join(available_apis)}")
     else:
-        print("No API available. Set GROQ_API_KEY or ANTHROPIC_API_KEY.")
+        print("No API available. Set GROQ_API_KEY, GEMINI_API_KEY, or ANTHROPIC_API_KEY.")
         return
 
     # Number of blogs to generate
@@ -430,12 +515,20 @@ def main():
 
         print(f"\n[{generated + 1}/{num_blogs}] Generating: {topic} ({category})")
 
-        # Generate blog
+        # Generate blog - try each API in order until one succeeds
         blog = None
-        if groq_client:
-            blog = generate_blog_with_groq(topic, category, existing_agents, groq_client)
-            time.sleep(0.5)  # Rate limiting
 
+        # Try Groq first (fastest)
+        if not blog and groq_client:
+            blog = generate_blog_with_groq(topic, category, existing_agents, groq_client)
+            time.sleep(0.3)
+
+        # Try Gemini second (generous free tier)
+        if not blog and gemini_model:
+            blog = generate_blog_with_gemini(topic, category, existing_agents, gemini_model)
+            time.sleep(0.5)
+
+        # Try Claude last (paid)
         if not blog and claude_client:
             blog = generate_blog_with_claude(topic, category, existing_agents, claude_client)
             time.sleep(0.5)

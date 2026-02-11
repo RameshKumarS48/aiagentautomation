@@ -30,6 +30,13 @@ except ImportError:
     HAS_GROQ = False
     print("Warning: groq package not installed. Run: pip install groq")
 
+# Optional: Install with `pip install google-generativeai`
+try:
+    import google.generativeai as genai
+    HAS_GEMINI = True
+except ImportError:
+    HAS_GEMINI = False
+
 
 @dataclass
 class AgentData:
@@ -360,6 +367,59 @@ RULES:
         return None
 
 
+def generate_content_with_gemini(agent: dict, model) -> Optional[AgentData]:
+    """Use Gemini to generate structured content from raw agent data."""
+
+    prompt = f"""You are generating factual, SEO-optimized documentation for an AI agent.
+
+INPUT DATA:
+Name: {agent['name']}
+Category: {agent['category']}
+Source URL: {agent['url']}
+Raw Description: {agent['description']}
+
+Generate a JSON object with these exact fields:
+
+{{
+  "name": "{agent['name']}",
+  "category": "string - clean category name",
+  "source_url": "{agent['url']}",
+  "description": "string - 2-3 factual sentences",
+  "tech_stack": ["array of technologies"],
+  "problem_solved": "string",
+  "target_audience": "string",
+  "inputs": ["array of 3-5 inputs"],
+  "outputs": ["array of 3-5 outputs"],
+  "workflow_steps": ["array of 5-7 steps"],
+  "sample_prompt": "string",
+  "tools_used": ["array of tools"],
+  "alternatives": ["array of 3 alternatives"],
+  "is_open_source": "Yes/No/Not publicly specified",
+  "can_self_host": "Yes/No/Not publicly specified",
+  "skill_level": "Beginner/Intermediate/Advanced"
+}}
+
+Return ONLY valid JSON."""
+
+    try:
+        response = model.generate_content(prompt)
+        text = response.text
+
+        # Extract JSON from response
+        json_match = re.search(r'\{[\s\S]*\}', text)
+        if not json_match:
+            return None
+
+        json_text = json_match.group()
+        cleaned = re.sub(r'[\x00-\x1f\x7f-\x9f]', ' ', json_text)
+        data = json.loads(cleaned)
+        return AgentData(**data)
+
+    except Exception as e:
+        print(f"Error generating content with Gemini for {agent['name']}: {e}")
+        return None
+
+
 def generate_content_template(agent: dict) -> AgentData:
     """Generate template content without Claude API (for testing/low-cost mode)."""
     name = agent['name']
@@ -479,12 +539,15 @@ def main():
     # Check for API keys
     anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
     groq_key = os.environ.get("GROQ_API_KEY")
+    gemini_key = os.environ.get("GEMINI_API_KEY")
 
     use_claude = HAS_ANTHROPIC and anthropic_key
     use_groq = HAS_GROQ and groq_key
+    use_gemini = HAS_GEMINI and gemini_key
 
     claude_client = None
     groq_client = None
+    gemini_model = None
 
     if use_claude:
         claude_client = anthropic.Anthropic(api_key=anthropic_key)
@@ -492,9 +555,14 @@ def main():
 
     if use_groq:
         groq_client = Groq(api_key=groq_key)
-        print("Groq API available as fallback")
+        print("Groq API available")
 
-    if not use_claude and not use_groq:
+    if use_gemini:
+        genai.configure(api_key=gemini_key)
+        gemini_model = genai.GenerativeModel('gemini-1.5-flash')
+        print("Gemini API available")
+
+    if not use_claude and not use_groq and not use_gemini:
         print("No AI API keys found - using template-based content generation")
 
     # GitHub token (optional, increases rate limits)
@@ -545,12 +613,17 @@ def main():
             # Try Claude first
             if use_claude and claude_client:
                 agent_data = generate_content_with_claude(agent, claude_client)
-                time.sleep(0.5)  # Rate limiting for API
+                time.sleep(0.5)
 
-            # Fall back to Groq if Claude fails
+            # Fall back to Groq
             if not agent_data and use_groq and groq_client:
                 agent_data = generate_content_with_groq(agent, groq_client)
-                time.sleep(0.3)  # Rate limiting for API
+                time.sleep(0.3)
+
+            # Fall back to Gemini
+            if not agent_data and use_gemini and gemini_model:
+                agent_data = generate_content_with_gemini(agent, gemini_model)
+                time.sleep(0.5)
 
             # Fall back to template if all AI APIs fail
             if not agent_data:
