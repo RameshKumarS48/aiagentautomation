@@ -342,7 +342,6 @@ def create_blog_file(blog: BlogPost, output_dir: Path) -> Optional[str]:
 
     content = f'''---
 title: "{escape_yaml(blog.title)}"
-slug: "{slug}"
 excerpt: "{escape_yaml(blog.excerpt)}"
 category: "{blog.category}"
 tags:

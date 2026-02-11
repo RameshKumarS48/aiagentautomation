@@ -1,6 +1,5 @@
 ---
 title: "Getting Started with AI Agents: A Beginner's Guide"
-slug: "getting-started-with-ai-agents"
 excerpt: "Learn what AI agents are, how they work, and how to start using them to automate your workflows. A comprehensive guide for beginners."
 category: "Tutorials"
 tags:
