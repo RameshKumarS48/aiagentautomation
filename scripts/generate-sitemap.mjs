@@ -39,7 +39,7 @@ ${urls.map(url => `  <url>
     <loc>${SITE_URL}${url}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>${url === '/' ? '1.0' : url.includes('/agents/') && url !== '/agents/' ? '0.8' : '0.6'}</priority>
+    <priority>${url === '/' ? '1.0' : (url.includes('/agents/') || url.includes('/blog/')) && url !== '/agents/' && url !== '/blog/' ? '0.8' : '0.6'}</priority>
   </url>`).join('\n')}
 </urlset>`;
 

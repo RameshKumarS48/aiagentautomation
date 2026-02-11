@@ -1,0 +1,118 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const allPosts = await getCollection('blogs');
+const sortedPosts = allPosts.sort((a, b) =>
+  new Date(b.data.published_date).getTime() - new Date(a.data.published_date).getTime()
+);
+
+const featuredPosts = sortedPosts.filter(post => post.data.featured).slice(0, 3);
+const recentPosts = sortedPosts.slice(0, 12);
+
+// Get unique categories
+const categories = [...new Set(allPosts.map(post => post.data.category))].sort();
+---
+
+<BaseLayout
+  title="AI Blog - Latest News & Insights"
+  description="Stay updated with the latest AI trends, tutorials, and insights. Expert articles on AI agents, automation, machine learning, and more."
+>
+  <section class="pt-28 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-text-primary mb-4">
+          AI <span class="text-gradient">Blog</span>
+        </h1>
+        <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+          Latest insights, tutorials, and news from the world of AI agents and automation.
+        </p>
+      </div>
+
+      <!-- Category Filter -->
+      {categories.length > 0 && (
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+          <a href="/blog/" class="px-4 py-2 rounded-full bg-accent-blue/20 text-accent-blue text-sm font-medium">
+            All Posts
+          </a>
+          {categories.map(category => (
+            <a href={`/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}/`}
+               class="px-4 py-2 rounded-full bg-dark-card border border-dark-border text-text-secondary
+                      hover:border-accent-blue/50 hover:text-text-primary transition-all text-sm font-medium">
+              {category}
+            </a>
+          ))}
+        </div>
+      )}
+
+      <!-- Featured Posts -->
+      {featuredPosts.length > 0 && (
+        <div class="mb-16">
+          <h2 class="font-display text-2xl font-bold text-text-primary mb-6">Featured Articles</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            {featuredPosts.map(post => (
+              <a href={`/blog/${post.slug}/`} class="card group hover:border-accent-blue/50 transition-all duration-300">
+                {post.data.image && (
+                  <div class="aspect-video rounded-lg overflow-hidden mb-4 bg-dark-border">
+                    <img src={post.data.image} alt={post.data.image_alt || post.data.title}
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  </div>
+                )}
+                <span class="text-accent-blue text-xs font-medium uppercase tracking-wider">{post.data.category}</span>
+                <h3 class="font-display text-lg font-semibold text-text-primary mt-2 mb-2 group-hover:text-accent-blue transition-colors">
+                  {post.data.title}
+                </h3>
+                <p class="text-text-secondary text-sm line-clamp-2">{post.data.excerpt}</p>
+                <div class="flex items-center gap-4 mt-4 text-text-muted text-xs">
+                  <span>{new Date(post.data.published_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                  <span>{post.data.read_time} min read</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- All Posts Grid -->
+      {recentPosts.length > 0 ? (
+        <div>
+          <h2 class="font-display text-2xl font-bold text-text-primary mb-6">Latest Articles</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {recentPosts.map(post => (
+              <a href={`/blog/${post.slug}/`} class="card group hover:border-accent-blue/50 transition-all duration-300">
+                {post.data.image && (
+                  <div class="aspect-video rounded-lg overflow-hidden mb-4 bg-dark-border">
+                    <img src={post.data.image} alt={post.data.image_alt || post.data.title}
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                         loading="lazy" />
+                  </div>
+                )}
+                <span class="text-accent-blue text-xs font-medium uppercase tracking-wider">{post.data.category}</span>
+                <h3 class="font-display text-lg font-semibold text-text-primary mt-2 mb-2 group-hover:text-accent-blue transition-colors">
+                  {post.data.title}
+                </h3>
+                <p class="text-text-secondary text-sm line-clamp-2">{post.data.excerpt}</p>
+                <div class="flex items-center gap-4 mt-4 text-text-muted text-xs">
+                  <span>{new Date(post.data.published_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                  <span>{post.data.read_time} min read</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div class="text-center py-16">
+          <div class="w-16 h-16 rounded-full bg-dark-card flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+            </svg>
+          </div>
+          <h3 class="font-display text-xl font-semibold text-text-primary mb-2">Coming Soon</h3>
+          <p class="text-text-secondary">Our blog is launching soon with fresh AI insights and tutorials.</p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
