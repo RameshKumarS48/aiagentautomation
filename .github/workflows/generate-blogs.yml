@@ -63,4 +63,5 @@ jobs:
           git config --local user.name "GitHub Action"
           git add -A
           git diff --staged --quiet || git commit -m "Auto-generate: Daily blog posts $(date +'%Y-%m-%d')"
-          git push
+          git pull --rebase origin main || true
+          git push origin main
