@@ -4448,9 +4448,30 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "blogs": {
+"ai-in-healthcare-2025.md": {
+	id: "ai-in-healthcare-2025.md";
+  slug: "ai-in-healthcare-2025";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"automating-repetitive-tasks-with-ai.md": {
+	id: "automating-repetitive-tasks-with-ai.md";
+  slug: "automating-repetitive-tasks-with-ai";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
 "build-your-first-ai-agent.md": {
 	id: "build-your-first-ai-agent.md";
   slug: "build-your-first-ai-agent";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"building-chatbots-with-ai.md": {
+	id: "building-chatbots-with-ai.md";
+  slug: "building-chatbots-with-ai";
   body: string;
   collection: "blogs";
   data: InferEntrySchema<"blogs">
@@ -4483,9 +4504,23 @@ declare module 'astro:content' {
   collection: "blogs";
   data: InferEntrySchema<"blogs">
 } & { render(): Render[".md"] };
+"getting-started-with-langchain.md": {
+	id: "getting-started-with-langchain.md";
+  slug: "getting-started-with-langchain";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
 "latest-gpt-developments.md": {
 	id: "latest-gpt-developments.md";
   slug: "latest-gpt-developments";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"multi-agent-systems-for-complex-tasks.md": {
+	id: "multi-agent-systems-for-complex-tasks.md";
+  slug: "multi-agent-systems-for-complex-tasks";
   body: string;
   collection: "blogs";
   data: InferEntrySchema<"blogs">
