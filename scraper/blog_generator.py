@@ -227,11 +227,17 @@ RULES:
 
         text = response.choices[0].message.content
         # Clean up markdown code blocks
-        text = re.sub(r'^```json\s*', '', text)
-        text = re.sub(r'\s*```$', '', text)
+        text = re.sub(r'^```json\s*', '', text, flags=re.MULTILINE)
+        text = re.sub(r'\s*```\s*$', '', text, flags=re.MULTILINE)
         text = text.strip()
 
-        data = json.loads(text)
+        # Try to parse JSON, with fallback for control character issues
+        try:
+            data = json.loads(text)
+        except json.JSONDecodeError:
+            # Remove problematic control characters but preserve valid JSON escapes
+            cleaned = re.sub(r'(?<!\\)[\x00-\x1f]', lambda m: '\\n' if m.group() == '\n' else ' ', text)
+            data = json.loads(cleaned)
 
         # Get image for this category
         image_term = random.choice(IMAGE_TERMS.get(category, ["artificial intelligence"]))
