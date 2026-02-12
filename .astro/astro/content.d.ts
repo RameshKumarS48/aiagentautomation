@@ -4448,6 +4448,55 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "blogs": {
+"academic-research-ai-agents.md": {
+	id: "academic-research-ai-agents.md";
+  slug: "academic-research-ai-agents";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"academic-research-assistants-boosting-productivity.md": {
+	id: "academic-research-assistants-boosting-productivity.md";
+  slug: "academic-research-assistants-boosting-productivity";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"ai-agent-frameworks-compared.md": {
+	id: "ai-agent-frameworks-compared.md";
+  slug: "ai-agent-frameworks-compared";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"ai-agents-for-customer-service.md": {
+	id: "ai-agents-for-customer-service.md";
+  slug: "ai-agents-for-customer-service";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"ai-api-integration-guide.md": {
+	id: "ai-api-integration-guide.md";
+  slug: "ai-api-integration-guide";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"ai-financial-revolution.md": {
+	id: "ai-financial-revolution.md";
+  slug: "ai-financial-revolution";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"ai-in-education.md": {
+	id: "ai-in-education.md";
+  slug: "ai-in-education";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
 "ai-in-healthcare-2025.md": {
 	id: "ai-in-healthcare-2025.md";
   slug: "ai-in-healthcare-2025";
@@ -4455,9 +4504,79 @@ declare module 'astro:content' {
   collection: "blogs";
   data: InferEntrySchema<"blogs">
 } & { render(): Render[".md"] };
+"ai-powered-data-processing.md": {
+	id: "ai-powered-data-processing.md";
+  slug: "ai-powered-data-processing";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"ai-regulation-updates-navigating-the-future.md": {
+	id: "ai-regulation-updates-navigating-the-future.md";
+  slug: "ai-regulation-updates-navigating-the-future";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"ai-regulation-updates.md": {
+	id: "ai-regulation-updates.md";
+  slug: "ai-regulation-updates";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"ai-research-agents-for-academics.md": {
+	id: "ai-research-agents-for-academics.md";
+  slug: "ai-research-agents-for-academics";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"ai-revolutionizes-finance-trends-and-tools.md": {
+	id: "ai-revolutionizes-finance-trends-and-tools.md";
+  slug: "ai-revolutionizes-finance-trends-and-tools";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"ai-revolutionizes-finance.md": {
+	id: "ai-revolutionizes-finance.md";
+  slug: "ai-revolutionizes-finance";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"ai-safety-considerations.md": {
+	id: "ai-safety-considerations.md";
+  slug: "ai-safety-considerations";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"automate-your-workflow-with-ai-power.md": {
+	id: "automate-your-workflow-with-ai-power.md";
+  slug: "automate-your-workflow-with-ai-power";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
 "automating-repetitive-tasks-with-ai.md": {
 	id: "automating-repetitive-tasks-with-ai.md";
   slug: "automating-repetitive-tasks-with-ai";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"autonomous-ai-agents-revolutionizing-workflows.md": {
+	id: "autonomous-ai-agents-revolutionizing-workflows.md";
+  slug: "autonomous-ai-agents-revolutionizing-workflows";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"boost-customer-service-with-ai-agents.md": {
+	id: "boost-customer-service-with-ai-agents.md";
+  slug: "boost-customer-service-with-ai-agents";
   body: string;
   collection: "blogs";
   data: InferEntrySchema<"blogs">
@@ -4476,6 +4595,13 @@ declare module 'astro:content' {
   collection: "blogs";
   data: InferEntrySchema<"blogs">
 } & { render(): Render[".md"] };
+"building-smart-chatbots-with-ai.md": {
+	id: "building-smart-chatbots-with-ai.md";
+  slug: "building-smart-chatbots-with-ai";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
 "building-your-first-ai-agent.md": {
 	id: "building-your-first-ai-agent.md";
   slug: "building-your-first-ai-agent";
@@ -4483,9 +4609,44 @@ declare module 'astro:content' {
   collection: "blogs";
   data: InferEntrySchema<"blogs">
 } & { render(): Render[".md"] };
+"claude-vs-gpt-ultimate-ai-agent-comparison.md": {
+	id: "claude-vs-gpt-ultimate-ai-agent-comparison.md";
+  slug: "claude-vs-gpt-ultimate-ai-agent-comparison";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"coding-agents-revolutionizing-software-development.md": {
+	id: "coding-agents-revolutionizing-software-development.md";
+  slug: "coding-agents-revolutionizing-software-development";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"creating-ai-workflows.md": {
+	id: "creating-ai-workflows.md";
+  slug: "creating-ai-workflows";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
 "fine-tune-language-models-for-peak-performance.md": {
 	id: "fine-tune-language-models-for-peak-performance.md";
   slug: "fine-tune-language-models-for-peak-performance";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"fine-tune-language-models.md": {
+	id: "fine-tune-language-models.md";
+  slug: "fine-tune-language-models";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"future-of-work-with-ai-agents.md": {
+	id: "future-of-work-with-ai-agents.md";
+  slug: "future-of-work-with-ai-agents";
   body: string;
   collection: "blogs";
   data: InferEntrySchema<"blogs">
@@ -4518,9 +4679,93 @@ declare module 'astro:content' {
   collection: "blogs";
   data: InferEntrySchema<"blogs">
 } & { render(): Render[".md"] };
+"mastering-prompt-engineering-best-practices.md": {
+	id: "mastering-prompt-engineering-best-practices.md";
+  slug: "mastering-prompt-engineering-best-practices";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
 "multi-agent-systems-for-complex-tasks.md": {
 	id: "multi-agent-systems-for-complex-tasks.md";
   slug: "multi-agent-systems-for-complex-tasks";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"no-code-ai-automation-tools.md": {
+	id: "no-code-ai-automation-tools.md";
+  slug: "no-code-ai-automation-tools";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"open-source-llms-2025.md": {
+	id: "open-source-llms-2025.md";
+  slug: "open-source-llms-2025";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"rag-systems-explained.md": {
+	id: "rag-systems-explained.md";
+  slug: "rag-systems-explained";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"responsible-ai-development.md": {
+	id: "responsible-ai-development.md";
+  slug: "responsible-ai-development";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"revolutionizing-education-with-ai.md": {
+	id: "revolutionizing-education-with-ai.md";
+  slug: "revolutionizing-education-with-ai";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"revolutionizing-startups-with-ai-tools.md": {
+	id: "revolutionizing-startups-with-ai-tools.md";
+  slug: "revolutionizing-startups-with-ai-tools";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"rpa-vs-ai-agents-automation-evolution.md": {
+	id: "rpa-vs-ai-agents-automation-evolution.md";
+  slug: "rpa-vs-ai-agents-automation-evolution";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"rpa-vs-ai-agents.md": {
+	id: "rpa-vs-ai-agents.md";
+  slug: "rpa-vs-ai-agents";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"staying-ahead-of-ai-regulation-updates.md": {
+	id: "staying-ahead-of-ai-regulation-updates.md";
+  slug: "staying-ahead-of-ai-regulation-updates";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"unlocking-rag-systems-boosting-automation-efficiency.md": {
+	id: "unlocking-rag-systems-boosting-automation-efficiency.md";
+  slug: "unlocking-rag-systems-boosting-automation-efficiency";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"vector-databases-for-ai.md": {
+	id: "vector-databases-for-ai.md";
+  slug: "vector-databases-for-ai";
   body: string;
   collection: "blogs";
   data: InferEntrySchema<"blogs">
