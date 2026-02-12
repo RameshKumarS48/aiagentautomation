@@ -9,7 +9,7 @@ on:
       blog_count:
         description: 'Number of blogs to generate'
         required: false
-        default: '50'
+        default: '10'
 
 permissions:
   contents: write
@@ -47,7 +47,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
-          BLOG_COUNT: ${{ github.event.inputs.blog_count || '50' }}
+          BLOG_COUNT: ${{ github.event.inputs.blog_count || '10' }}
         run: |
           cd scraper
           python blog_generator.py
