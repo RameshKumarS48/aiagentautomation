@@ -160,7 +160,7 @@ def regenerate_with_groq(title: str, category: str, agents: List[str], client) -
         try:
             return json.loads(json_text)
         except json.JSONDecodeError:
-            cleaned = re.sub(r'[\x00-\x1f\x7f-\x9f]', ' ', json_text)
+            cleaned = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', ' ', json_text)
             return json.loads(cleaned)
     except Exception as e:
         print(f"  Groq error: {e}")
@@ -183,7 +183,7 @@ def regenerate_with_gemini(title: str, category: str, agents: List[str], model) 
         try:
             return json.loads(json_text)
         except json.JSONDecodeError:
-            cleaned = re.sub(r'[\x00-\x1f\x7f-\x9f]', ' ', json_text)
+            cleaned = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', ' ', json_text)
             return json.loads(cleaned)
     except Exception as e:
         print(f"  Gemini error: {e}")
@@ -210,7 +210,7 @@ def regenerate_with_openai(title: str, category: str, agents: List[str], client)
         try:
             return json.loads(json_text)
         except json.JSONDecodeError:
-            cleaned = re.sub(r'[\x00-\x1f\x7f-\x9f]', ' ', json_text)
+            cleaned = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', ' ', json_text)
             return json.loads(cleaned)
     except Exception as e:
         print(f"  OpenAI error: {e}")

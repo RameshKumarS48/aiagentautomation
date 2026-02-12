@@ -319,7 +319,7 @@ def generate_blog_with_groq(topic: str, category: str, existing_agents: List[str
             data = json.loads(json_text)
         except json.JSONDecodeError as e:
             # Remove problematic control characters
-            cleaned = re.sub(r'[\x00-\x1f\x7f-\x9f]', ' ', json_text)
+            cleaned = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', ' ', json_text)
             try:
                 data = json.loads(cleaned)
             except json.JSONDecodeError:
@@ -418,7 +418,7 @@ def generate_blog_with_gemini(topic: str, category: str, existing_agents: List[s
         try:
             data = json.loads(json_text)
         except json.JSONDecodeError:
-            cleaned = re.sub(r'[\x00-\x1f\x7f-\x9f]', ' ', json_text)
+            cleaned = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', ' ', json_text)
             data = json.loads(cleaned)
 
         image_term = random.choice(IMAGE_TERMS.get(category, ["artificial intelligence"]))
@@ -470,7 +470,7 @@ def generate_blog_with_openai(topic: str, category: str, existing_agents: List[s
         try:
             data = json.loads(json_text)
         except json.JSONDecodeError:
-            cleaned = re.sub(r'[\x00-\x1f\x7f-\x9f]', ' ', json_text)
+            cleaned = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', ' ', json_text)
             data = json.loads(cleaned)
 
         image_term = random.choice(IMAGE_TERMS.get(category, ["artificial intelligence"]))
