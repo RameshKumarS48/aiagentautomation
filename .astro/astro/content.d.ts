@@ -4623,6 +4623,13 @@ declare module 'astro:content' {
   collection: "blogs";
   data: InferEntrySchema<"blogs">
 } & { render(): Render[".md"] };
+"creating-ai-workflows-ethically.md": {
+	id: "creating-ai-workflows-ethically.md";
+  slug: "creating-ai-workflows-ethically";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
 "creating-ai-workflows.md": {
 	id: "creating-ai-workflows.md";
   slug: "creating-ai-workflows";
@@ -4752,6 +4759,20 @@ declare module 'astro:content' {
 "staying-ahead-of-ai-regulation-updates.md": {
 	id: "staying-ahead-of-ai-regulation-updates.md";
   slug: "staying-ahead-of-ai-regulation-updates";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"streamline-customer-service-with-ai-agents.md": {
+	id: "streamline-customer-service-with-ai-agents.md";
+  slug: "streamline-customer-service-with-ai-agents";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
+"unlocking-rag-systems-ai-next-frontier.md": {
+	id: "unlocking-rag-systems-ai-next-frontier.md";
+  slug: "unlocking-rag-systems-ai-next-frontier";
   body: string;
   collection: "blogs";
   data: InferEntrySchema<"blogs">
