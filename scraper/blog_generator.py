@@ -191,46 +191,110 @@ def get_existing_agents(content_dir: Path) -> List[str]:
     return []
 
 
+def get_blog_prompt(topic: str, category: str, sample_agents: List[str]) -> str:
+    """Generate the comprehensive blog prompt following anti-AI writing guidelines."""
+
+    agents_str = ', '.join(sample_agents[:5]) if sample_agents else 'None'
+
+    return f"""You are a senior human content writer and editor.
+You write like an experienced practitioner, not like an AI, not like a marketer, and not like a textbook.
+
+Your writing must:
+- Sound natural, grounded, and opinionated where appropriate
+- Avoid generic filler, buzzwords, or vague claims
+- Be useful, specific, and practical
+- Feel like it was written by a real person with domain knowledge
+- Never mention AI language models or that content was generated
+
+TASK: Write a high-quality blog post.
+
+Topic: {topic}
+Category: {category}
+Target audience: Developers, tech professionals, and business leaders interested in AI automation
+Primary keyword: {topic.split()[0]} {topic.split()[1] if len(topic.split()) > 1 else 'AI'}
+Search intent: Informational / How-to
+Available agents for cross-linking: {agents_str}
+
+STRUCTURE (Follow exactly):
+
+1. Title: Under 60 characters. Clear, specific, no clickbait.
+
+2. Meta Description (excerpt): 140-160 characters. Clear summary with primary keyword.
+
+3. Introduction (100-150 words):
+   - Start with a concrete situation, problem, or observation
+   - No definitions or history unless necessary
+   - End with what the reader will gain
+
+4. Main Sections (3-5 H2 sections):
+   - Each has a clear, specific heading
+   - Contains practical insights, not generic explanations
+   - Include real-world examples
+   - Use short lists where useful
+   - Clear reasoning
+   - NO paragraphs over 4-5 lines
+   - Include internal links to agents using format [Agent Name](/agents/agent-slug/)
+
+5. Practical Section:
+   Include ONE of: step-by-step process, checklist, framework, comparison table, or real use-case scenario
+
+6. Common Mistakes (3-5 bullets):
+   Short, direct, practical mistakes people make
+
+7. Conclusion (100-150 words):
+   - Summarize key insights
+   - End with forward-looking or practical takeaway
+   - NO clichés like "in conclusion" or "to sum up"
+
+BANNED PHRASES (Never use):
+- "In today's fast-paced world"
+- "It's important to note that"
+- "Leverage"
+- "Unlock the power of"
+- "Game-changer"
+- "Revolutionary"
+- "Seamless"
+- "Robust solution"
+- "Dive into"
+- "Navigate the landscape"
+
+STYLE:
+- Use short, clear sentences
+- Prefer concrete nouns and verbs
+- Use examples and specifics
+- Conversational but professional tone
+- At least one concrete example per main section
+
+SEO RULES:
+- Primary keyword in title and first 100 words
+- Primary keyword in one H2
+- Sprinkle secondary keywords naturally
+- Do not keyword-stuff
+- Internal links to /agents/ pages only (no external links)
+
+OUTPUT FORMAT - Return ONLY this JSON:
+
+{{
+  "title": "string - under 60 chars, clear and specific",
+  "slug": "string - URL-friendly slug",
+  "excerpt": "string - 140-160 char meta description with keyword",
+  "tags": ["array of 4-6 relevant tags"],
+  "content": "string - full markdown blog post (1200-1800 words) following the exact structure above",
+  "read_time": number - estimated minutes (6-10),
+  "related_agents": ["2-4 agent slugs from available list"],
+  "featured": boolean
+}}
+
+Return ONLY valid JSON, no other text."""
+
+
 def generate_blog_with_groq(topic: str, category: str, existing_agents: List[str], client) -> Optional[BlogPost]:
     """Generate blog post using Groq API."""
 
     # Sample some agents for potential cross-linking
     sample_agents = random.sample(existing_agents, min(10, len(existing_agents))) if existing_agents else []
 
-    prompt = f"""You are writing an SEO-optimized blog post for an AI agents directory website.
-
-TOPIC: {topic}
-CATEGORY: {category}
-AVAILABLE AGENTS FOR CROSS-LINKING: {', '.join(sample_agents[:5]) if sample_agents else 'None'}
-
-Generate a JSON object with these exact fields:
-
-{{
-  "title": "string - catchy, SEO-friendly title (50-60 chars)",
-  "slug": "string - URL-friendly slug from title",
-  "excerpt": "string - compelling 150-160 char meta description",
-  "tags": ["array of 4-6 relevant tags"],
-  "content": "string - full markdown blog post (800-1200 words) with:
-    - Engaging introduction
-    - 3-4 H2 sections with valuable content
-    - Bullet points and lists where appropriate
-    - Internal links to agents using format [Agent Name](/agents/agent-slug/)
-    - Practical tips and insights
-    - Strong conclusion with call-to-action
-    - NO external links, only internal links to /agents/ pages",
-  "read_time": number - estimated minutes to read (4-8),
-  "related_agents": ["array of 2-4 agent slugs from the available list that relate to this topic"],
-  "featured": boolean - true if this is exceptionally good content
-}}
-
-RULES:
-- Write authoritative, helpful content
-- Use natural language, avoid AI-sounding phrases
-- Include specific examples and use cases
-- Make internal links to agents natural (e.g., "tools like [AutoGPT](/agents/autogpt/) can help...")
-- Focus on practical value for readers
-- SEO-optimize with keywords naturally integrated
-- Return ONLY valid JSON"""
+    prompt = get_blog_prompt(topic, category, sample_agents)
 
     try:
         response = client.chat.completions.create(
@@ -293,26 +357,7 @@ def generate_blog_with_claude(topic: str, category: str, existing_agents: List[s
 
     sample_agents = random.sample(existing_agents, min(10, len(existing_agents))) if existing_agents else []
 
-    prompt = f"""You are writing an SEO-optimized blog post for an AI agents directory website.
-
-TOPIC: {topic}
-CATEGORY: {category}
-AVAILABLE AGENTS FOR CROSS-LINKING: {', '.join(sample_agents[:5]) if sample_agents else 'None'}
-
-Generate a JSON object with these exact fields:
-
-{{
-  "title": "string - catchy, SEO-friendly title (50-60 chars)",
-  "slug": "string - URL-friendly slug from title",
-  "excerpt": "string - compelling 150-160 char meta description",
-  "tags": ["array of 4-6 relevant tags"],
-  "content": "string - full markdown blog post (800-1200 words)",
-  "read_time": number - estimated minutes to read (4-8),
-  "related_agents": ["array of 2-4 agent slugs"],
-  "featured": boolean
-}}
-
-Return ONLY valid JSON."""
+    prompt = get_blog_prompt(topic, category, sample_agents)
 
     try:
         response = client.messages.create(
@@ -355,26 +400,7 @@ def generate_blog_with_gemini(topic: str, category: str, existing_agents: List[s
 
     sample_agents = random.sample(existing_agents, min(10, len(existing_agents))) if existing_agents else []
 
-    prompt = f"""You are writing an SEO-optimized blog post for an AI agents directory website.
-
-TOPIC: {topic}
-CATEGORY: {category}
-AVAILABLE AGENTS FOR CROSS-LINKING: {', '.join(sample_agents[:5]) if sample_agents else 'None'}
-
-Generate a JSON object with these exact fields:
-
-{{
-  "title": "string - catchy, SEO-friendly title (50-60 chars)",
-  "slug": "string - URL-friendly slug from title",
-  "excerpt": "string - compelling 150-160 char meta description",
-  "tags": ["array of 4-6 relevant tags"],
-  "content": "string - full markdown blog post (800-1200 words)",
-  "read_time": number - estimated minutes to read (4-8),
-  "related_agents": ["array of 2-4 agent slugs"],
-  "featured": boolean
-}}
-
-Return ONLY valid JSON, no other text."""
+    prompt = get_blog_prompt(topic, category, sample_agents)
 
     try:
         response = model.generate_content(prompt)
@@ -422,26 +448,7 @@ def generate_blog_with_openai(topic: str, category: str, existing_agents: List[s
 
     sample_agents = random.sample(existing_agents, min(10, len(existing_agents))) if existing_agents else []
 
-    prompt = f"""You are writing an SEO-optimized blog post for an AI agents directory website.
-
-TOPIC: {topic}
-CATEGORY: {category}
-AVAILABLE AGENTS FOR CROSS-LINKING: {', '.join(sample_agents[:5]) if sample_agents else 'None'}
-
-Generate a JSON object with these exact fields:
-
-{{
-  "title": "string - catchy, SEO-friendly title (50-60 chars)",
-  "slug": "string - URL-friendly slug from title",
-  "excerpt": "string - compelling 150-160 char meta description",
-  "tags": ["array of 4-6 relevant tags"],
-  "content": "string - full markdown blog post (800-1200 words)",
-  "read_time": number - estimated minutes to read (4-8),
-  "related_agents": ["array of 2-4 agent slugs"],
-  "featured": boolean
-}}
-
-Return ONLY valid JSON, no other text."""
+    prompt = get_blog_prompt(topic, category, sample_agents)
 
     try:
         response = client.chat.completions.create(
