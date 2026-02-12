@@ -605,7 +605,7 @@ def main():
 
     if use_gemini:
         genai.configure(api_key=gemini_key)
-        gemini_model = genai.GenerativeModel('gemini-1.5-flash')
+        gemini_model = genai.GenerativeModel('gemini-2.0-flash')
         print("Gemini API available")
 
     if use_openai:

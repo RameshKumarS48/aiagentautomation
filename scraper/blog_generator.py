@@ -569,7 +569,7 @@ def main():
     gemini_model = None
     if HAS_GEMINI and gemini_key:
         genai.configure(api_key=gemini_key)
-        gemini_model = genai.GenerativeModel('gemini-1.5-flash')
+        gemini_model = genai.GenerativeModel('gemini-2.0-flash')
 
     available_apis = []
     if groq_client:
