@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aiagentautomation.site/sitemap-index.xml
+# Sitemap
+Sitemap: https://aiagentautomation.site/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

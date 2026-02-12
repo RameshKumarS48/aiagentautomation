@@ -1,0 +1,64 @@
+name: Regenerate Existing Blogs
+
+on:
+  workflow_dispatch:
+    inputs:
+      regen_count:
+        description: 'Number of blogs to regenerate per run'
+        required: false
+        default: '10'
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate-blogs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r scraper/requirements.txt
+
+      - name: Regenerate blogs
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          REGEN_COUNT: ${{ github.event.inputs.regen_count || '10' }}
+        run: |
+          cd scraper
+          python regenerate_blogs.py
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Generate sitemap
+        run: |
+          node scripts/generate-sitemap.mjs
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git diff --staged --quiet || git commit -m "Regenerate blogs with professional content $(date +'%Y-%m-%d %H:%M')"
+          git pull --rebase origin main || true
+          git push origin main
