@@ -2,8 +2,8 @@ name: Scrape AI Agents and Deploy
 
 on:
   schedule:
-    # Run every 12 hours at midnight and noon UTC
-    - cron: '0 0,12 * * *'
+    # Run every 3 hours
+    - cron: '0 */3 * * *'
   workflow_dispatch: # Allow manual trigger
 
 permissions:
