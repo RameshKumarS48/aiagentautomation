@@ -2,8 +2,8 @@ name: Generate Daily AI Blogs
 
 on:
   schedule:
-    # Run every 3 hours
-    - cron: '0 */3 * * *'
+    # Run twice daily at 6 AM and 6 PM UTC
+    - cron: '0 6,18 * * *'
   workflow_dispatch: # Allow manual trigger
     inputs:
       blog_count:
