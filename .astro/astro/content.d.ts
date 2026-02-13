@@ -4756,6 +4756,13 @@ declare module 'astro:content' {
   collection: "blogs";
   data: InferEntrySchema<"blogs">
 } & { render(): Render[".md"] };
+"startup-ai-tools-landscape.md": {
+	id: "startup-ai-tools-landscape.md";
+  slug: "startup-ai-tools-landscape";
+  body: string;
+  collection: "blogs";
+  data: InferEntrySchema<"blogs">
+} & { render(): Render[".md"] };
 "staying-ahead-of-ai-regulation-updates.md": {
 	id: "staying-ahead-of-ai-regulation-updates.md";
   slug: "staying-ahead-of-ai-regulation-updates";
