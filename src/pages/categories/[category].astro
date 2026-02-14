@@ -1,0 +1,81 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AgentCard from '../../components/AgentCard.astro';
+import { slugify } from '../../utils/slugify';
+
+export async function getStaticPaths() {
+  const agents = await getCollection('agents');
+  
+  // Get all unique categories
+  const categories = new Set();
+  agents.forEach(agent => {
+    if (agent.data.category) {
+        categories.add(agent.data.category);
+    }
+  });
+
+  return Array.from(categories).map(category => {
+    return {
+      params: { category: slugify(category as string) },
+      props: { categoryName: category },
+    };
+  });
+}
+
+const { categoryName } = Astro.props;
+const agents = await getCollection('agents');
+
+// Filter agents by this category
+const categoryAgents = agents.filter(agent => agent.data.category === categoryName);
+---
+
+<BaseLayout
+  title={`${categoryName} AI Agents`}
+  description={`Browse ${categoryAgents.length} AI agents in the ${categoryName} category.`}
+>
+  <div class="pt-28 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="flex items-center gap-2 text-sm text-text-muted mb-4">
+          <a href="/" class="hover:text-text-primary transition-colors">Home</a>
+          <span>/</span>
+          <a href="/categories/" class="hover:text-text-primary transition-colors">Categories</a>
+          <span>/</span>
+          <span class="text-text-secondary">{categoryName}</span>
+        </div>
+
+        <h1 class="font-display text-4xl font-bold text-text-primary mb-4">
+          {categoryName}
+        </h1>
+        <p class="text-text-secondary text-lg">
+          Showing {categoryAgents.length} agent{categoryAgents.length !== 1 ? 's' : ''}
+        </p>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {categoryAgents.map(agent => (
+          <AgentCard
+            name={agent.data.name}
+            slug={agent.slug}
+            description={agent.data.description}
+            category={agent.data.category}
+            isOpenSource={agent.data.is_open_source}
+            sourceUrl={agent.data.source_url}
+          />
+        ))}
+      </div>
+
+      {categoryAgents.length === 0 && (
+        <div class="text-center py-12">
+          <p class="text-text-secondary">No agents found in this category.</p>
+          <a href="/categories/" class="btn-secondary mt-4 inline-block">View all categories</a>
+        </div>
+      )}
+
+    </div>
+  </div>
+</BaseLayout>

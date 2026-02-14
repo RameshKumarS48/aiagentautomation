@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { slugify } from '../../utils/slugify';
 
 const agents = await getCollection('agents');
 
@@ -37,7 +38,7 @@ const categories = Array.from(categoryMap.entries())
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map(([category, categoryAgents]) => (
-          <a href={`/categories/${category.toLowerCase().replace(/\s+/g, '-')}/`}
+          <a href={`/categories/${slugify(category)}/`}
              class="card group cursor-pointer">
             <div class="flex items-center justify-between mb-4">
               <div class="w-12 h-12 rounded-xl bg-gradient-accent flex items-center justify-center

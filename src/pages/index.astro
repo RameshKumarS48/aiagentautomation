@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import CategoryFilter from '../components/CategoryFilter.astro';
 import AgentCard from '../components/AgentCard.astro';
+import { slugify } from '../utils/slugify';
 
 const agents = await getCollection('agents');
 

@@ -8,6 +8,8 @@ interface Props {
   sourceUrl?: string;
 }
 
+import { slugify } from '../utils/slugify';
+
 const { name, slug, description, category, isOpenSource, sourceUrl } = Astro.props;
 
 // Generate placeholder logo with first letter
@@ -41,10 +43,11 @@ const cleanCategory = category.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').trim();
       </div>
 
       <!-- Category tag -->
-      <span class="inline-block px-2 py-0.5 text-xs rounded-full
-                   bg-accent-blue/10 text-accent-blue mb-2">
+      <a href={`/categories/${slugify(cleanCategory)}/`} 
+         class="inline-block px-2 py-0.5 text-xs rounded-full
+              bg-accent-blue/10 text-accent-blue mb-2 hover:bg-accent-blue/20 transition-colors">
         {cleanCategory}
-      </span>
+      </a>
 
       <!-- Description -->
       <p class="text-sm text-text-secondary line-clamp-2 mb-4">

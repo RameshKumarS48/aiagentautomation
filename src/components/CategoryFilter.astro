@@ -4,6 +4,8 @@ interface Props {
   activeCategory?: string;
 }
 
+import { slugify } from '../utils/slugify';
+
 const { categories, activeCategory } = Astro.props;
 
 // Sort by count descending, take top categories
@@ -21,7 +23,7 @@ const topCategories = categories
         All Agents
       </a>
       {topCategories.map(cat => (
-        <a href={`/categories/${cat.name.toLowerCase().replace(/\s+/g, '-')}/`}
+        <a href={`/categories/${slugify(cat.name)}/`}
            class:list={["category-pill whitespace-nowrap", { active: activeCategory === cat.name }]}>
           {cat.name}
           <span class="ml-1 text-text-muted">({cat.count})</span>
