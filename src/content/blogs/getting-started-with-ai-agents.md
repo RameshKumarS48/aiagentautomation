@@ -1,24 +1,28 @@
 ---
-title: "Getting Started with AI Agents: A Beginner's Guide"
-excerpt: "Learn what AI agents are, how they work, and how to start using them to automate your workflows. A comprehensive guide for beginners."
-category: "Tutorials"
+title: 'Getting Started with AI Agents: A Beginner''s Guide'
+excerpt: Learn what AI agents are, how they work, and how to start using them to automate
+  your workflows. A comprehensive guide for beginners.
+category: Tutorials
 tags:
-  - "AI Agents"
-  - "Beginners"
-  - "Automation"
-  - "Getting Started"
-  - "Tutorial"
-author: "AI Agents Team"
-image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80"
-image_alt: "AI technology and automation concept"
+- AI Agents
+- Beginners
+- Automation
+- Getting Started
+- Tutorial
+author: AI Agents Team
+image: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80
+image_alt: AI technology and automation concept
 published_date: 2026-02-11
 read_time: 6
 featured: true
 related_agents:
-  - "autogpt"
-  - "langchain"
-  - "crewai"
-related_posts: []
+- autogpt
+- langchain
+- crewai
+related_posts:
+- rpa-vs-ai-agents
+- creating-ai-workflows
+- ai-in-education
 ---
 
 Artificial Intelligence agents are transforming the way we work, automating complex tasks that once required hours of human effort. If you're new to AI agents, this guide will help you understand what they are and how to get started.
