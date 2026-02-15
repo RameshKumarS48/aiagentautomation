@@ -502,11 +502,153 @@ SKIP_PATTERNS = [
 SKIP_COMPILED = [re.compile(p, re.IGNORECASE) for p in SKIP_PATTERNS]
 
 
-def should_skip_agent(name: str) -> bool:
-    """Check if an entry should be skipped based on name patterns."""
+# ===== COMPREHENSIVE FILTERS (from cleanup analysis) =====
+
+# Invalid URL domains - these are NOT AI agent sources
+INVALID_DOMAINS = {
+    # Social media
+    'twitter.com', 'x.com', 'www.twitter.com',
+    'facebook.com', 'www.facebook.com', 'fb.com',
+    'linkedin.com', 'www.linkedin.com',
+    'instagram.com', 'www.instagram.com',
+    'tiktok.com', 'www.tiktok.com',
+    'reddit.com', 'www.reddit.com', 'old.reddit.com',
+    # Reference/Knowledge (not tools)
+    'en.wikipedia.org', 'wikipedia.org',
+    'arxiv.org', 'www.arxiv.org',
+    'www.slideshare.net', 'slideshare.net',
+    'medium.com',
+    # Video platforms
+    'www.youtube.com', 'youtube.com', 'youtu.be',
+    'vimeo.com', 'www.vimeo.com',
+    # Package registries (libraries, not agents)
+    'cran.r-project.org',
+    'godoc.org',
+    'rubygems.org',
+    'www.npmjs.com', 'npmjs.com',
+    'packagist.org', 'crates.io',
+    'mvnrepository.com', 'nuget.org',
+    'cocoapods.org', 'metacpan.org',
+    # Old code hosting
+    'sourceforge.net',
+    'code.google.com', 'sites.google.com',
+    # Academic sites
+    'nlp.stanford.edu', 'cs.stanford.edu',
+    'www.cs.cmu.edu', 'people.csail.mit.edu',
+    # Stats company pages
+    'www.sas.com',
+    # Forums
+    'news.ycombinator.com', 'stackoverflow.com',
+}
+
+# Invalid categories - programming languages, bloggers, podcasts, etc.
+INVALID_CATEGORIES = {
+    # Programming languages (libraries, not agents)
+    'python', 'r', 'javascript', 'java', 'c', 'c++', 'c#',
+    'go', 'julia', 'clojure', 'scala', 'perl', 'ruby', 'lua',
+    'rust', 'haskell', 'swift', 'kotlin', 'elixir', 'erlang',
+    'matlab', 'octave', 'lisp', 'fortran', 'crystal',
+    # Generic ML/DL packages
+    'deep learning packages', 'general machine learning packages',
+    'industry strength reinforcement learning',
+    'industry strength natural language processing',
+    'computation and communication optimisation',
+    'natural language processing packages',
+    'neural network packages', 'signal processing packages',
+    'data manipulation packages',
+    # People/Content
+    'bloggers', 'podcasts', 'podcasters',
+    'researchers', 'influencers', 'educators',
+    # Non-agent content
+    'comparison', 'contents', 'services',
+    'llm leaderboard', 'rankings',
+    'hardware', 'infrastructure',
+    'credits', 'documentation', 'notebooks',
+    'datasets', 'tutorials', 'courses',
+    'books', 'papers', 'research papers',
+    'other papers', 'lists', 'more lists',
+    'other awesome lists', 'related awesome lists',
+    'complement to this list', 'videos playlists',
+    'index', 'github groups',
+    'lists on chatgpt',
+}
+
+# ML algorithm / library name patterns (not agents)
+NON_AGENT_NAME_PATTERNS = [
+    # ML Algorithms
+    r'^(linear|logistic|ridge|lasso)\s*regression',
+    r'^(k-?means|k-?nn|knn)',
+    r'^(svm|support\s*vector)',
+    r'^(random\s*forest|decision\s*tree|gradient\s*boost)',
+    r'^(xgboost|lightgbm|catboost)',
+    r'^(naive\s*bayes|bayesian)',
+    r'^(neural\s*network|recurrent\s*neural|convolutional\s*neural)',
+    r'^(rnn|cnn|lstm|gru|gan|vae)',
+    r'^(pca|tsne|t-sne|umap)',
+    r'^(isolation\s*forest|anomaly\s*detection)',
+    r'^(apriori|fp-?growth)',
+    r'^(adaboost|ada\s*boost)',
+    r'^(boltzmann\s*machine)',
+    r'^(self-?organizing\s*map)',
+    r'^(dimension\s*reduction|dimensionality)',
+    r'^(multivariate\s*adaptive)',
+    r'^(adaptive\s*resonance)',
+    r'^(cart|classification\s*and\s*regression)',
+    r'^(laplacian\s*regularization)',
+    r'^(heuristic\s*approach)',
+    r'^(ensemble\s*method)',
+    r'^(markov\s*chain|markov\s*model)',
+    r'^(reinforcement\s*learning)',
+    r'^(q-?learning)',
+    r'^(backpropagation)',
+    r'^(word2vec|glove|fasttext)',
+    r'^(batch\s*normalization)',
+    r'^(dropout|regularization)',
+    r'^(cross[\s-]?validation)',
+    r'^(confusion\s*matrix)',
+    r'^(precision[\s-]?recall)',
+    r'^(f1[\s-]?score)',
+    r'^(roc[\s-]?curve|auc)',
+    # Generic libraries/frameworks
+    r'^(numpy|pandas|scipy|matplotlib|seaborn|plotly)',
+    r'^(scikit|sklearn)',
+    r'^(tensorflow|pytorch|keras|theano|caffe|mxnet)',
+    r'^(opencv|pillow|beautifulsoup)',
+    r'^(nltk|spacy|gensim|textblob)',
+    r'^(spark|hadoop|hive|pig|flink)',
+    r'^(docker|kubernetes|terraform)',
+    r'^(flask|django|fastapi|express)',
+    r'^(react|vue|angular|svelte)',
+    # People/Profiles
+    r'(blog|vlog|channel|profile|portfolio|resume|cv)$',
+    r'^(dr\.|prof\.|professor)\s',
+]
+NON_AGENT_NAME_COMPILED = [re.compile(p, re.IGNORECASE) for p in NON_AGENT_NAME_PATTERNS]
+
+
+def should_skip_url(url: str) -> bool:
+    """Check if a URL points to a non-agent source."""
+    if not url:
+        return False
+    try:
+        from urllib.parse import urlparse
+        parsed = urlparse(url)
+        domain = parsed.netloc.lower()
+        return domain in INVALID_DOMAINS
+    except:
+        return False
+
+
+def should_skip_category(category: str) -> bool:
+    """Check if a category indicates non-agent content."""
+    return category.lower().strip() in INVALID_CATEGORIES
+
+
+def should_skip_agent(name: str, url: str = '', category: str = '') -> bool:
+    """Check if an entry should be skipped based on name, URL, or category."""
     name_lower = name.lower().strip()
 
-    # Skip if matches any skip pattern
+    # Skip if matches any skip pattern (name-based)
     for pattern in SKIP_COMPILED:
         if pattern.match(name_lower):
             return True
@@ -521,6 +663,19 @@ def should_skip_agent(name: str) -> bool:
 
     # Skip if it's just a person's name with role
     if re.search(r'\b(founder|ceo|cto|cofounder|co-founder)\s*(at|of|@)', name_lower):
+        return True
+
+    # Skip ML algorithm / library names
+    for pattern in NON_AGENT_NAME_COMPILED:
+        if pattern.search(name_lower):
+            return True
+
+    # Skip invalid URL domains
+    if url and should_skip_url(url):
+        return True
+
+    # Skip invalid categories
+    if category and should_skip_category(category):
         return True
 
     return False
@@ -573,7 +728,7 @@ def parse_awesome_list(content: str) -> List[dict]:
             if not name or 'badge' in url.lower() or 'shields.io' in url.lower():
                 continue
 
-            if should_skip_agent(name):
+            if should_skip_agent(name, url, current_category):
                 continue
 
             # Clean the description
@@ -994,6 +1149,11 @@ def main():
 
         # Skip if already exists
         if slug in existing_slugs:
+            skipped += 1
+            continue
+
+        # Double-check with comprehensive filters (URL + category)
+        if should_skip_agent(agent['name'], agent.get('url', ''), agent.get('category', '')):
             skipped += 1
             continue
 

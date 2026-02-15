@@ -45,6 +45,11 @@ jobs:
           cd scraper
           python scraper.py
 
+      - name: Post-scrape validation (remove non-agents)
+        run: |
+          pip install python-frontmatter
+          echo "yes" | python scripts/comprehensive_validation.py || true
+
       - name: Clean up invalid entries
         run: |
           node scripts/cleanup-content.mjs
