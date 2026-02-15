@@ -1,0 +1,120 @@
+Deep Agent Validation Report
+============================================================
+
+Total files: 3494
+Actual agents: 3382
+Non-agents: 112
+
+Files to remove:
+  awesome-tensorflow.md - Awesome list (collection of resources)
+  generative-deep-art.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  ndscala.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  awesome-openclaw-skills.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  awesome-explainable-graph-reasoning.md - Category is 'other awesome lists' (non-agent type)
+  awesome-ai-devtools.md - Name indicates list/directory: 'awesome ai devtools' matches 'awesome[\s-]+(ai|ml|llm|gpt)'
+  spark.md - Category is 'index' (non-agent type)
+  awesome-data-science-ideas.md - Category is 'other awesome lists' (non-agent type)
+  cogcompnlp.md - Description indicates collection: matches 'collect(s|ing)'
+  aicaller-io.md - Description indicates collection: matches 'gather(s|ing)'
+  ai-aiart-generative.md - Description indicates collection: matches 'list\s+of\s+\d+'
+  awesome-ai-regulation.md - Name indicates list/directory: 'awesome ai regulation' matches 'awesome[\s-]+(ai|ml|llm|gpt)'
+  steppy-toolkit.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  greg-kamradt-playlist.md - Category is 'videos playlists' (non-agent type)
+  onecompiler.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  top-ai-directories.md - Category is 'related awesome lists' (non-agent type)
+  chatgpt-prompts-for-data-science.md - Category is 'lists on chatgpt' (non-agent type)
+  nanonets-airtable-models.md - Name indicates list/directory: 'nanonets airtable models' matches 'airtable'
+  comic-compilation.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  llocalsearch.md - Description indicates collection: matches 'aggregat(es?|ing|or)'
+  kaggle-and-business-analyses.md - Category is 'index' (non-agent type)
+  humanloop.md - Description indicates collection: matches 'collect(s|ing)'
+  awesome-r.md - Category is 'other awesome lists' (non-agent type)
+  command-lines.md - Category is 'index' (non-agent type)
+  generative-ai-models.md - Category is 'other awesome lists' (non-agent type)
+  is-data-science-a-good-career.md - Category is 'other awesome lists' (non-agent type)
+  stanford-nlp-for-net.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  credits.md - Category is 'index' (non-agent type)
+  hopsworks-feature-store.md - Name indicates list/directory: 'hopsworks feature store' matches 'store'
+  open-llms.md - Category is 'complement to this list' (non-agent type)
+  langchain-james-briggs-playlist.md - Category is 'videos playlists' (non-agent type)
+  tensorstore.md - Name indicates list/directory: 'tensorstore' matches 'store'
+  ask-ida-idapython.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  awesome-monte-carlo-tree-search.md - Category is 'other awesome lists' (non-agent type)
+  swift-for-tensorflow.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  awesome-marketing.md - Category is 'related awesome lists' (non-agent type)
+  molecular-design.md - Category is 'more lists' (non-agent type)
+  ask-ida-c.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  compilergym.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  scicloj.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  sho.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  gpt-3-demo.md - Category is 'more lists' (non-agent type)
+  awesome-computer-vision-models.md - Category is 'other awesome lists' (non-agent type)
+  ai-for-developers.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  generative-ai-for-games.md - Category is 'more lists' (non-agent type)
+  vibe-compiler-vibec.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  google-s-differential-privacy.md - Description indicates collection: matches 'aggregat(es?|ing|or)'
+  theano.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  500-best-ai-tools.md - Notion page that is a list/directory
+  tools-and-resources-for-ai-art.md - Name indicates list/directory: 'tools and resources for ai art' matches 'resources?\s+for'
+  community-curated-data-science-resources.md - Category is 'other awesome lists' (non-agent type)
+  awesome-aws.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  awesome-ai-tools.md - Name indicates list/directory: 'awesome-ai-tools' matches 'awesome[\s-]+(ai|ml|llm|gpt)'
+  triton.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  awesome-hugging-face-models.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  awesome-language-agents.md - Category is 'complement to this list' (non-agent type)
+  lists.md - Category is 'other awesome lists' (non-agent type)
+  awesome-workflow-automation.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  awesome-graph-classification.md - Category is 'other awesome lists' (non-agent type)
+  connxr.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  glossary-of-common-statistics-and-ml-terms.md - Category is 'other awesome lists' (non-agent type)
+  contact-info.md - Category is 'index' (non-agent type)
+  spreadsheetweb.md - Name indicates list/directory: 'spreadsheetweb' matches 'spreadsheet'
+  pandas.md - Category is 'index' (non-agent type)
+  awesome-dataviz.md - Category is 'other awesome lists' (non-agent type)
+  awesome-llm.md - Name indicates list/directory: 'awesome llm' matches 'awesome[\s-]+(ai|ml|llm|gpt)'
+  awesome-rag-production.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  awesome-coreml.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  data-science-interviews-questions.md - Category is 'other awesome lists' (non-agent type)
+  awesome-ai-agents.md - Name indicates list/directory: 'awesome-ai-agents' matches 'awesome[\s-]+(ai|ml|llm|gpt)'
+  awesome-ai-coding-tools.md - Name indicates list/directory: 'awesome ai coding tools' matches 'awesome[\s-]+(ai|ml|llm|gpt)'
+  llama-cult-and-more.md - Category is 'complement to this list' (non-agent type)
+  ai-for-productivity.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  the-generative-ai-application-landscape.md - Category is 'more lists' (non-agent type)
+  perch-reader.md - Description indicates collection: matches 'aggregat(es?|ing|or)'
+  altern.md - Category is 'related awesome lists' (non-agent type)
+  numpy.md - Category is 'index' (non-agent type)
+  cudf.md - Description indicates collection: matches 'aggregat(es?|ing|or)'
+  awesome-keras.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  awesome-ai-analytics.md - Name indicates list/directory: 'awesome-ai-analytics' matches 'awesome[\s-]+(ai|ml|llm|gpt)'
+  what-is-generative-ai.md - Category is 'other awesome lists' (non-agent type)
+  startups-builtwithgenai.md - Category is 'more lists' (non-agent type)
+  awesome-nlp-with-ruby.md - Awesome list (collection of resources)
+  awesome-local-llms.md - Category is 'lists' (non-agent type)
+  top-13-data-science-programming-languages.md - Category is 'other awesome lists' (non-agent type)
+  python-data.md - Category is 'index' (non-agent type)
+  llama-police.md - Category is 'lists' (non-agent type)
+  awesome-community-detection.md - Category is 'other awesome lists' (non-agent type)
+  ai-tools-for-marketing.md - Name indicates list/directory: '🎯 ai tools for marketing' matches 'tools?\s+for'
+  awesome-data-analysis.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  statistical-inference-scipy.md - Category is 'index' (non-agent type)
+  workflow-automation-softwares.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  mapreduce-python.md - Category is 'index' (non-agent type)
+  gptstore.md - Name indicates list/directory: 'gptstore' matches 'store'
+  the-generative-ai-index.md - Category is 'more lists' (non-agent type)
+  parsel.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  amazon-web-services.md - Category is 'index' (non-agent type)
+  awesome-llmops.md - Name indicates list/directory: 'awesome llmops' matches 'awesome[\s-]+(ai|ml|llm|gpt)'
+  aistore.md - Name indicates list/directory: 'aistore' matches 'store'
+  emgu-cv.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  berkeley-institute-for-data-science.md - Category is 'github groups' (non-agent type)
+  how-generative-ai-is-changing-creative-work.md - Category is 'other awesome lists' (non-agent type)
+  awesome-core-ml-models.md - Description indicates collection: matches 'curated\s+(list|collection)'
+  stable-diffusion-models.md - Description indicates collection: matches 'comprehensive\s+(list|directory)'
+  best-of-ai.md - Category is 'related awesome lists' (non-agent type)
+  gpt-4-demo.md - Category is 'more lists' (non-agent type)
+  airtable.md - Name indicates list/directory: 'airtable' matches 'airtable'
+  awesome-vibe-coding.md - Category is 'related awesome lists' (non-agent type)
+  awesome-python.md - Category is 'other awesome lists' (non-agent type)
+  the-generative-ai-landscape.md - Category is 'more lists' (non-agent type)
+  numba.md - Description indicates collection: matches 'compil(es?|ing|ation)'
+  awesome-ai-models.md - Name indicates list/directory: 'awesome ai models' matches 'awesome[\s-]+(ai|ml|llm|gpt)'

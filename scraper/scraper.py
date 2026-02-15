@@ -448,7 +448,54 @@ SKIP_PATTERNS = [
     r'challenge',
     r'competition',
     r'hackathon',
+    
+    # === DEEP VALIDATION FILTERS: Lists, Directories, Collections ===
+    # Numeric lists (500+ tools, 100 best, etc.)
+    r'\d+\+?\s*(best|top|ai|ml|llm)?\s*tools?',
+    r'\d+\+?\s*ai',
+    r'\d+\+?\s*agents?',
+    
+    # List/Directory/Collection indicators
+    r'list[\s-]?of',
+    r'directory[\s-]?of',
+    r'collection[\s-]?of',
+    r'catalog[\s-]?of',
+    r'index[\s-]?of',
+    r'hub[\s-]?of',
+    r'gallery[\s-]?of',
+    r'curated[\s-]?(list|collection|directory)',
+    r'comprehensive[\s-]?(list|directory)',
+    
+    # Awesome lists (when they ARE the list, not a tool named "awesome-X")
+    r'awesome[\s-]?list',
+    r'other[\s-]?awesome[\s-]?lists',
+    r'related[\s-]?awesome[\s-]?lists',
+    r'complement[\s-]?to[\s-]?this[\s-]?list',
+    r'more[\s-]?lists',
+    
+    # Marketplaces, stores, directories
+    r'marketplace',
+    r'agent[\s-]?store',
+    r'ai[\s-]?store',
+    r'tool[\s-]?directory',
+    r'agent[\s-]?directory',
+    r'ai[\s-]?directory',
+    r'ai[\s-]?catalog',
+    
+    # Aggregators and indexes
+    r'aggregat(or|es?|ing)',
+    r'compil(ation|es?|ing)',
+    
+    # Video playlists
+    r'playlist',
+    r'video[\s-]?series',
+    
+    # Resource collections
+    r'resources?[\s-]?for',
+    r'tools?[\s-]?for',
+    r'platforms?[\s-]?for',
 ]
+
 
 
 # Compile patterns for efficiency
