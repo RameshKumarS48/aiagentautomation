@@ -280,14 +280,26 @@ STRICT REQUIREMENTS:
    - Links must be contextually relevant
    - Anchor text should be descriptive, not "click here"
 
-5. SEO REQUIREMENTS:
+5. EXTERNAL LINKING REQUIREMENTS (for SEO & authority):
+   - Include 2-3 links to authoritative external sources
+   - Link to: official documentation, research papers, industry blogs (TechCrunch, VentureBeat, etc.)
+   - Use rel="noopener" for external links
+   - Format: [Link Text](https://example.com)
+   - Examples of good sources:
+     * OpenAI documentation, Anthropic docs, Google AI blog
+     * arXiv papers for research topics
+     * GitHub repos for open-source tools
+     * Industry publications: The Verge, Ars Technica, MIT Technology Review
+   - External links should add value, not just be filler
+
+6. SEO REQUIREMENTS:
    - Primary keyword in: title, first paragraph, one H2, conclusion
    - Use semantic variations throughout
    - Short paragraphs (3-4 sentences max)
    - Use bullet points and numbered lists
    - Include the provided images with descriptive alt text
 
-6. WRITING STYLE:
+7. WRITING STYLE:
    - Conversational but professional
    - Use "you" to address reader directly
    - Include specific numbers, tools, examples
