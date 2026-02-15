@@ -1,0 +1,1448 @@
+Comprehensive Agent Validation Report
+============================================================
+
+Total: 3382 | Valid: 2007 | Invalid: 1375
+
+
+Invalid category: python (302 files):
+  albumentations.md - Invalid category: python
+  allen-downey-s-think-bayes-code.md - Invalid category: python
+  allen-downey-s-think-complexity-code.md - Invalid category: python
+  allen-downey-s-think-os-code.md - Invalid category: python
+  anee.md - Invalid category: python
+  annoy.md - Invalid category: python
+  apache-singa.md - Invalid category: python
+  astroml.md - Invalid category: python
+  astropy.md - Invalid category: python
+  auto-viml.md - Invalid category: python
+  automl-implementation-for-static-and-dynamic-data-analytics.md - Invalid category: python
+  autoviz.md - Invalid category: python
+  backprop.md - Invalid category: python
+  bayesian-methods-for-hackers.md - Invalid category: python
+  bayeso.md - Invalid category: python
+  bayespy.md - Invalid category: python
+  bigartm.md - Invalid category: python
+  bigml.md - Invalid category: python
+  biopy.md - Invalid category: python
+  blaze.md - Invalid category: python
+  bolt.md - Invalid category: python
+  bowtie.md - Invalid category: python
+  bqplot.md - Invalid category: python
+  brainstorm.md - Invalid category: python
+  breze.md - Invalid category: python
+  bytehub.md - Invalid category: python
+  caes-for-data-assimilation.md - Invalid category: python
+  cartopy.md - Invalid category: python
+  cerebro2.md - Invalid category: python
+  chefboost.md - Invalid category: python
+  climin.md - Invalid category: python
+  cltk.md - Invalid category: python
+  coach.md - Invalid category: python
+  cogitare.md - Invalid category: python
+  cometllm.md - Invalid category: python
+  cometml.md - Invalid category: python
+  computer-vision-in-action.md - Invalid category: python
+  cornac.md - Invalid category: python
+  covertree.md - Invalid category: python
+  crab.md - Invalid category: python
+  d3py.md - Invalid category: python
+  data-driven-code.md - Invalid category: python
+  datavisualization.md - Invalid category: python
+  decision-weights.md - Invalid category: python
+  dedupe.md - Invalid category: python
+  deep-high-resolution-net.md - Invalid category: python
+  deepface.md - Invalid category: python
+  deepmind-lab.md - Invalid category: python
+  deeppavlov.md - Invalid category: python
+  detectron.md - Invalid category: python
+  di-engine.md - Invalid category: python
+  diffusion-segmentation.md - Invalid category: python
+  digits.md - Invalid category: python
+  distance.md - Invalid category: python
+  dl-translate.md - Invalid category: python
+  dockerface.md - Invalid category: python
+  dora.md - Invalid category: python
+  dowel.md - Invalid category: python
+  dream-creator.md - Invalid category: python
+  drqa.md - Invalid category: python
+  dtaidistance.md - Invalid category: python
+  edward.md - Invalid category: python
+  emcee.md - Invalid category: python
+  eurybia.md - Invalid category: python
+  evostra.md - Invalid category: python
+  exadel-compreface.md - Invalid category: python
+  face-recognition.md - Invalid category: python
+  fastai.md - Invalid category: python
+  featureforge.md - Invalid category: python
+  fedot.md - Invalid category: python
+  flama.md - Invalid category: python
+  flight-fare-prediction.md - Invalid category: python
+  frouros.md - Invalid category: python
+  fuku-ml.md - Invalid category: python
+  fuzzy-wuzzy.md - Invalid category: python
+  garage.md - Invalid category: python
+  gempix2.md - Invalid category: python
+  genius.md - Invalid category: python
+  ggfortify.md - Invalid category: python
+  ggplot.md - Invalid category: python
+  gower-express.md - Invalid category: python
+  graphlab-create.md - Invalid category: python
+  group-lasso.md - Invalid category: python
+  gym4real.md - Invalid category: python
+  handsonml.md - Invalid category: python
+  hdbscan.md - Invalid category: python
+  heart-disease-prediction.md - Invalid category: python
+  hebel.md - Invalid category: python
+  hub.md - Invalid category: python
+  hyperopt.md - Invalid category: python
+  imbalanced-ensemble.md - Invalid category: python
+  imbalanced-learn.md - Invalid category: python
+  implicit.md - Invalid category: python
+  imutils.md - Invalid category: python
+  intel-r-extension-for-scikit-learn.md - Invalid category: python
+  iot-owl.md - Invalid category: python
+  ipychart.md - Invalid category: python
+  jellyfish.md - Invalid category: python
+  jieba.md - Invalid category: python
+  jina-ai.md - Invalid category: python
+  joligen.md - Invalid category: python
+  jprocessing.md - Invalid category: python
+  kaggle-accelerometer.md - Invalid category: python
+  kaggle-acquire-valued-shoppers-challenge.md - Invalid category: python
+  kaggle-advertised-salaries.md - Invalid category: python
+  kaggle-amazon.md - Invalid category: python
+  kaggle-bestbuy-big.md - Invalid category: python
+  kaggle-bestbuy-small.md - Invalid category: python
+  kaggle-blackbox.md - Invalid category: python
+  kaggle-cifar.md - Invalid category: python
+  kaggle-dogs-vs-cats.md - Invalid category: python
+  kaggle-galaxy-challenge.md - Invalid category: python
+  kaggle-gender.md - Invalid category: python
+  kaggle-insults.md - Invalid category: python
+  kaggle-merck.md - Invalid category: python
+  kaggle-stackoverflow.md - Invalid category: python
+  kartograph-py.md - Invalid category: python
+  kinho.md - Invalid category: python
+  konlpy.md - Invalid category: python
+  lambdo.md - Invalid category: python
+  lasagne.md - Invalid category: python
+  learnergy.md - Invalid category: python
+  lifelines.md - Invalid category: python
+  lightfm.md - Invalid category: python
+  lightwood.md - Invalid category: python
+  lime.md - Invalid category: python
+  loso.md - Invalid category: python
+  lucent.md - Invalid category: python
+  map-reduce-implementations-of-common-ml-algorithms.md - Invalid category: python
+  mars.md - Invalid category: python
+  maze.md - Invalid category: python
+  mcp-memory-service.md - Invalid category: python
+  metaworld.md - Invalid category: python
+  metric-learn.md - Invalid category: python
+  microsoft-recommenders.md - Invalid category: python
+  milk.md - Invalid category: python
+  minidiff.md - Invalid category: python
+  minigrad.md - Invalid category: python
+  miraiml.md - Invalid category: python
+  mlens.md - Invalid category: python
+  mlforgex.md - Invalid category: python
+  nalp.md - Invalid category: python
+  neofuzz.md - Invalid category: python
+  neon.md - Invalid category: python
+  neural-dream.md - Invalid category: python
+  neural-style-pt.md - Invalid category: python
+  neuraltalk.md - Invalid category: python
+  neuraxle.md - Invalid category: python
+  neurolab.md - Invalid category: python
+  neuron.md - Invalid category: python
+  neuroner.md - Invalid category: python
+  neuropredict.md - Invalid category: python
+  nilearn.md - Invalid category: python
+  nltk.md - Invalid category: python
+  nn-builder.md - Invalid category: python
+  nobodywho.md - Invalid category: python
+  numpic.md - Invalid category: python
+  numpy-ml.md - Invalid category: python
+  nupic-studio.md - Invalid category: python
+  nupic.md - Invalid category: python
+  nut.md - Invalid category: python
+  okrolearn.md - Invalid category: python
+  open-mining.md - Invalid category: python
+  open-solution-data-science-bowl-2018.md - Invalid category: python
+  open-solution-googleai-object-detection.md - Invalid category: python
+  open-solution-home-credit.md - Invalid category: python
+  open-solution-salt-identification.md - Invalid category: python
+  open-solution-ship-detection.md - Invalid category: python
+  open-solution-toxic-comments.md - Invalid category: python
+  open-solution-value-prediction.md - Invalid category: python
+  openface.md - Invalid category: python
+  openvisionapi.md - Invalid category: python
+  opfython.md - Invalid category: python
+  optunity-examples.md - Invalid category: python
+  opytimizer.md - Invalid category: python
+  orange.md - Invalid category: python
+  parris.md - Invalid category: python
+  pastalog.md - Invalid category: python
+  pattern-classification.md - Invalid category: python
+  pattern.md - Invalid category: python
+  pcv.md - Invalid category: python
+  pebl.md - Invalid category: python
+  petrel.md - Invalid category: python
+  pgmpy.md - Invalid category: python
+  pkuseg-python.md - Invalid category: python
+  polyglot.md - Invalid category: python
+  pomegranate.md - Invalid category: python
+  practical-xgboost-in-python.md - Invalid category: python
+  prodmodel.md - Invalid category: python
+  programming-in-python.md - Invalid category: python
+  prophet.md - Invalid category: python
+  pybrain.md - Invalid category: python
+  pybroker.md - Invalid category: python
+  pycascading.md - Invalid category: python
+  pyclugen.md - Invalid category: python
+  pycm.md - Invalid category: python
+  pydeep.md - Invalid category: python
+  pydexter.md - Invalid category: python
+  pydy.md - Invalid category: python
+  pyevolve.md - Invalid category: python
+  pygal.md - Invalid category: python
+  pygrid.md - Invalid category: python
+  pyhsmm.md - Invalid category: python
+  pylearn2.md - Invalid category: python
+  pymc.md - Invalid category: python
+  pynlpl.md - Invalid category: python
+  pyqtgraph.md - Invalid category: python
+  pyss3.md - Invalid category: python
+  pystanforddependencies.md - Invalid category: python
+  pytessarct.md - Invalid category: python
+  python-for-ai-ml-dl.md - Invalid category: python
+  python-frog.md - Invalid category: python
+  python-performance.md - Invalid category: python
+  python-programming-for-the-humanities.md - Invalid category: python
+  python-recsys.md - Invalid category: python
+  python-timbl.md - Invalid category: python
+  python-zpar.md - Invalid category: python
+  pytorch-lightning-bolts.md - Invalid category: python
+  pytorchcv.md - Invalid category: python
+  quepy.md - Invalid category: python
+  rasa.md - Invalid category: python
+  ray3-run.md - Invalid category: python
+  rep.md - Invalid category: python
+  restricted-boltzmann-machines.md - Invalid category: python
+  retinaface.md - Invalid category: python
+  retro.md - Invalid category: python
+  rgf-python.md - Invalid category: python
+  river.md - Invalid category: python
+  rllib.md - Invalid category: python
+  roboschool.md - Invalid category: python
+  rockpool.md - Invalid category: python
+  rosetta.md - Invalid category: python
+  ruffus.md - Invalid category: python
+  sarah-palin-lda.md - Invalid category: python
+  scikit-multiflow.md - Invalid category: python
+  scikit-plot.md - Invalid category: python
+  scipy.md - Invalid category: python
+  segmentation-models-pytorch.md - Invalid category: python
+  segmentation-models.md - Invalid category: python
+  sentiment-analyzer.md - Invalid category: python
+  sentiment-classifier.md - Invalid category: python
+  sequitur.md - Invalid category: python
+  serpent-ai.md - Invalid category: python
+  simpleai.md - Invalid category: python
+  simplecv.md - Invalid category: python
+  sinabs.md - Invalid category: python
+  skbayes.md - Invalid category: python
+  skbel.md - Invalid category: python
+  skforecast.md - Invalid category: python
+  sklearn-genetic-opt.md - Invalid category: python
+  skll.md - Invalid category: python
+  skrub.md - Invalid category: python
+  sktime.md - Invalid category: python
+  slm-lab.md - Invalid category: python
+  snips-nlu.md - Invalid category: python
+  snownlp.md - Invalid category: python
+  somoclu.md - Invalid category: python
+  sompy.md - Invalid category: python
+  spammy.md - Invalid category: python
+  sparklingpandas.md - Invalid category: python
+  spearmint.md - Invalid category: python
+  spinning-up.md - Invalid category: python
+  stacked-generalization.md - Invalid category: python
+  stanford-corenlp-python.md - Invalid category: python
+  statsmodels.md - Invalid category: python
+  stellargraph.md - Invalid category: python
+  steppy.md - Invalid category: python
+  suiron.md - Invalid category: python
+  superset.md - Invalid category: python
+  surprise.md - Invalid category: python
+  svm-explorer.md - Invalid category: python
+  sympy.md - Invalid category: python
+  synthia.md - Invalid category: python
+  tdb.md - Invalid category: python
+  tensorflow-federated.md - Invalid category: python
+  textacy.md - Invalid category: python
+  textblob.md - Invalid category: python
+  textcl.md - Invalid category: python
+  tf-gan.md - Invalid category: python
+  thampi.md - Invalid category: python
+  thinking-stats-2.md - Invalid category: python
+  timm.md - Invalid category: python
+  tonic.md - Invalid category: python
+  topicwizard.md - Invalid category: python
+  topik.md - Invalid category: python
+  tresnet-high-performance-gpu-dedicated-architecture.md - Invalid category: python
+  turi-create.md - Invalid category: python
+  tweetopic.md - Invalid category: python
+  upgini.md - Invalid category: python
+  veritasgraph.md - Invalid category: python
+  vigranumpy.md - Invalid category: python
+  vispy.md - Invalid category: python
+  visualize-ml.md - Invalid category: python
+  vizdoom.md - Invalid category: python
+  wiki-challenge.md - Invalid category: python
+  windml.md - Invalid category: python
+  wine-quality.md - Invalid category: python
+  xcessiv.md - Invalid category: python
+  xrbm.md - Invalid category: python
+  yalign.md - Invalid category: python
+  yase.md - Invalid category: python
+  zipline.md - Invalid category: python
+
+Invalid URL domain (219 files):
+  adaboost.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/AdaBoost)
+  adaptive-resonance-theory.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Adaptive_resonance_theory)
+  aditi-rastogi.md - Invalid domain: medium.com (https://medium.com/@aditi2507rastogi)
+  ahaz.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/ahaz/index.html)
+  akhil-soni.md - Invalid domain: medium.com (https://medium.com/@akhil0435)
+  algorithm-svmlight.md - Invalid domain: metacpan.org (https://metacpan.org/pod/Algorithm::SVMLight)
+  ando-figma-plugin.md - Invalid domain: twitter.com (https://twitter.com/RemitNotPaucity/status/1562319004563173376)
+  anil-chandra-naidu-matcha.md - Invalid domain: twitter.com (https://twitter.com/matchaman11)
+  apache-2-0.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Apache_License)
+  apriori.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Apriori_algorithm)
+  arules.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/arules/index.html)
+  big-data-analytics-using-r.md - Invalid domain: www.facebook.com (https://www.facebook.com/groups/434352233255448/)
+  big-data-analytics-with-r-and-hadoop.md - Invalid domain: www.facebook.com (https://www.facebook.com/groups/rhadoop/)
+  big-data-hadoop-nosql-hive-hbase.md - Invalid domain: www.facebook.com (https://www.facebook.com/groups/bigdatahadoop/)
+  big-data-scientist.md - Invalid domain: www.facebook.com (https://www.facebook.com/Bigdatascientist)
+  bigdata-hadoop-expert.md - Invalid domain: www.facebook.com (https://www.facebook.com/groups/BigDataExpert/)
+  biglasso.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/biglasso/index.html)
+  blackbox-ai-code-interpreter-in-terminal.md - Invalid domain: pypi.org (https://pypi.org/project/blackboxai/)
+  blackbox-ai-supercharging-your-coding-workflow.md - Invalid domain: www.linkedin.com (https://www.linkedin.com/pulse/blackbox-ai-supercharging-your-coding-workflow-swarup-mukharjee-5gqbe/)
+  blackbox-ai-vs-codium-ai.md - Invalid domain: medium.com (https://medium.com/@blackbox.ai/blackbox-ai-vs-codium-ai-7016abb93ec0)
+  bmrm.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/bmrm/index.html)
+  boltzmann-machines.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Boltzmann_machine)
+  boruta.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/Boruta/index.html)
+  bsd-3-clause.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/BSD_licenses)
+  bst.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/bst/index.html)
+  building-data-start-ups-fast-big-and-focused.md - Invalid domain: www.slideshare.net (https://www.slideshare.net/medriscoll/driscoll-strata-buildingdatastartups25may2011clean)
+  c4-5.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/C4.5_algorithm)
+  c50.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/C50/index.html)
+  campusx.md - Invalid domain: www.youtube.com (https://www.youtube.com/@campusx-official)
+  caretensemble.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/caretEnsemble/index.html)
+  cart-classification-and-regression-trees.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Decision_tree_learning)
+  center-for-data-science.md - Invalid domain: www.facebook.com (https://www.facebook.com/centerdatasciences?ref=br_rs)
+  chai-time-data-science.md - Invalid domain: www.youtube.com (https://www.youtube.com/playlist?list=PLLvvXm0q8zUbiNdoIazGzlENMXvZ9bd3x)
+  chatgptcoding.md - Invalid domain: www.reddit.com (https://www.reddit.com/r/ChatGPTCoding/)
+  clairesilver12.md - Invalid domain: twitter.com (https://twitter.com/ClaireSilver12)
+  clj-boost.md - Invalid domain: gitlab.com (https://gitlab.com/alanmarazzi/clj-boost)
+  context-aware-rule-mining-transformer-based-framework.md - Invalid domain: arxiv.org (https://arxiv.org/abs/2503.11125)
+  contextual-analysis.md - Invalid domain: www.sas.com (https://www.sas.com/en_us/software/contextual-analysis.html)
+  convnet-js.md - Invalid domain: cs.stanford.edu (https://cs.stanford.edu/people/karpathy/convnetjs/)
+  convolutional-neural-network-cnn.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Convolutional_neural_network)
+  corelearn.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/CORElearn/index.html)
+  cubist.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/Cubist/index.html)
+  cuda.md - Invalid domain: code.google.com (https://code.google.com/p/cuda-convnet/)
+  dalle-vs-mj-vs-stablediffusion.md - Invalid domain: twitter.com (https://twitter.com/fabianstelzer/status/1561019187451011074)
+  data-mining-big-data-social-network-ana.md - Invalid domain: www.facebook.com (https://www.facebook.com/groups/dataminingsocialnetworks/)
+  data-science-academy.md - Invalid domain: www.facebook.com (https://www.facebook.com/nycdatascience)
+  data-science-closed-group.md - Invalid domain: www.facebook.com (https://www.facebook.com/groups/1394010454157077/?ref=br_rs)
+  data-science-day.md - Invalid domain: www.facebook.com (https://www.facebook.com/datascienceday/)
+  data-science-london.md - Invalid domain: www.facebook.com (https://www.facebook.com/pages/Data-Science-London/226174337471513)
+  data-science-primer.md - Invalid domain: www.youtube.com (https://www.youtube.com/watch?v=cHzvYxBN9Ls&list=PLPqVjP3T4RIRsjaW07zoGzH-Z4dBACpxY)
+  data-science-technology-and-corporation.md - Invalid domain: www.facebook.com (https://www.facebook.com/DataScienceTechnologyCorporation?ref=br_rs)
+  data-science-with-genetic-algorithms.md - Invalid domain: www.youtube.com (https://www.youtube.com/watch?v=lpD38NxTOnk)
+  deep-embedded-clustering-dec.md - Invalid domain: arxiv.org (https://arxiv.org/abs/1511.06335)
+  diffusionbot.md - Invalid domain: twitter.com (https://twitter.com/diffusionbot)
+  dimension-reduction.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Dimensionality_reduction)
+  dynamic-animations-in-swiftui-with-gpt-4.md - Invalid domain: twitter.com (https://twitter.com/MengTo/status/1636507977795481601)
+  e1071.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/e1071/index.html)
+  earth.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/earth/index.html)
+  editdistance.md - Invalid domain: pypi.org (https://pypi.org/project/editdistance/)
+  elasticnet.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/elasticnet/index.html)
+  elemstatlearn.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/ElemStatLearn/index.html)
+  em-expectation-maximization.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)
+  end-to-end-data-science-playlist.md - Invalid domain: www.youtube.com (https://www.youtube.com/watch?v=S_F_c9e2bz4&list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG)
+  enterprise-miner.md - Invalid domain: www.sas.com (https://www.sas.com/en_us/software/enterprise-miner.html)
+  evals-by-mosaicml.md - Invalid domain: twitter.com (https://twitter.com/jefrankle/status/1654631746506301441)
+  evtree.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/evtree/index.html)
+  factory-miner.md - Invalid domain: www.sas.com (https://www.sas.com/en_us/software/factory-miner.html)
+  figue.md - Invalid domain: code.google.com (https://code.google.com/archive/p/figue)
+  fin.md - Invalid domain: twitter.com (https://twitter.com/destraynor/status/1635705919441969153)
+  forecast.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/forecast/index.html)
+  forecasthybrid.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/forecastHybrid/index.html)
+  fp-growth-frequent-pattern-growth-algorithm.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Association_rule_learning#FP-growth_algorithm)
+  fpc.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/fpc/index.html)
+  frbs.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/frbs/index.html)
+  full-stack-data-scientist.md - Invalid domain: www.slideshare.net (https://www.slideshare.net/AlexeyGrigorev/fullstack-data-scientist)
+  gamboost.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/GAMBoost/index.html)
+  gamboostlss.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/gamboostLSS/index.html)
+  gbm.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/gbm/index.html)
+  generative-models.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Weak_supervision#Generative_models)
+  geomap.md - Invalid domain: pypi.org (https://pypi.org/project/geomap/)
+  glmpath.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/glmpath/index.html)
+  gmmboost.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/GMMBoost/index.html)
+  gonum-graph.md - Invalid domain: godoc.org (https://godoc.org/gonum.org/v1/gonum/graph)
+  gonum-mat.md - Invalid domain: godoc.org (https://godoc.org/gonum.org/v1/gonum/mat)
+  gonum-optimize.md - Invalid domain: godoc.org (https://godoc.org/gonum.org/v1/gonum/optimize)
+  gonum-plot.md - Invalid domain: godoc.org (https://godoc.org/gonum.org/v1/plot)
+  gonum-stat.md - Invalid domain: godoc.org (https://godoc.org/gonum.org/v1/gonum/stat)
+  gpt-4-for-debugging.md - Invalid domain: twitter.com (https://twitter.com/mayowaoshin/status/1635757442859671553)
+  gpt-4-for-making-google-chrome-extensions.md - Invalid domain: twitter.com (https://twitter.com/jakebrowatzke/status/1635882037319008258)
+  gpt-4-for-matchmaking.md - Invalid domain: twitter.com (https://twitter.com/jakozloski/status/1635778263787110401)
+  gpt-4-for-roblox-game-dev.md - Invalid domain: youtu.be (https://youtu.be/yx4t6hH-y4g)
+  gpt4.md - Invalid domain: www.reddit.com (https://www.reddit.com/r/GPT4/)
+  grplasso.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/grplasso/index.html)
+  grpreg.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/grpreg/index.html)
+  hda.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/hda/index.html)
+  heuristic-approaches.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Weak_supervision#Heuristic_approaches)
+  hidden-markov-models-hmm.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Hidden_Markov_model)
+  how-to-become-a-data-scientist.md - Invalid domain: www.slideshare.net (https://www.slideshare.net/ryanorban/how-to-become-a-data-scientist)
+  how-to-interview-a-data-scientist.md - Invalid domain: www.slideshare.net (https://www.slideshare.net/dtunkelang/how-to-interview-a-data-scientist)
+  interpretable.md - Invalid domain: pypi.org (https://pypi.org/project/interpretable)
+  ios-shortcut-to-gpt-4-and-github.md - Invalid domain: twitter.com (https://twitter.com/mckaywrigley/status/1640767366266232832)
+  ipred.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/ipred/index.html)
+  isolation-forest.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Isolation_forest)
+  k-means.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/K-means_clustering)
+  kernlab.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/kernlab/index.html)
+  klar.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/klaR/index.html)
+  knn-k-nearest-neighbors.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm)
+  l0learn.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/L0Learn/index.html)
+  laplacian-regularization.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Weak_supervision#Laplacian_regularization)
+  lars.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/lars/index.html)
+  lasso2.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/lasso2/index.html)
+  let-s-data-brazil.md - Invalid domain: www.youtube.com (https://www.youtube.com/playlist?list=PLn_z5E4dh_Lj5eogejMxfOiNX3nOhmhmM)
+  lightgbm-light-gradient-boosting-machine.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/LightGBM)
+  linear-regression.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Linear_regression)
+  localllama.md - Invalid domain: www.reddit.com (https://www.reddit.com/r/LocalLLaMA/)
+  locally-estimated-scatterplot-smoothing.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Local_regression)
+  logicreg.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/LogicReg/index.html)
+  logistic-regression.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Logistic_regression)
+  low-density-separation.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Weak_supervision#Low-density_separation)
+  lua-numerical-algorithms.md - Invalid domain: bitbucket.org (https://bitbucket.org/lucashnegri/lna)
+  magician.md - Invalid domain: twitter.com (https://twitter.com/jsngr/status/1635696478013337600)
+  make-a-film-from-script-to-screen.md - Invalid domain: twitter.com (https://twitter.com/nickfloats/status/1635749064091267098)
+  manning-publications-youtube-channel.md - Invalid domain: www.youtube.com (https://www.youtube.com/c/ManningPublications/featured)
+  manus-ai-vs-openclaw.md - Invalid domain: sourceforge.net (https://sourceforge.net/software/compare/Manus-vs-OpenClaw/)
+  maptree.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/maptree/index.html)
+  mboost.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/mboost/index.html)
+  milo.md - Invalid domain: twitter.com (https://twitter.com/APatelThompson/status/1635749787604770816)
+  mit.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/MIT_License)
+  mlr.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/mlr/index.html)
+  multilayer-perceptron.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Multilayer_perceptron)
+  multivariate-adaptive-regression-splines.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Multivariate_adaptive_regression_spline)
+  naive-bayes.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Naive_Bayes_classifier)
+  ncvreg.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/ncvreg/index.html)
+  neural-network-designer.md - Invalid domain: sourceforge.net (https://sourceforge.net/projects/nnd/)
+  neural-networks-by-3blue1brown.md - Invalid domain: www.youtube.com (https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
+  neural-networks.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Neural_network)
+  nnet.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/nnet/index.html)
+  open-pretrained-transformers.md - Invalid domain: www.youtube.com (https://www.youtube.com/watch?v=p9IxoSkvZ-M&t=4s)
+  openclaw-wikipedia.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/OpenClaw)
+  opencvdotnet.md - Invalid domain: code.google.com (https://code.google.com/archive/p/opencvdotnet)
+  ordinary-least-squares.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Ordinary_least_squares)
+  pagerank.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/PageRank)
+  pamr.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/pamr/index.html)
+  party.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/party/index.html)
+  partykit.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/partykit/index.html)
+  penalized.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/penalized/index.html)
+  penalizedlda.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/penalizedLDA/index.html)
+  penalizedsvm.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/penalizedSVM/index.html)
+  perl-data-language.md - Invalid domain: metacpan.org (https://metacpan.org/pod/Paws::MachineLearning)
+  php-ml.md - Invalid domain: gitlab.com (https://gitlab.com/php-ai/php-ml)
+  privacy-overview.md - Invalid domain: twitter.com (https://twitter.com/heyjunoco)
+  prompt-engineering-a-new-profession.md - Invalid domain: www.youtube.com (https://www.youtube.com/watch?v=w102J3_9Bcs&ab_channel=PatrickDebois)
+  quantregforest.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/quantregForest/index.html)
+  randomforest.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/randomForest/index.html)
+  randomforestsrc.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/randomForestSRC/index.html)
+  ranklib.md - Invalid domain: sourceforge.net (https://sourceforge.net/p/lemur/wiki/RankLib/)
+  raspell.md - Invalid domain: sourceforge.net (https://sourceforge.net/projects/raspell/)
+  rattle.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/rattle/index.html)
+  rda.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/rda/index.html)
+  rdetools.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/rdetools/index.html)
+  recurrent-neural-network-rnn.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Recurrent_neural_network)
+  reddit-textmining.md - Invalid domain: www.reddit.com (https://www.reddit.com/r/textdatamining/)
+  reemtree.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/REEMtree/index.html)
+  regression-models-applying-simple-poisson-regression.md - Invalid domain: www.youtube.com (https://www.youtube.com/watch?v=9Hk8K8jhiOo)
+  regression.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Regression)
+  relaxo.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/relaxo/index.html)
+  rgenoud.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/rgenoud/index.html)
+  rmalschains.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/Rmalschains/index.html)
+  rminer.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/rminer/index.html)
+  rocr.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/ROCR/index.html)
+  roughsets.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/RoughSets/index.html)
+  rpart.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/rpart/index.html)
+  rpmm.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/RPMM/index.html)
+  rsnns.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/RSNNS/index.html)
+  rweka.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/RWeka/index.html)
+  rxshrink.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/RXshrink/index.html)
+  santiago-basulto.md - Invalid domain: medium.com (https://medium.com/@santiagobasulto)
+  sarsa-state-action-reward-state-action-algorithm.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/State%E2%80%93action%E2%80%93reward%E2%80%93state%E2%80%93action)
+  sas-stat.md - Invalid domain: www.sas.com (https://www.sas.com/en_us/software/stat.html)
+  sda.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/sda/index.html)
+  self-organized-maps.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Self-organizing_map)
+  self-organizing-map.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Self-organizing_map)
+  sentiment-analysis.md - Invalid domain: www.sas.com (https://www.sas.com/en_us/software/sentiment-analysis.html)
+  serrano-academy.md - Invalid domain: www.youtube.com (https://www.youtube.com/@SerranoAcademy)
+  singularity.md - Invalid domain: www.reddit.com (https://www.reddit.com/r/singularity/)
+  sofia-ml.md - Invalid domain: code.google.com (https://code.google.com/archive/p/sofia-ml)
+  spectralgraphtopology.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/spectralGraphTopology/index.html)
+  stable-diffusion-for-krita.md - Invalid domain: www.reddit.com (https://www.reddit.com/r/StableDiffusion/comments/x4wtt0/outpainting_with_my_krita_plugin_for_stable/)
+  stablediffusion.md - Invalid domain: www.reddit.com (https://www.reddit.com/r/StableDiffusion/)
+  stanford-classifier.md - Invalid domain: nlp.stanford.edu (https://nlp.stanford.edu/software/classifier.shtml)
+  stanford-english-tokenizer.md - Invalid domain: nlp.stanford.edu (https://nlp.stanford.edu/software/tokenizer.shtml)
+  stanford-name-entity-recognizer.md - Invalid domain: nlp.stanford.edu (https://nlp.stanford.edu/software/CRF-NER.shtml)
+  stanford-parser.md - Invalid domain: nlp.stanford.edu (https://nlp.stanford.edu/software/lex-parser.shtml)
+  stanford-phrasal-a-phrase-based-translation-system.md - Invalid domain: nlp.stanford.edu (https://nlp.stanford.edu/phrasal/)
+  stanford-pos-tagger.md - Invalid domain: nlp.stanford.edu (https://nlp.stanford.edu/software/tagger.shtml)
+  stanford-spied.md - Invalid domain: nlp.stanford.edu (https://nlp.stanford.edu/software/patternslearning.shtml)
+  stanford-temporal-tagger.md - Invalid domain: nlp.stanford.edu (https://nlp.stanford.edu/software/sutime.shtml)
+  stanford-tokens-regex.md - Invalid domain: nlp.stanford.edu (https://nlp.stanford.edu/software/tokensregex.shtml)
+  stanford-word-segmenter.md - Invalid domain: nlp.stanford.edu (https://nlp.stanford.edu/software/segmenter.shtml)
+  stepwise-regression.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Stepwise_regression)
+  svm-support-vector-machine.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/Support_vector_machine)
+  svmpath.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/svmpath/index.html)
+  text-miner.md - Invalid domain: www.sas.com (https://www.sas.com/en_us/software/text-miner.html)
+  tgp.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/tgp/index.html)
+  tmap.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html)
+  tome.md - Invalid domain: twitter.com (https://twitter.com/hliriani/status/1635770323454038018)
+  tomlikesrobots.md - Invalid domain: twitter.com (https://twitter.com/TomLikesRobots)
+  tpu-top-k-periodic-and-high-utility-patterns.md - Invalid domain: arxiv.org (https://arxiv.org/abs/2509.15732)
+  tree.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/tree/index.html)
+  tregex-tsurgeon-and-semgrex.md - Invalid domain: nlp.stanford.edu (https://nlp.stanford.edu/software/tregex.shtml)
+  turn-napkin-sketch-into-a-web-app.md - Invalid domain: youtu.be (https://youtu.be/outcGtbnMuQ?t=972)
+  university-edition.md - Invalid domain: www.sas.com (https://www.sas.com/en_us/software/university-edition.html)
+  varselrf.md - Invalid domain: cran.r-project.org (https://cran.r-project.org/web/packages/varSelRF/index.html)
+  veri-bilimi-istanbul.md - Invalid domain: www.facebook.com (https://www.facebook.com/groups/veribilimiistanbul/)
+  video-testing-maige.md - Invalid domain: www.youtube.com (https://www.youtube.com/watch?v=YN-y-iweZTc&ab_channel=TerezaTizkova)
+  what-does-a-data-scientist-do.md - Invalid domain: www.slideshare.net (https://www.slideshare.net/datasciencelondon/big-data-sorry-data-science-what-does-a-data-scientist-do)
+  whats-ai-louis-bouchard.md - Invalid domain: twitter.com (https://twitter.com/Whats_AI)
+  why-you-should-work-on-ai-agents.md - Invalid domain: www.youtube.com (https://www.youtube.com/watch?v=fqVLjtvWgq8)
+  xgboost-extreme-gradient-boosting.md - Invalid domain: en.wikipedia.org (https://en.wikipedia.org/wiki/XGBoost)
+
+Invalid category: javascript (68 files):
+  auto-ml.md - Invalid category: javascript
+  bayesian-bandit.md - Invalid category: javascript
+  brain-js.md - Invalid category: javascript
+  brain.md - Invalid category: javascript
+  c3-js.md - Invalid category: javascript
+  catniff.md - Invalid category: javascript
+  chartjs.md - Invalid category: javascript
+  cheminfo.md - Invalid category: javascript
+  clusterfck.md - Invalid category: javascript
+  clustering-js.md - Invalid category: javascript
+  creatify-mcp.md - Invalid category: javascript
+  d3-js.md - Invalid category: javascript
+  d3xter.md - Invalid category: javascript
+  datakit.md - Invalid category: javascript
+  datamaps.md - Invalid category: javascript
+  dc-js.md - Invalid category: javascript
+  decision-trees.md - Invalid category: javascript
+  dimple.md - Invalid category: javascript
+  dn2a.md - Invalid category: javascript
+  fusioncharts.md - Invalid category: javascript
+  gaussian-mixture-model.md - Invalid category: javascript
+  greatcircle.md - Invalid category: javascript
+  half-beer.md - Invalid category: javascript
+  heroes-wear-masks.md - Invalid category: javascript
+  high-charts.md - Invalid category: javascript
+  jsmlt.md - Invalid category: javascript
+  kalman.md - Invalid category: javascript
+  kandle.md - Invalid category: javascript
+  keras-js.md - Invalid category: javascript
+  kmeans-js.md - Invalid category: javascript
+  knear.md - Invalid category: javascript
+  knwl-js.md - Invalid category: javascript
+  lda-js.md - Invalid category: javascript
+  learn-js-data.md - Invalid category: javascript
+  machinelearn-js.md - Invalid category: javascript
+  mil-tokyo.md - Invalid category: javascript
+  ml-js.md - Invalid category: javascript
+  ml5.md - Invalid category: javascript
+  mlpleasehelp.md - Invalid category: javascript
+  natural.md - Invalid category: javascript
+  neuraln.md - Invalid category: javascript
+  nivo.md - Invalid category: javascript
+  nlp-compromise.md - Invalid category: javascript
+  nlp-js.md - Invalid category: javascript
+  node-fann.md - Invalid category: javascript
+  node-svm.md - Invalid category: javascript
+  nsfwjs.md - Invalid category: javascript
+  nvd3-js.md - Invalid category: javascript
+  pavlov-js.md - Invalid category: javascript
+  pipcook.md - Invalid category: javascript
+  regression-js.md - Invalid category: javascript
+  retext.md - Invalid category: javascript
+  science-js.md - Invalid category: javascript
+  shaman.md - Invalid category: javascript
+  sigma-js.md - Invalid category: javascript
+  simple-statistics.md - Invalid category: javascript
+  statkit.md - Invalid category: javascript
+  stdlib.md - Invalid category: javascript
+  sylvester.md - Invalid category: javascript
+  synaptic.md - Invalid category: javascript
+  tensor-js.md - Invalid category: javascript
+  tensorflow-js.md - Invalid category: javascript
+  the-bot.md - Invalid category: javascript
+  webdnn.md - Invalid category: javascript
+  webnn.md - Invalid category: javascript
+  xgboost-node.md - Invalid category: javascript
+  z3d.md - Invalid category: javascript
+  zingchart.md - Invalid category: javascript
+
+Invalid category: deep learning packages (65 files):
+  altair.md - Invalid category: deep learning packages
+  amcharts.md - Invalid category: deep learning packages
+  anychart.md - Invalid category: deep learning packages
+  c3.md - Invalid category: deep learning packages
+  cartodb.md - Invalid category: deep learning packages
+  catalyst.md - Invalid category: deep learning packages
+  cube.md - Invalid category: deep learning packages
+  d3plus.md - Invalid category: deep learning packages
+  dash.md - Invalid category: deep learning packages
+  data-driven-documents-d3js.md - Invalid category: deep learning packages
+  dygraphs.md - Invalid category: deep learning packages
+  exhibit.md - Invalid category: deep learning packages
+  gephi.md - Invalid category: deep learning packages
+  glue.md - Invalid category: deep learning packages
+  google-chart-gallery.md - Invalid category: deep learning packages
+  gpytorch.md - Invalid category: deep learning packages
+  hera.md - Invalid category: deep learning packages
+  highcarts.md - Invalid category: deep learning packages
+  hyperas.md - Invalid category: deep learning packages
+  import-io.md - Invalid category: deep learning packages
+  keras-contrib.md - Invalid category: deep learning packages
+  keras-rl.md - Invalid category: deep learning packages
+  mesh-tensorflow.md - Invalid category: deep learning packages
+  networkx.md - Invalid category: deep learning packages
+  neupy.md - Invalid category: deep learning packages
+  nvd3.md - Invalid category: deep learning packages
+  openrefine.md - Invalid category: deep learning packages
+  plot-ly.md - Invalid category: deep learning packages
+  pyro.md - Invalid category: deep learning packages
+  pytorch-geometric.md - Invalid category: deep learning packages
+  pytorch-tabular.md - Invalid category: deep learning packages
+  pytorchnet.md - Invalid category: deep learning packages
+  pytoune.md - Invalid category: deep learning packages
+  pyvarinf.md - Invalid category: deep learning packages
+  qkeras.md - Invalid category: deep learning packages
+  r2d3.md - Invalid category: deep learning packages
+  raw.md - Invalid category: deep learning packages
+  resseract-lite.md - Invalid category: deep learning packages
+  skorch.md - Invalid category: deep learning packages
+  slemma.md - Invalid category: deep learning packages
+  spektral.md - Invalid category: deep learning packages
+  talos.md - Invalid category: deep learning packages
+  techanjs.md - Invalid category: deep learning packages
+  tensorflow-fold.md - Invalid category: deep learning packages
+  tensorflow-upstream.md - Invalid category: deep learning packages
+  tensorforce.md - Invalid category: deep learning packages
+  tensorlayer.md - Invalid category: deep learning packages
+  tensorlight.md - Invalid category: deep learning packages
+  tensorlm.md - Invalid category: deep learning packages
+  tensorpack.md - Invalid category: deep learning packages
+  tensorwatch.md - Invalid category: deep learning packages
+  tfdeploy.md - Invalid category: deep learning packages
+  tflearn.md - Invalid category: deep learning packages
+  timeline.md - Invalid category: deep learning packages
+  torchaudio.md - Invalid category: deep learning packages
+  torchtext.md - Invalid category: deep learning packages
+  torchvision.md - Invalid category: deep learning packages
+  trfl.md - Invalid category: deep learning packages
+  variancecharts.md - Invalid category: deep learning packages
+  vida.md - Invalid category: deep learning packages
+  vizzu.md - Invalid category: deep learning packages
+  wrangler.md - Invalid category: deep learning packages
+  yolov3.md - Invalid category: deep learning packages
+  yolov5.md - Invalid category: deep learning packages
+  yolov8.md - Invalid category: deep learning packages
+
+Invalid category: bloggers (64 files):
+  adventures-in-data-land.md - Invalid category: bloggers
+  analytics-vidhya.md - Invalid category: bloggers
+  andrew-carr.md - Invalid category: bloggers
+  calculated-risk.md - Invalid category: bloggers
+  chris-albon-s-website.md - Invalid category: bloggers
+  clare-corthell.md - Invalid category: bloggers
+  daniel-forsyth.md - Invalid category: bloggers
+  data-magnum.md - Invalid category: bloggers
+  data-mania.md - Invalid category: bloggers
+  data-school.md - Invalid category: bloggers
+  data-science-101.md - Invalid category: bloggers
+  data-science-lab.md - Invalid category: bloggers
+  data-science-weekly.md - Invalid category: bloggers
+  data-scientist.md - Invalid category: bloggers
+  data-stories.md - Invalid category: bloggers
+  dataclysm.md - Invalid category: bloggers
+  dataconomy.md - Invalid category: bloggers
+  datanews.md - Invalid category: bloggers
+  datascientistjourney.md - Invalid category: bloggers
+  datascopeanalytics.md - Invalid category: bloggers
+  datawrangling.md - Invalid category: bloggers
+  digital-transformation.md - Invalid category: bloggers
+  distill.md - Invalid category: bloggers
+  dominodatalab.md - Invalid category: bloggers
+  drew-conway.md - Invalid category: bloggers
+  emilio-ferrara-s-web-page.md - Invalid category: bloggers
+  flowingdata.md - Invalid category: bloggers
+  floydhub.md - Invalid category: bloggers
+  greg-reda.md - Invalid category: bloggers
+  hakan-kardas.md - Invalid category: bloggers
+  harvard-data-science.md - Invalid category: bloggers
+  hilary-mason.md - Invalid category: bloggers
+  hilary-parker.md - Invalid category: bloggers
+  i-am-trask.md - Invalid category: bloggers
+  jan-oliver-r-diger.md - Invalid category: bloggers
+  jingles.md - Invalid category: bloggers
+  julia-evans.md - Invalid category: bloggers
+  kaggle-past-solutions.md - Invalid category: bloggers
+  kd-nuggets.md - Invalid category: bloggers
+  loic-tetrel.md - Invalid category: bloggers
+  louis-dorard.md - Invalid category: bloggers
+  maria-khalusova.md - Invalid category: bloggers
+  matt-harrison.md - Invalid category: bloggers
+  matthew-russell.md - Invalid category: bloggers
+  meaning-of.md - Invalid category: bloggers
+  meta-brown.md - Invalid category: bloggers
+  mlu-github.md - Invalid category: bloggers
+  nbshare.md - Invalid category: bloggers
+  new-data-scientist.md - Invalid category: bloggers
+  noah-iliinsky.md - Invalid category: bloggers
+  occam-s-razor.md - Invalid category: bloggers
+  periscopic.md - Invalid category: bloggers
+  prash-chan.md - Invalid category: bloggers
+  quora-data-science.md - Invalid category: bloggers
+  revolution-analytics.md - Invalid category: bloggers
+  sean-j-taylor.md - Invalid category: bloggers
+  siah.md - Invalid category: bloggers
+  springboard.md - Invalid category: bloggers
+  tevfik-kosar.md - Invalid category: bloggers
+  the-practical-quant.md - Invalid category: bloggers
+  vademecum-of-practical-data-science.md - Invalid category: bloggers
+  vamshi-ambati.md - Invalid category: bloggers
+  wes-mckinney.md - Invalid category: bloggers
+  whatsthebigdata.md - Invalid category: bloggers
+
+Invalid category: services (62 files):
+  ai-boost.md - Invalid category: services
+  ai-photo-forge.md - Invalid category: services
+  ailingbot.md - Invalid category: services
+  alpaca.md - Invalid category: services
+  artbreeder.md - Invalid category: services
+  auto-evaluator.md - Invalid category: services
+  avatar-ai.md - Invalid category: services
+  bing-image-creator.md - Invalid category: services
+  black-headshots.md - Invalid category: services
+  chainlit.md - Invalid category: services
+  chatabstractions.md - Invalid category: services
+  clipdrop.md - Invalid category: services
+  copilotkit.md - Invalid category: services
+  craiyon.md - Invalid category: services
+  dreamstudio.md - Invalid category: services
+  far-search-tool.md - Invalid category: services
+  freepik-ai.md - Invalid category: services
+  gaugan2.md - Invalid category: services
+  gensbot.md - Invalid category: services
+  genshare.md - Invalid category: services
+  gorilla.md - Invalid category: services
+  gptcache.md - Invalid category: services
+  human-generator.md - Invalid category: services
+  icoloring.md - Invalid category: services
+  ideogram.md - Invalid category: services
+  imagine-by-magic-studio.md - Invalid category: services
+  jina.md - Invalid category: services
+  langchain-decorators.md - Invalid category: services
+  langchain-visualizer.md - Invalid category: services
+  langfair.md - Invalid category: services
+  langwatch.md - Invalid category: services
+  lensa.md - Invalid category: services
+  leonardo-ai.md - Invalid category: services
+  llama-github.md - Invalid category: services
+  llama2-embedding-server.md - Invalid category: services
+  llamahub.md - Invalid category: services
+  llm-strategy.md - Invalid category: services
+  magic-eraser.md - Invalid category: services
+  mindsql.md - Invalid category: services
+  modyfi.md - Invalid category: services
+  nightcafe.md - Invalid category: services
+  patience-ai.md - Invalid category: services
+  pawtrait.md - Invalid category: services
+  photoguruai.md - Invalid category: services
+  photoroom.md - Invalid category: services
+  pixelz-ai-art-generator.md - Invalid category: services
+  pixvify-ai.md - Invalid category: services
+  plantphotoai.md - Invalid category: services
+  planttattoosai.md - Invalid category: services
+  playground-ai.md - Invalid category: services
+  ponzu.md - Invalid category: services
+  promptfoo.md - Invalid category: services
+  recraft.md - Invalid category: services
+  republiclabs-ai.md - Invalid category: services
+  reve-image.md - Invalid category: services
+  room-reinvented.md - Invalid category: services
+  rundiffusion.md - Invalid category: services
+  stockphotoai-net.md - Invalid category: services
+  suit-me-up.md - Invalid category: services
+  tenuo.md - Invalid category: services
+  uqlm.md - Invalid category: services
+  vectorart-ai.md - Invalid category: services
+
+Invalid category: c (54 files):
+  banditlib.md - Invalid category: c
+  bllip-parser.md - Invalid category: c
+  ccv.md - Invalid category: c
+  cntk.md - Invalid category: c
+  colibri-core.md - Invalid category: c
+  crf.md - Invalid category: c
+  crfsuite.md - Invalid category: c
+  darknet.md - Invalid category: c
+  dsstne.md - Invalid category: c
+  dynet.md - Invalid category: c
+  fido.md - Invalid category: c
+  flexml.md - Invalid category: c
+  frog.md - Invalid category: c
+  grt.md - Invalid category: c
+  hybrid-recommender-system.md - Invalid category: c
+  igraph.md - Invalid category: c
+  intel-oneapi-data-analytics-library.md - Invalid category: c
+  kaldi.md - Invalid category: c
+  libfm.md - Invalid category: c
+  libfolia.md - Invalid category: c
+  libonnx.md - Invalid category: c
+  lkydeepnn.md - Invalid category: c
+  meta.md - Invalid category: c
+  mit-information-extraction-toolkit.md - Invalid category: c
+  mldb.md - Invalid category: c
+  n2d2.md - Invalid category: c
+  neonrvm.md - Invalid category: c
+  onednn.md - Invalid category: c
+  onnx-c.md - Invalid category: c
+  opencv.md - Invalid category: c
+  openpose.md - Invalid category: c
+  paramonte.md - Invalid category: c
+  pronet-core.md - Invalid category: c
+  pycuda.md - Invalid category: c
+  questdb.md - Invalid category: c
+  recommender.md - Invalid category: c
+  rltools.md - Invalid category: c
+  root.md - Invalid category: c
+  sentencepiece.md - Invalid category: c
+  shark.md - Invalid category: c
+  skynet.md - Invalid category: c
+  speedster.md - Invalid category: c
+  stan.md - Invalid category: c
+  thundergbm.md - Invalid category: c
+  thundersvm.md - Invalid category: c
+  timbl.md - Invalid category: c
+  tops.md - Invalid category: c
+  truss.md - Invalid category: c
+  vigra.md - Invalid category: c
+  vlfeat.md - Invalid category: c
+  vosk.md - Invalid category: c
+  vowpal-wabbit-vw.md - Invalid category: c
+  warp-ctc.md - Invalid category: c
+  xad.md - Invalid category: c
+
+Invalid category: computation and communication optimisation (50 files):
+  accelerate.md - Invalid category: computation and communication optimisation
+  adapters.md - Invalid category: computation and communication optimisation
+  bitblas.md - Invalid category: computation and communication optimisation
+  bitsandbytes.md - Invalid category: computation and communication optimisation
+  colossal-ai.md - Invalid category: computation and communication optimisation
+  composer.md - Invalid category: computation and communication optimisation
+  cuml.md - Invalid category: computation and communication optimisation
+  cupy.md - Invalid category: computation and communication optimisation
+  dask.md - Invalid category: computation and communication optimisation
+  deap.md - Invalid category: computation and communication optimisation
+  deepep.md - Invalid category: computation and communication optimisation
+  dgl.md - Invalid category: computation and communication optimisation
+  dlrover.md - Invalid category: computation and communication optimisation
+  einops.md - Invalid category: computation and communication optimisation
+  flaggems.md - Invalid category: computation and communication optimisation
+  flashlight.md - Invalid category: computation and communication optimisation
+  flax.md - Invalid category: computation and communication optimisation
+  hivemind.md - Invalid category: computation and communication optimisation
+  horovod.md - Invalid category: computation and communication optimisation
+  jax.md - Invalid category: computation and communication optimisation
+  kompute.md - Invalid category: computation and communication optimisation
+  lava.md - Invalid category: computation and communication optimisation
+  lightgbm.md - Invalid category: computation and communication optimisation
+  mlx.md - Invalid category: computation and communication optimisation
+  modin.md - Invalid category: computation and communication optimisation
+  nevergrad.md - Invalid category: computation and communication optimisation
+  norse.md - Invalid category: computation and communication optimisation
+  nvidia-tensorrt.md - Invalid category: computation and communication optimisation
+  optimum.md - Invalid category: computation and communication optimisation
+  paddlepaddle.md - Invalid category: computation and communication optimisation
+  peft.md - Invalid category: computation and communication optimisation
+  pyg.md - Invalid category: computation and communication optimisation
+  pytorch-lightning.md - Invalid category: computation and communication optimisation
+  pytorch.md - Invalid category: computation and communication optimisation
+  ray.md - Invalid category: computation and communication optimisation
+  scikit-learn.md - Invalid category: computation and communication optimisation
+  setfit.md - Invalid category: computation and communication optimisation
+  snntorch.md - Invalid category: computation and communication optimisation
+  sonnet.md - Invalid category: computation and communication optimisation
+  streaming.md - Invalid category: computation and communication optimisation
+  thunderkittens.md - Invalid category: computation and communication optimisation
+  torchdistill.md - Invalid category: computation and communication optimisation
+  torchkeras.md - Invalid category: computation and communication optimisation
+  torchopt.md - Invalid category: computation and communication optimisation
+  vaex.md - Invalid category: computation and communication optimisation
+  vescale.md - Invalid category: computation and communication optimisation
+  vowpal-wabbit.md - Invalid category: computation and communication optimisation
+  xgboost.md - Invalid category: computation and communication optimisation
+  ydf.md - Invalid category: computation and communication optimisation
+  yellowbrick.md - Invalid category: computation and communication optimisation
+
+Invalid category: julia (48 files):
+  ann.md - Invalid category: julia
+  clugen.md - Invalid category: julia
+  corpus-loaders.md - Invalid category: julia
+  da.md - Invalid category: julia
+  data-arrays.md - Invalid category: julia
+  data-frames-meta.md - Invalid category: julia
+  data-read.md - Invalid category: julia
+  datadeps.md - Invalid category: julia
+  dataframes.md - Invalid category: julia
+  distances.md - Invalid category: julia
+  distributions.md - Invalid category: julia
+  dsp.md - Invalid category: julia
+  embeddings.md - Invalid category: julia
+  gadfly.md - Invalid category: julia
+  gaussian-processes.md - Invalid category: julia
+  gaussianmixtures.md - Invalid category: julia
+  glm.md - Invalid category: julia
+  glmnet.md - Invalid category: julia
+  graph-layout.md - Invalid category: julia
+  hypothesis-tests.md - Invalid category: julia
+  images.md - Invalid category: julia
+  julia-data.md - Invalid category: julia
+  juliacon-presentations.md - Invalid category: julia
+  kernel-density.md - Invalid category: julia
+  knet.md - Invalid category: julia
+  languages.md - Invalid category: julia
+  lightgraphs.md - Invalid category: julia
+  local-regression.md - Invalid category: julia
+  mamba.md - Invalid category: julia
+  mcmc.md - Invalid category: julia
+  mixed-models.md - Invalid category: julia
+  mlbase.md - Invalid category: julia
+  mlj.md - Invalid category: julia
+  multivariatestats.md - Invalid category: julia
+  neural.md - Invalid category: julia
+  nmf.md - Invalid category: julia
+  pgm.md - Invalid category: julia
+  rocanalysis.md - Invalid category: julia
+  sampling.md - Invalid category: julia
+  scikitlearn.md - Invalid category: julia
+  signalprocessing.md - Invalid category: julia
+  simple-mcmc.md - Invalid category: julia
+  stats.md - Invalid category: julia
+  svm.md - Invalid category: julia
+  text-analysis.md - Invalid category: julia
+  topic-models.md - Invalid category: julia
+  word-tokenizers.md - Invalid category: julia
+  wordnet.md - Invalid category: julia
+
+Invalid category: go (41 files):
+  bayesian.md - Invalid category: go
+  birdland.md - Invalid category: go
+  cloudforest.md - Invalid category: go
+  cybertron.md - Invalid category: go
+  dataframe-go.md - Invalid category: go
+  eaopt.md - Invalid category: go
+  globe.md - Invalid category: go
+  glot.md - Invalid category: go
+  go-dnn.md - Invalid category: go
+  go-featureprocessing.md - Invalid category: go
+  go-galib.md - Invalid category: go
+  go-geom.md - Invalid category: go
+  go-graph.md - Invalid category: go
+  go-ml-benchmarks.md - Invalid category: go
+  go-ml-transpiler.md - Invalid category: go
+  go-ml.md - Invalid category: go
+  go-mxnet-predictor.md - Invalid category: go
+  go-ngram.md - Invalid category: go
+  go-porterstemmer.md - Invalid category: go
+  go-pr.md - Invalid category: go
+  gobrain.md - Invalid category: go
+  gocv.md - Invalid category: go
+  gogeo.md - Invalid category: go
+  gold.md - Invalid category: go
+  golearn.md - Invalid category: go
+  goml.md - Invalid category: go
+  gonn.md - Invalid category: go
+  gorgonia.md - Invalid category: go
+  goro.md - Invalid category: go
+  gota.md - Invalid category: go
+  leaves.md - Invalid category: go
+  neat.md - Invalid category: go
+  paicehusk.md - Invalid category: go
+  rf.md - Invalid category: go
+  sentences.md - Invalid category: go
+  snowball.md - Invalid category: go
+  spago.md - Invalid category: go
+  stable-baselines3.md - Invalid category: go
+  svgo.md - Invalid category: go
+  therfoo.md - Invalid category: go
+  word-embedding.md - Invalid category: go
+
+Invalid category: java (38 files):
+  aerosolve.md - Invalid category: java
+  amidst-toolbox.md - Invalid category: java
+  apache-ctakes.md - Invalid category: java
+  chips-n-salsa.md - Invalid category: java
+  cleartk.md - Invalid category: java
+  cmu-sphinx.md - Invalid category: java
+  cortical-io.md - Invalid category: java
+  datamelt.md - Invalid category: java
+  datumbox.md - Invalid category: java
+  deepjavalibrary-djl.md - Invalid category: java
+  dr-michael-thomas-flanagan-s-java-scientific-library.md - Invalid category: java
+  elki.md - Invalid category: java
+  flink.md - Invalid category: java
+  flinkml-in-apache-flink.md - Invalid category: java
+  h2o.md - Invalid category: java
+  hadoop.md - Invalid category: java
+  htm-java.md - Invalid category: java
+  hydrosphere-mist.md - Invalid category: java
+  impala.md - Invalid category: java
+  iris.md - Invalid category: java
+  knn-java-library.md - Invalid category: java
+  lbjava.md - Invalid category: java
+  liblinear-java.md - Invalid category: java
+  lingpipe.md - Invalid category: java
+  mahout.md - Invalid category: java
+  mallet.md - Invalid category: java
+  mllib-in-apache-spark.md - Invalid category: java
+  nlp4j.md - Invalid category: java
+  onyx.md - Invalid category: java
+  opennlp.md - Invalid category: java
+  oryx.md - Invalid category: java
+  rapaio.md - Invalid category: java
+  rapidminer.md - Invalid category: java
+  samoa.md - Invalid category: java
+  smile.md - Invalid category: java
+  systemml.md - Invalid category: java
+  tribou.md - Invalid category: java
+  weka.md - Invalid category: java
+
+Invalid category: clojure (38 files):
+  clj-ml.md - Invalid category: clojure
+  clojisr.md - Invalid category: clojure
+  clojupyter.md - Invalid category: clojure
+  clojure-opennlp.md - Invalid category: clojure
+  clojush.md - Invalid category: clojure
+  clortex.md - Invalid category: clojure
+  comportex.md - Invalid category: clojure
+  cortex.md - Invalid category: clojure
+  deep-diamond.md - Invalid category: clojure
+  delight.md - Invalid category: clojure
+  dl4clj.md - Invalid category: clojure
+  encog.md - Invalid category: clojure
+  envision.md - Invalid category: clojure
+  fastmath.md - Invalid category: clojure
+  flare.md - Invalid category: clojure
+  fungp.md - Invalid category: clojure
+  geni.md - Invalid category: clojure
+  hanami.md - Invalid category: clojure
+  incanter.md - Invalid category: clojure
+  infections-clj.md - Invalid category: clojure
+  infer.md - Invalid category: clojure
+  java-interop.md - Invalid category: clojure
+  javascript-interop.md - Invalid category: clojure
+  jutsu-ai.md - Invalid category: clojure
+  kixistats.md - Invalid category: clojure
+  lambda-ml.md - Invalid category: clojure
+  libpython-clj.md - Invalid category: clojure
+  matlib.md - Invalid category: clojure
+  neanderthal.md - Invalid category: clojure
+  notespace.md - Invalid category: clojure
+  oz.md - Invalid category: clojure
+  panthera.md - Invalid category: clojure
+  pigpen.md - Invalid category: clojure
+  saite.md - Invalid category: clojure
+  scicloj-ml.md - Invalid category: clojure
+  statistiker.md - Invalid category: clojure
+  tablecloth.md - Invalid category: clojure
+  touchstone.md - Invalid category: clojure
+
+Invalid category: industry strength reinforcement learning (35 files):
+  acme.md - Invalid category: industry strength reinforcement learning
+  areal.md - Invalid category: industry strength reinforcement learning
+  cleanrl.md - Invalid category: industry strength reinforcement learning
+  d3rlpy.md - Invalid category: industry strength reinforcement learning
+  d4rl.md - Invalid category: industry strength reinforcement learning
+  dopamine.md - Invalid category: industry strength reinforcement learning
+  evotorch.md - Invalid category: industry strength reinforcement learning
+  finrl.md - Invalid category: industry strength reinforcement learning
+  gymnasium-robotics.md - Invalid category: industry strength reinforcement learning
+  gymnasium.md - Invalid category: industry strength reinforcement learning
+  jumanji.md - Invalid category: industry strength reinforcement learning
+  marllib.md - Invalid category: industry strength reinforcement learning
+  mava.md - Invalid category: industry strength reinforcement learning
+  metadrive.md - Invalid category: industry strength reinforcement learning
+  minigrid.md - Invalid category: industry strength reinforcement learning
+  miniworld.md - Invalid category: industry strength reinforcement learning
+  ml-agents.md - Invalid category: industry strength reinforcement learning
+  mlgym.md - Invalid category: industry strength reinforcement learning
+  mushroomrl.md - Invalid category: industry strength reinforcement learning
+  omnisafe.md - Invalid category: industry strength reinforcement learning
+  openrlhf.md - Invalid category: industry strength reinforcement learning
+  parl.md - Invalid category: industry strength reinforcement learning
+  pettingzoo.md - Invalid category: industry strength reinforcement learning
+  ranx.md - Invalid category: industry strength reinforcement learning
+  rl2.md - Invalid category: industry strength reinforcement learning
+  rl4co.md - Invalid category: industry strength reinforcement learning
+  rlinf.md - Invalid category: industry strength reinforcement learning
+  roll.md - Invalid category: industry strength reinforcement learning
+  skrl.md - Invalid category: industry strength reinforcement learning
+  slime.md - Invalid category: industry strength reinforcement learning
+  stable-baselines.md - Invalid category: industry strength reinforcement learning
+  tf-agents.md - Invalid category: industry strength reinforcement learning
+  torchrl.md - Invalid category: industry strength reinforcement learning
+  trl.md - Invalid category: industry strength reinforcement learning
+  verl.md - Invalid category: industry strength reinforcement learning
+
+Invalid category: llm leaderboard (33 files):
+  aclue.md - Invalid category: llm leaderboard
+  alpacaeval-leaderboard.md - Invalid category: llm leaderboard
+  alpacaeval.md - Invalid category: llm leaderboard
+  behonest.md - Invalid category: llm leaderboard
+  berkeley-function-calling-leaderboard.md - Invalid category: llm leaderboard
+  chatbot-arena-leaderboard.md - Invalid category: llm leaderboard
+  chinese-large-model-leaderboard.md - Invalid category: llm leaderboard
+  compassrank.md - Invalid category: llm leaderboard
+  compmix.md - Invalid category: llm leaderboard
+  dreambench.md - Invalid category: llm leaderboard
+  felm.md - Invalid category: llm leaderboard
+  infibench.md - Invalid category: llm leaderboard
+  lawbench.md - Invalid category: llm leaderboard
+  livebench.md - Invalid category: llm leaderboard
+  llm-leaderboard-streamlit.md - Invalid category: llm leaderboard
+  llmeval.md - Invalid category: llm leaderboard
+  lmsys-org.md - Invalid category: llm leaderboard
+  m3cot.md - Invalid category: llm leaderboard
+  matheval.md - Invalid category: llm leaderboard
+  mixeval.md - Invalid category: llm leaderboard
+  mmedbench.md - Invalid category: llm leaderboard
+  mmtom-qa.md - Invalid category: llm leaderboard
+  olympicarena.md - Invalid category: llm leaderboard
+  open-llm-leaderboard.md - Invalid category: llm leaderboard
+  pubmedqa.md - Invalid category: llm leaderboard
+  scibench.md - Invalid category: llm leaderboard
+  superbench.md - Invalid category: llm leaderboard
+  superlim.md - Invalid category: llm leaderboard
+  tat-dqa.md - Invalid category: llm leaderboard
+  tat-qa.md - Invalid category: llm leaderboard
+  visualwebarena.md - Invalid category: llm leaderboard
+  we-math.md - Invalid category: llm leaderboard
+  whoops.md - Invalid category: llm leaderboard
+
+Invalid category: industry strength natural language processing (29 files):
+  aisuite.md - Invalid category: industry strength natural language processing
+  align-anything.md - Invalid category: industry strength natural language processing
+  bertopic.md - Invalid category: industry strength natural language processing
+  burr.md - Invalid category: industry strength natural language processing
+  codetf.md - Invalid category: industry strength natural language processing
+  espnet.md - Invalid category: industry strength natural language processing
+  flair.md - Invalid category: industry strength natural language processing
+  gensim.md - Invalid category: industry strength natural language processing
+  gpt-fast.md - Invalid category: industry strength natural language processing
+  h2ogpt.md - Invalid category: industry strength natural language processing
+  interactive-composition-explorer.md - Invalid category: industry strength natural language processing
+  lamini.md - Invalid category: industry strength natural language processing
+  llama-factory.md - Invalid category: industry strength natural language processing
+  llama2-accessory.md - Invalid category: industry strength natural language processing
+  llmbox.md - Invalid category: industry strength natural language processing
+  lmflow.md - Invalid category: industry strength natural language processing
+  mindnlp.md - Invalid category: industry strength natural language processing
+  mlc-llm.md - Invalid category: industry strength natural language processing
+  mlx-lm.md - Invalid category: industry strength natural language processing
+  olmocr.md - Invalid category: industry strength natural language processing
+  paddlenlp.md - Invalid category: industry strength natural language processing
+  pyllms.md - Invalid category: industry strength natural language processing
+  sentence-transformers.md - Invalid category: industry strength natural language processing
+  spacy.md - Invalid category: industry strength natural language processing
+  swift.md - Invalid category: industry strength natural language processing
+  tensorflow-lingvo.md - Invalid category: industry strength natural language processing
+  tensorflow-text.md - Invalid category: industry strength natural language processing
+  toolbench.md - Invalid category: industry strength natural language processing
+  transformers.md - Invalid category: industry strength natural language processing
+
+Invalid category: general machine learning packages (29 files):
+  causalml.md - Invalid category: general machine learning packages
+  dlib.md - Invalid category: general machine learning packages
+  hyperlearn.md - Invalid category: general machine learning packages
+  imodels.md - Invalid category: general machine learning packages
+  jscipy.md - Invalid category: general machine learning packages
+  mlpack.md - Invalid category: general machine learning packages
+  mlxtend.md - Invalid category: general machine learning packages
+  modal.md - Invalid category: general machine learning packages
+  perpetualbooster.md - Invalid category: general machine learning packages
+  pygam.md - Invalid category: general machine learning packages
+  pystruct.md - Invalid category: general machine learning packages
+  rulefit.md - Invalid category: general machine learning packages
+  scikit-feature.md - Invalid category: general machine learning packages
+  scikit-image.md - Invalid category: general machine learning packages
+  scikit-multilearn.md - Invalid category: general machine learning packages
+  scikit-opt.md - Invalid category: general machine learning packages
+  scikit-posthocs.md - Invalid category: general machine learning packages
+  scikit-rebate.md - Invalid category: general machine learning packages
+  scikit-survival.md - Invalid category: general machine learning packages
+  seqlearn.md - Invalid category: general machine learning packages
+  shogun.md - Invalid category: general machine learning packages
+  sigopt-sklearn.md - Invalid category: general machine learning packages
+  sklearn-bayes.md - Invalid category: general machine learning packages
+  sklearn-crfsuite.md - Invalid category: general machine learning packages
+  sklearn-deap.md - Invalid category: general machine learning packages
+  sklearn-evaluation.md - Invalid category: general machine learning packages
+  sklearn-expertsys.md - Invalid category: general machine learning packages
+  sparkit-learn.md - Invalid category: general machine learning packages
+  xlearn.md - Invalid category: general machine learning packages
+
+Invalid category: contents (28 files):
+  ai-phone-call-agents.md - Invalid category: contents
+  ai-text.md - Invalid category: contents
+  audio.md - Invalid category: contents
+  code-with-ai.md - Invalid category: contents
+  coding.md - Invalid category: contents
+  community-projects.md - Invalid category: contents
+  editor-s-choice.md - Invalid category: contents
+  generative-ai-audio.md - Invalid category: contents
+  generative-ai-images.md - Invalid category: contents
+  generative-ai-video.md - Invalid category: contents
+  gpt-4-news-and-announcements.md - Invalid category: contents
+  image.md - Invalid category: contents
+  integrations.md - Invalid category: contents
+  mcp-support.md - Invalid category: contents
+  more-lists.md - Invalid category: contents
+  official-resources.md - Invalid category: contents
+  other-ai-tools.md - Invalid category: contents
+  other.md - Invalid category: contents
+  post-processing-tools.md - Invalid category: contents
+  prompts.md - Invalid category: contents
+  recommended-reading.md - Invalid category: contents
+  ruleskill.md - Invalid category: contents
+  security.md - Invalid category: contents
+  skills-plugins.md - Invalid category: contents
+  text-to-image-models.md - Invalid category: contents
+  text.md - Invalid category: contents
+  tools.md - Invalid category: contents
+  video.md - Invalid category: contents
+
+Invalid category: scala (27 files):
+  adam.md - Invalid category: scala
+  algebird.md - Invalid category: scala
+  bidmach.md - Invalid category: scala
+  bidmat.md - Invalid category: scala
+  bioscala.md - Invalid category: scala
+  breeze.md - Invalid category: scala
+  brushfire.md - Invalid category: scala
+  chalk.md - Invalid category: scala
+  conjecture.md - Invalid category: scala
+  doddle-model.md - Invalid category: scala
+  dynaml.md - Invalid category: scala
+  factorie.md - Invalid category: scala
+  figaro.md - Invalid category: scala
+  ganitha.md - Invalid category: scala
+  h2o-sparkling-water.md - Invalid category: scala
+  microsoft-ml-for-apache-spark.md - Invalid category: scala
+  montague.md - Invalid category: scala
+  onnx-scala.md - Invalid category: scala
+  predictionio.md - Invalid category: scala
+  saul.md - Invalid category: scala
+  scalanlp.md - Invalid category: scala
+  scalding.md - Invalid category: scala
+  spark-nlp.md - Invalid category: scala
+  summing-bird.md - Invalid category: scala
+  swiftlearner.md - Invalid category: scala
+  tensorflow-scala.md - Invalid category: scala
+  xerial.md - Invalid category: scala
+
+ML algorithm / Library (26 files):
+  anomaly-detection.md - Name matches non-agent pattern: Anomaly Detection
+  caffe.md - Name matches non-agent pattern: Caffe
+  cartoons.md - Name matches non-agent pattern: Cartoons
+  cv.md - Name matches non-agent pattern: CV
+  decision-tree.md - Name matches non-agent pattern: Decision Tree
+  dockerdl.md - Name matches non-agent pattern: DockerDL
+  gradient-boosting.md - Name matches non-agent pattern: Gradient Boosting
+  gru-ai.md - Name matches non-agent pattern: Gru.ai
+  keras-in-motion.md - Name matches non-agent pattern: Keras in Motion
+  keras-tuner.md - Name matches non-agent pattern: keras-tuner
+  keras.md - Name matches non-agent pattern: Keras
+  kerascv.md - Name matches non-agent pattern: KerasCV
+  kubernetes-and-prometheus-chatgpt-bot.md - Name matches non-agent pattern: Kubernetes and Prometheus ChatGPT Bot
+  matplotlib.md - Name matches non-agent pattern: matplotlib
+  mmcv.md - Name matches non-agent pattern: MMCV
+  mxnet-sharp.md - Name matches non-agent pattern: MxNet.Sharp
+  mxnet.md - Name matches non-agent pattern: MXNet
+  openai-discord-channel.md - Name matches non-agent pattern: OpenAI Discord Channel
+  plotly.md - Name matches non-agent pattern: Plotly
+  seaborn.md - Name matches non-agent pattern: seaborn
+  support-vector-machines.md - Name matches non-agent pattern: Support Vector Machines
+  tensorflow-model-analysis.md - Name matches non-agent pattern: TensorFlow Model Analysis
+  tensorflow-privacy.md - Name matches non-agent pattern: Tensorflow Privacy
+  tensorflow-serving.md - Name matches non-agent pattern: Tensorflow Serving
+  tensorflow.md - Name matches non-agent pattern: tensorflow
+  vae.md - Name matches non-agent pattern: VAE
+
+Invalid category: ruby (18 files):
+  arel.md - Invalid category: ruby
+  big-data-for-chimps.md - Invalid category: ruby
+  bioruby.md - Invalid category: ruby
+  cardmagic-classifier.md - Invalid category: ruby
+  data-visualization-ruby.md - Invalid category: ruby
+  glean.md - Invalid category: ruby
+  jruby-mahout.md - Invalid category: ruby
+  listof.md - Invalid category: ruby
+  plot-rb.md - Invalid category: ruby
+  rb-libsvm.md - Invalid category: ruby
+  rsruby.md - Invalid category: ruby
+  ruby-plot.md - Invalid category: ruby
+  rumale.md - Invalid category: ruby
+  sciruby.md - Invalid category: ruby
+  scoruby.md - Invalid category: ruby
+  scruffy.md - Invalid category: ruby
+  treat.md - Invalid category: ruby
+  uea-stemmer.md - Invalid category: ruby
+
+Invalid category: podcasts (16 files):
+  ai-today.md - Invalid category: podcasts
+  data-engineering-podcast.md - Invalid category: podcasts
+  data-science-mixer.md - Invalid category: podcasts
+  data-skeptic.md - Invalid category: podcasts
+  datacast.md - Invalid category: podcasts
+  dataframed.md - Invalid category: podcasts
+  gradient-descent.md - Invalid category: podcasts
+  linear-digressions.md - Invalid category: podcasts
+  not-so-standard-deviations.md - Invalid category: podcasts
+  o-reilly-data-show-podcast.md - Invalid category: podcasts
+  partially-derivative.md - Invalid category: podcasts
+  superdatascience.md - Invalid category: podcasts
+  the-analytics-engineering-podcast.md - Invalid category: podcasts
+  the-data-engineering-show.md - Invalid category: podcasts
+  the-radical-ai-podcast.md - Invalid category: podcasts
+  what-s-the-point.md - Invalid category: podcasts
+
+Invalid category: rust (15 files):
+  burn.md - Invalid category: rust
+  candle.md - Invalid category: rust
+  deeplearn-rs.md - Invalid category: rust
+  delta.md - Invalid category: rust
+  dfdx.md - Invalid category: rust
+  leaf.md - Invalid category: rust
+  linfa.md - Invalid category: rust
+  rust-bert.md - Invalid category: rust
+  rusticsom.md - Invalid category: rust
+  rustlearn.md - Invalid category: rust
+  rustnn.md - Invalid category: rust
+  rusty-machine.md - Invalid category: rust
+  shimmy.md - Invalid category: rust
+  smartcore.md - Invalid category: rust
+  tch-rs.md - Invalid category: rust
+
+Invalid category: matlab (13 files):
+  bandlets.md - Invalid category: matlab
+  contourlets.md - Invalid category: matlab
+  curvelets.md - Invalid category: matlab
+  gaimc.md - Invalid category: matlab
+  liblinear.md - Invalid category: matlab
+  libsvm.md - Invalid category: matlab
+  matlab-bgl.md - Invalid category: matlab
+  mexopencv.md - Invalid category: matlab
+  moclugen.md - Invalid category: matlab
+  optunity.md - Invalid category: matlab
+  pattern-recognition-toolbox.md - Invalid category: matlab
+  shearlets.md - Invalid category: matlab
+  spider.md - Invalid category: matlab
+
+Invalid category: r (10 files):
+  caret.md - Invalid category: r
+  clugenr.md - Invalid category: r
+  data-table.md - Invalid category: r
+  dplyr.md - Invalid category: r
+  medley.md - Invalid category: r
+  shiny.md - Invalid category: r
+  superlearner.md - Invalid category: r
+  tdsp-utilities.md - Invalid category: r
+  tm.md - Invalid category: r
+  xgboost-r.md - Invalid category: r
+
+Invalid category: comparison (9 files):
+  autoencoder.md - Invalid category: comparison
+  catboost.md - Invalid category: comparison
+  clustering.md - Invalid category: comparison
+  conditional-random-field-crf.md - Invalid category: comparison
+  datacompy.md - Invalid category: comparison
+  generative-adversarial-network-gan.md - Invalid category: comparison
+  ml-system-designs.md - Invalid category: comparison
+  softmax-regression.md - Invalid category: comparison
+  transformer.md - Invalid category: comparison
+
+Invalid category: swift (8 files):
+  aitoolbox.md - Invalid category: swift
+  bender.md - Invalid category: swift
+  braincore.md - Invalid category: swift
+  mlkit.md - Invalid category: swift
+  perfect-tensorflow.md - Invalid category: swift
+  swift-ai.md - Invalid category: swift
+  swift-brain.md - Invalid category: swift
+  swix.md - Invalid category: swift
+
+Invalid category: lua (8 files):
+  atari2600.md - Invalid category: lua
+  core-torch7-demos-repository.md - Invalid category: lua
+  keras-gpt-copilot.md - Invalid category: lua
+  lunatic-python.md - Invalid category: lua
+  lunum.md - Invalid category: lua
+  numeric-lua.md - Invalid category: lua
+  scilua.md - Invalid category: lua
+  torch7.md - Invalid category: lua
+
+Invalid URL pattern (7 files):
+  corvid.md - Invalid URL pattern: https://wix.com/corvid
+  eblearn.md - Invalid URL pattern: http://eblearn.sourceforge.net/
+  llama.md - Invalid URL pattern: https://ai.facebook.com/blog/large-language-model-llama-meta-ai/
+  make-a-scene.md - Invalid URL pattern: https://ai.facebook.com/blog/greater-creative-control-for-ai-image-generation/
+  meka.md - Invalid URL pattern: http://meka.sourceforge.net/
+  neuroph.md - Invalid URL pattern: http://neuroph.sourceforge.net/
+  sanebox.md - Invalid URL pattern: https://try.sanebox.com/yzkpe5s68xk2
+
+Invalid category: haskell (6 files):
+  dnngraph.md - Invalid category: haskell
+  haskell-ml.md - Invalid category: haskell
+  hlearn.md - Invalid category: haskell
+  hnn.md - Invalid category: haskell
+  hopfield-networks.md - Invalid category: haskell
+  lambdanet.md - Invalid category: haskell
+
+Invalid category: elixir (4 files):
+  emel.md - Invalid category: elixir
+  simple-bayes.md - Invalid category: elixir
+  stemmer.md - Invalid category: elixir
+  tensorflex.md - Invalid category: elixir
+
+Invalid category: crystal (2 files):
+  crystal-fann.md - Invalid category: crystal
+  machine.md - Invalid category: crystal
+
+Invalid category: fortran (1 files):
+  neural-fortran.md - Invalid category: fortran
+
+Invalid category: kotlin (1 files):
+  kotlindl.md - Invalid category: kotlin
+
+Invalid category: erlang (1 files):
+  disco.md - Invalid category: erlang
