@@ -1,0 +1,38 @@
+---
+name: "Flan5 LLM"
+category: "Notebooks"
+source_url: "https://colab.research.google.com/drive/1AVh9dOsG9DKzfK7gOFrJuitPIcLPqlbO?usp=sharing"
+description: "Flan5 LLM is an AI agent in the Notebooks category. PDF QA using LangChain for chain of thought and multi-task instructions, Flan5 on HuggingFace"
+tech_stack:
+  - "Not publicly specified"
+problem_solved: "This tool addresses challenges in the notebooks domain."
+target_audience: "Developers and teams working with notebooks automation."
+inputs:
+  - "User configuration"
+  - "API credentials (if required)"
+  - "Task parameters"
+outputs:
+  - "Automated task results"
+  - "Status reports"
+  - "Generated content or actions"
+workflow_steps:
+  - "User configures the agent with required parameters"
+  - "Agent receives input data or trigger"
+  - "Agent processes the request using its core logic"
+  - "Agent interacts with external services if needed"
+  - "Results are returned to the user"
+sample_prompt: |
+  You are Flan5 LLM, an AI assistant. Help the user accomplish their task efficiently.
+tools_used:
+  - "Not publicly specified"
+alternatives:
+  - "AutoGPT"
+  - "LangChain Agents"
+  - "CrewAI"
+is_open_source: "Not publicly specified"
+can_self_host: "Not publicly specified"
+skill_level: "Intermediate"
+last_updated: 2026-02-15
+---
+
+<!-- Additional notes or content can go here -->
