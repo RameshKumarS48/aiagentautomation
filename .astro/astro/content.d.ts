@@ -27840,6 +27840,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"zenable.md": {
+	id: "zenable.md";
+  slug: "zenable";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "zenmic-com.md": {
 	id: "zenmic-com.md";
   slug: "zenmic-com";
