@@ -290,6 +290,7 @@ SOURCES = [
 
 # Patterns to skip - these are NOT actual AI agents
 SKIP_PATTERNS = [
+    # Social media and community links
     r'^(the\s+)?documentation$',
     r'^discord(\s+invite)?$',
     r'^github(\s+repository)?$',
@@ -347,7 +348,108 @@ SKIP_PATTERNS = [
     r'^data[\s-]?analysis$',
     r'^arxiv',
     r'^hackernews',
+    
+    # === NEW FILTERS: Non-Agent Content ===
+    # Datasets
+    r'dataset',
+    r'data[\s-]?set',
+    r'data[\s-]?collection',
+    r'data[\s-]?repository',
+    r'data[\s-]?archive',
+    r'data[\s-]?portal',
+    r'open[\s-]?data',
+    r'public[\s-]?data',
+    r'data[\s-]?search',
+    r'data[\s-]?viewer',
+    
+    # Tutorials & Courses
+    r'tutorial',
+    r'course',
+    r'lesson',
+    r'workshop',
+    r'training',
+    r'bootcamp',
+    r'certification',
+    r'specialization',
+    r'learning[\s-]?path',
+    r'study[\s-]?guide',
+    r'cheat[\s-]?sheet',
+    r'reference[\s-]?guide',
+    
+    # Books & Publications
+    r'book',
+    r'handbook',
+    r'cookbook',
+    r'manual',
+    r'textbook',
+    r'ebook',
+    r'publication',
+    
+    # Papers & Research
+    r'research[\s-]?paper',
+    r'white[\s-]?paper',
+    r'technical[\s-]?report',
+    r'survey[\s-]?paper',
+    r'conference[\s-]?paper',
+    r'journal[\s-]?article',
+    r'thesis',
+    r'dissertation',
+    
+    # Learning Resources
+    r'introduction[\s-]?to',
+    r'getting[\s-]?started[\s-]?with',
+    r'beginner',
+    r'advanced[\s-]?guide',
+    r'from[\s-]?scratch',
+    r'explained',
+    r'understanding',
+    r'basics[\s-]?of',
+    r'overview[\s-]?of',
+    r'fundamentals',
+    
+    # Collections & Lists
+    r'awesome[\s-]?.*[\s-]?papers',
+    r'awesome[\s-]?.*[\s-]?datasets',
+    r'awesome[\s-]?.*[\s-]?books',
+    r'awesome[\s-]?.*[\s-]?tutorials',
+    r'awesome[\s-]?.*[\s-]?courses',
+    r'collection[\s-]?of',
+    r'list[\s-]?of',
+    r'catalog[\s-]?of',
+    r'gallery[\s-]?of',
+    r'archive[\s-]?of',
+    
+    # Blogs & Articles
+    r'blog[\s-]?post',
+    r'article[\s-]?series',
+    r'news[\s-]?letter',
+    r'weekly[\s-]?digest',
+    
+    # Examples & Demos
+    r'example[\s-]?code',
+    r'code[\s-]?sample',
+    r'notebook',
+    r'jupyter',
+    r'ipython',
+    
+    # Job & Career
+    r'job[\s-]?posting',
+    r'career',
+    r'resume',
+    r'cv[\s-]?template',
+    r'interview[\s-]?questions',
+    
+    # Misc Non-Agent Content
+    r'roadmap',
+    r'comparison',
+    r'alternatives[\s-]?to',
+    r'best[\s-]?.*[\s-]?alternatives',
+    r'projects[\s-]?ideas',
+    r'challenge',
+    r'competition',
+    r'hackathon',
 ]
+
 
 # Compile patterns for efficiency
 SKIP_COMPILED = [re.compile(p, re.IGNORECASE) for p in SKIP_PATTERNS]

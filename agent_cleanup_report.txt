@@ -1,0 +1,482 @@
+Agent Directory Cleanup Report
+============================================================
+
+Total files: 3968
+Valid agents: 3494
+Non-agents: 474
+
+Files to remove:
+  parallel-machine-learning-with-scikit-learn-and-ipython.md - Filename matches pattern: learning
+  rwkv-howto.md - Category: other papers
+  genetic-algorithms-and-genetic-programming.md - Category: books
+  llm-lobbyist.md - Category: notebooks
+  introducing-data-science.md - Category: books
+  awesome-gpt.md - Category: other papers
+  advanced-prompt-engineering.md - Filename matches pattern: advanced
+  data-mania-blog.md - Filename matches pattern: blog
+  keras-tutorials.md - Filename matches pattern: tutorial
+  hyperparameter-optimization-of-machine-learning-algorithms.md - Filename matches pattern: learning
+  devsecops-guides.md - Filename matches pattern: guide
+  mne-python-notebooks.md - Filename matches pattern: book
+  machine-learning-mastery.md - Filename matches pattern: learning
+  langchain-chinese-getting-started-guide.md - Filename matches pattern: guide
+  tidytuesday.md - Category: tutorials
+  python-for-data-science-by-scaler.md - Category: free courses
+  keras-beginner-tutorial.md - Filename matches pattern: tutorial
+  build-gpt-how-ai-works.md - Category: llm books
+  academic-torrents.md - Filename matches pattern: torrents
+  pandas-cookbook.md - Filename matches pattern: book
+  awesome-llm-inference.md - Category: other papers
+  a-gallery-of-interesting-ipython-notebooks.md - Filename matches pattern: book
+  machine-learning-from-scratch.md - Filename matches pattern: learning
+  casual-inference-for-data-science.md - Category: books
+  online-learning.md - Filename matches pattern: learning
+  data-for-all.md - Category: books
+  adversarial-learning.md - Filename matches pattern: learning
+  open-data-philly.md - Category: datasets
+  trelent.md - Category: documentation
+  scikit-learn-tutorials.md - Filename matches pattern: tutorial
+  what-is-machine-learning.md - Filename matches pattern: learning
+  machine-learning-engineering-for-production-mlops.md - Filename matches pattern: learning
+  designing-cloud-data-platforms.md - Category: books
+  the-humanitarian-data-exchange.md - Category: datasets
+  covid-19-google.md - Category: datasets
+  summer-school-2015.md - Category: credits
+  awesome-decision-tree-papers.md - Filename matches pattern: paper
+  javascript-for-data-science.md - Category: books
+  google-dataset-search-beta.md - Filename matches pattern: dataset
+  o-reilly-learning-blog.md - Filename matches pattern: learning
+  deep-learning-for-graphs.md - Filename matches pattern: learning
+  build-a-large-language-model-from-scratch.md - Filename matches pattern: from-scratch
+  deep-learning-interview-questions.md - Filename matches pattern: learning
+  teachable-machine.md - Category: books
+  python-data-science-handbook.md - Filename matches pattern: book
+  temporal-difference-learning.md - Filename matches pattern: learning
+  genetic-algorithms-and-evolutionary-computation.md - Category: books
+  a-deep-catalog-of-human-genetic-variation.md - Filename matches pattern: catalog-of
+  supacodes.md - Category: documentation
+  fastdatasets.md - Filename matches pattern: dataset
+  flan5-llm.md - Category: notebooks
+  data-science-statistics-machine-learning.md - Filename matches pattern: learning
+  neon-course.md - Filename matches pattern: course
+  chatgpt-prompt-engineering-for-developers.md - Category: learning resources
+  awesome-llm-human-preference-datasets.md - Filename matches pattern: dataset
+  julia-for-data-analysis.md - Category: books
+  ghtorrent.md - Category: datasets
+  nayn-co-turkish-news-with-categories.md - Category: datasets
+  andrej-karpathy-series.md - Filename matches pattern: series
+  public-git-archive.md - Category: datasets
+  awesome-gradient-boosting-papers.md - Filename matches pattern: paper
+  sebastian-s-blog.md - Filename matches pattern: blog
+  awesome-software-engineering-for-machine-learning.md - Filename matches pattern: learning
+  40-data-analytics-projects-ideas.md - Filename matches pattern: projects-ideas
+  advanced-prompt-hacking.md - Filename matches pattern: advanced
+  ai-getting-started.md - Filename matches pattern: getting-started
+  large-language-models-course.md - Filename matches pattern: course
+  quora-s-big-datasets-answer.md - Filename matches pattern: dataset
+  create-your-first-app-using-chatgpt.md - Category: tutorials
+  3d-machine-learning.md - Filename matches pattern: learning
+  scipy-tutorials.md - Filename matches pattern: tutorial
+  awesome-llm-healthcare.md - Category: other papers
+  prompt-engineering-for-vision-models.md - Category: learning resources
+  world-bank-data.md - Category: datasets
+  oxford-machine-learning.md - Filename matches pattern: learning
+  tensorflow-examples.md - Category: credits
+  tensorflow-tutorials.md - Filename matches pattern: tutorial
+  deep-learning-intelligence-from-big-data.md - Filename matches pattern: learning
+  python-for-data-science-foundation-course.md - Filename matches pattern: course
+  manifoldlearning.md - Filename matches pattern: learning
+  query-the-youtube-video-transcripts.md - Category: notebooks
+  data-analysis-with-python-and-pyspark.md - Category: books
+  bookmark.md - Filename matches pattern: book
+  instruction-tuning-papers.md - Filename matches pattern: paper
+  textworld-react-agent.md - Category: notebooks
+  deid-gpt-zero-shot-medical-text-de-identification-by-gpt-4.md - Category: papers
+  low-code-handbook.md - Filename matches pattern: book
+  transfer-learning.md - Filename matches pattern: learning
+  an-introduction-to-statistical-learning.md - Filename matches pattern: introduction-to
+  pyro-examples-deep-markov-model.md - Category: uber-pyro-probabalistic-tutorials
+  foundations-of-data-science.md - Category: books
+  awesome-language-model-analysis.md - Category: other papers
+  reinforcement-learning.md - Filename matches pattern: learning
+  aws-amazon-com-datasets.md - Filename matches pattern: dataset
+  readme-ai.md - Category: documentation
+  byo-knowledge-graph.md - Category: notebooks
+  artificial-intelligence-with-python-tutorialspoint.md - Filename matches pattern: tutorial
+  datacamp-cheatsheets.md - Category: tutorials
+  awesome-chatgpt-prompts.md - Category: other papers
+  theory-learning.md - Filename matches pattern: learning
+  learning-machines-101.md - Filename matches pattern: learning
+  stable-diffusion-explained.md - Filename matches pattern: explained
+  microsoft-research-open-data.md - Category: datasets
+  pyro-examples-full-examples.md - Category: uber-pyro-probabalistic-tutorials
+  coursera-tensorflow-in-practice.md - Filename matches pattern: course
+  tech-ml-dataset.md - Filename matches pattern: dataset
+  pyspark-cheatsheet.md - Category: tutorials
+  research-quality-data-sets.md - Category: datasets
+  machine-learning-module.md - Filename matches pattern: learning
+  llm-grovers-search-party.md - Category: notebooks
+  awesome-machine-learning-deep-learning-tutorials.md - Filename matches pattern: tutorial
+  learning-resources.md - Filename matches pattern: learning
+  regular-expression-puzzles-and-ai-coding-assistants.md - Category: books
+  introduction-to-data-science.md - Filename matches pattern: introduction-to
+  chatgpt-launch-blog.md - Filename matches pattern: blog
+  openmetriclearning.md - Filename matches pattern: learning
+  llm-reading-list.md - Category: other papers
+  r-in-action-third-edition.md - Category: books
+  pyro-examples-semi-supervised-ve.md - Category: uber-pyro-probabalistic-tutorials
+  chain-of-thoughts-papers.md - Filename matches pattern: paper
+  ads-b-exchange.md - Category: datasets
+  codexatlas.md - Category: documentation
+  explainpaper.md - Filename matches pattern: paper
+  grokking-bayes.md - Category: books
+  advanced-openai-playground.md - Filename matches pattern: advanced
+  introduction-to-statistical-learning.md - Filename matches pattern: introduction-to
+  data-science-course-by-ibm.md - Filename matches pattern: course
+  machine-learning-books-for-beginners.md - Filename matches pattern: learning
+  deep-learning.md - Filename matches pattern: learning
+  self-supervised-learning.md - Filename matches pattern: learning
+  princeton-understanding-large-language-models.md - Filename matches pattern: understanding
+  distributed-machine-learning-patterns.md - Filename matches pattern: learning
+  data-scientist-with-python.md - Category: free courses
+  facebook-data-science-page.md - Filename matches pattern: book
+  r-for-data-science.md - Category: books
+  ruby-machine-learning.md - Filename matches pattern: learning
+  colah-s-blog.md - Filename matches pattern: blog
+  fighting-churn-with-data.md - Category: books
+  deep-learning-architectures.md - Filename matches pattern: learning
+  learning-js.md - Filename matches pattern: learning
+  learn-prompting.md - Category: learning resources
+  math-for-programmers.md - Category: books
+  llm-course.md - Filename matches pattern: course
+  ibb-open-portal.md - Category: datasets
+  deep-learning-interpretability.md - Filename matches pattern: learning
+  100-nlp-papers.md - Filename matches pattern: paper
+  umar-jamil-series.md - Filename matches pattern: series
+  survey-papers.md - Filename matches pattern: paper
+  distributed-machine-learning-tool-kit-dmtk.md - Filename matches pattern: learning
+  climatedata-us.md - Category: datasets
+  mlsys-nyu-2022.md - Category: free courses
+  uwaterloo-cs-886.md - Category: llm tutorials and courses
+  awesome-chatgpt-prompts-zh.md - Category: other papers
+  billion-scale-similarity-search-with-gpus.md - Category: research papers
+  awesome-align-llm-human.md - Category: other papers
+  awesome-game-datasets.md - Filename matches pattern: dataset
+  zero-shot-learning.md - Filename matches pattern: learning
+  advances-in-genetic-programming-vol-3.md - Category: books
+  scaler-blogs.md - Filename matches pattern: blog
+  data-mining-machine-learning-ai.md - Filename matches pattern: learning
+  nyc-taxi-data.md - Category: datasets
+  deeplearning-scala.md - Filename matches pattern: learning
+  paper-qa.md - Filename matches pattern: paper
+  competitions.md - Category: courses  competitions
+  deep-learning-with-pytorch.md - Filename matches pattern: learning
+  kaggle-datasets.md - Filename matches pattern: dataset
+  incremental-learning.md - Filename matches pattern: learning
+  coursera-introduction-to-data-science.md - Filename matches pattern: introduction-to
+  250k-job-postings.md - Filename matches pattern: job-postings
+  model-zoo.md - Category: books
+  anchain-ai-openclaw-guide.md - Filename matches pattern: guide
+  study-notes.md - Category: courses  competitions
+  improving-language-understanding-by-generative-pre-training.md - Filename matches pattern: understanding
+  san-fransisco-government-open-data.md - Category: datasets
+  cybersecurity-requirements-guide.md - Filename matches pattern: guide
+  time-series-anomaly-detection.md - Filename matches pattern: series
+  machinelearningwithtensorflow2ed.md - Filename matches pattern: learning
+  the-elements-of-statistical-learning.md - Filename matches pattern: learning
+  learn-langchain-js.md - Category: notebooks
+  pyro-examples-gmm.md - Category: uber-pyro-probabalistic-tutorials
+  notebook-installation.md - Filename matches pattern: book
+  mobile-machine-learning.md - Filename matches pattern: learning
+  srcbook.md - Filename matches pattern: book
+  unicef-data.md - Category: datasets
+  stackexchange-data-explorer.md - Category: datasets
+  learning.md - Filename matches pattern: learning
+  awesome-code-llm.md - Category: other papers
+  public-big-data-sets.md - Category: datasets
+  ubc-machine-learning-video.md - Filename matches pattern: learning
+  runway-ml-for-everyone.md - Category: courses
+  accord-machinelearning.md - Filename matches pattern: learning
+  r-bloggers.md - Filename matches pattern: blog
+  udacity-deep-learning.md - Filename matches pattern: learning
+  datahub-io.md - Category: datasets
+  gpt-political-compass.md - Category: notebooks
+  the-chinese-book-for-large-language-models.md - Filename matches pattern: book
+  introduction-to-deep-learning-with-python.md - Filename matches pattern: introduction-to
+  data-mesh-in-action.md - Category: books
+  langchain-handbook.md - Filename matches pattern: book
+  cs25-transformers-united.md - Category: llm tutorials and courses
+  comp3222-comp6246-machine-learning-technologies.md - Filename matches pattern: learning
+  deep-learning-cookbook.md - Filename matches pattern: learning
+  articles-papers-code-data-courses.md - Filename matches pattern: course
+  contrastive-learning.md - Filename matches pattern: learning
+  courses.md - Filename matches pattern: course
+  google-public-data.md - Category: datasets
+  gpt-4-technical-report.md - Category: papers
+  genetic-algorithms-ocw-course.md - Filename matches pattern: course
+  yet-another-data-blog.md - Filename matches pattern: blog
+  blog-post-how-to-use-crew-ai.md - Filename matches pattern: blog
+  nlp-course.md - Filename matches pattern: course
+  the-gdelt-project.md - Category: datasets
+  multimodal-machine-learning.md - Filename matches pattern: learning
+  data-science-bookcamp.md - Filename matches pattern: book
+  neural-networks-and-deep-learning.md - Filename matches pattern: learning
+  pyro-examples-bayesian-regression.md - Category: uber-pyro-probabalistic-tutorials
+  machine-learning-for-hackers.md - Filename matches pattern: learning
+  5-best-openclaw-alternatives.md - Filename matches pattern: alternatives
+  introduction-to-generative-ai-in-marketing.md - Filename matches pattern: introduction-to
+  convex-optimization.md - Category: free courses
+  r-datasets.md - Filename matches pattern: dataset
+  realtime-deployment.md - Category: tutorials
+  notebooks.md - Filename matches pattern: book
+  blogs-articles.md - Filename matches pattern: blog
+  mildlyoverfitted-tutorials-on-intermediate-ml-dl-topics.md - Filename matches pattern: tutorial
+  image-creation-with-dall-e-3.md - Category: courses
+  learning-from-data.md - Filename matches pattern: learning
+  machine-learning-bookcamp.md - Filename matches pattern: learning
+  yhat-blog.md - Filename matches pattern: blog
+  united-states-census-bureau.md - Category: datasets
+  coursera-natural-language-processing-specialization.md - Filename matches pattern: course
+  open-government-data-platform-india.md - Category: datasets
+  mxnet-for-deep-learning-in-perl.md - Filename matches pattern: learning
+  the-official-portal-for-european-data.md - Category: datasets
+  practical-data-science-with-r.md - Category: books
+  data-analytics-interview-questions-beginner-to-advanced.md - Filename matches pattern: interview-questions
+  awesome-llm-3d.md - Category: other papers
+  llmspracticalguide.md - Filename matches pattern: guide
+  machinelearning.md - Filename matches pattern: learning
+  langchain-series-by-sam-witteveen.md - Filename matches pattern: series
+  data-gov.md - Category: datasets
+  visual-data-mining-and-machine-learning.md - Filename matches pattern: learning
+  figshare-com.md - Category: datasets
+  llmdatahub.md - Category: other papers
+  pkmital-tensorflow-tutorials.md - Filename matches pattern: tutorial
+  applied-ai-blogs.md - Filename matches pattern: blog
+  the-first-book-written-with-gpt-4.md - Filename matches pattern: book
+  awesome-fraud-detection-papers.md - Filename matches pattern: paper
+  gpt3-blog-post-generator.md - Filename matches pattern: blog
+  geolite-legacy-downloadable-databases.md - Category: datasets
+  langchain-tutorials-playlist.md - Filename matches pattern: tutorial
+  geoffrey-hinton-s-neural-networks-for-machine-learning.md - Filename matches pattern: learning
+  software-engineering-for-data-scientists.md - Category: books
+  ai-and-machine-learning-roadmaps.md - Filename matches pattern: learning
+  sweden-statistics.md - Category: datasets
+  tutorials.md - Filename matches pattern: tutorial
+  the-data-science-blog.md - Filename matches pattern: blog
+  openai-cookbook.md - Filename matches pattern: book
+  chatgpt-for-everyone.md - Category: courses
+  llm-rl-visualized-en.md - Category: llm tutorials and courses
+  papermill.md - Filename matches pattern: paper
+  robert-miles-ai-safety.md - Category: learning resources
+  coursera-big-data-specialization.md - Filename matches pattern: course
+  scale-spellbook.md - Filename matches pattern: book
+  sebastian-thrun-s-introduction-to-machine-learning.md - Filename matches pattern: introduction-to
+  awesome-datasets.md - Filename matches pattern: dataset
+  introduction-to-generative-ai-for-business-professionals.md - Filename matches pattern: introduction-to
+  ibm-asset-dataset.md - Filename matches pattern: dataset
+  imbalanced-learning.md - Filename matches pattern: learning
+  introduction-to-machine-learning-with-python.md - Filename matches pattern: introduction-to
+  angewandte-data-science.md - Category: books
+  homemade-machine-learning.md - Filename matches pattern: learning
+  dl-papers.md - Filename matches pattern: paper
+  enigma-com.md - Category: datasets
+  pydata-book.md - Filename matches pattern: book
+  deeplearning-500-questions.md - Filename matches pattern: learning
+  moltbook.md - Filename matches pattern: book
+  chip-huyen-s-blog.md - Filename matches pattern: blog
+  evolutionary-algorithms.md - Category: books
+  ai-coding-tools-references.md - Filename matches pattern: references
+  open-data-sources.md - Category: datasets
+  articles-news.md - Filename matches pattern: articles
+  pandas-in-action.md - Category: books
+  awesome-ai-books.md - Filename matches pattern: book
+  spark-notebook.md - Filename matches pattern: book
+  chatgpt-5-prompt-engineering-secrets-for-beginners.md - Filename matches pattern: beginner
+  installation-guides.md - Filename matches pattern: guide
+  notesjor-corpus-collection.md - Category: datasets
+  femtogpt.md - Category: llm tutorials and courses
+  maplight.md - Category: datasets
+  advanced-chatgpt-prompt-engineering.md - Filename matches pattern: advanced
+  binroot-tensorflow-book.md - Filename matches pattern: book
+  notebooklm.md - Filename matches pattern: book
+  langchain-blog.md - Filename matches pattern: blog
+  nlp-paper.md - Filename matches pattern: paper
+  modeleditingpapers.md - Filename matches pattern: paper
+  language-models-are-few-shot-learners.md - Category: papers
+  applications-and-datasets.md - Filename matches pattern: dataset
+  red-team-guides.md - Filename matches pattern: guide
+  oxford-deep-learning-video.md - Filename matches pattern: learning
+  book-gpt.md - Filename matches pattern: book
+  q-learning.md - Filename matches pattern: learning
+  paperform.md - Filename matches pattern: paper
+  full-pyro-code.md - Category: uber-pyro-probabalistic-tutorials
+  nasdaq-data.md - Category: datasets
+  language-models-are-unsupervised-multitask-learners.md - Category: papers
+  your-guide-to-latent-dirichlet-allocation.md - Filename matches pattern: guide
+  neural-networks-video-series-by-hugo-larochelle.md - Filename matches pattern: series
+  weights-biases-effective-mlops-model-development.md - Category: free courses
+  semi-supervised-learning.md - Filename matches pattern: learning
+  machine-learning-ruby.md - Filename matches pattern: learning
+  facebook-accounts.md - Filename matches pattern: book
+  prompt-engineering-guide.md - Filename matches pattern: guide
+  awesome-speech-recognition-speech-synthesis-papers.md - Filename matches pattern: paper
+  oxford-deep-learning.md - Filename matches pattern: learning
+  awesome-japanese-llm.md - Category: other papers
+  full-extension-ecosystem-guide.md - Filename matches pattern: guide
+  machine-learning-for-software-engineers.md - Filename matches pattern: learning
+  pollinations-ai.md - Category: books
+  scaler-data-science-machine-learning-program.md - Filename matches pattern: learning
+  gpt-in-60-lines-of-numpy.md - Category: llm tutorials and courses
+  openai-prompt-engineering-guide.md - Filename matches pattern: guide
+  machine-learning-problems.md - Filename matches pattern: learning
+  machine-learning-interpretability.md - Filename matches pattern: learning
+  awesome-deliberative-prompting.md - Category: other papers
+  underlying-paper-generative-agents.md - Filename matches pattern: paper
+  ensemble-learning.md - Filename matches pattern: learning
+  awesome-chinese-llm.md - Category: other papers
+  diagramgpt.md - Category: documentation
+  machine-learning-for-absolute-beginners.md - Filename matches pattern: learning
+  managing-ml-projects.md - Filename matches pattern: ml-projects
+  langchain-wolfram-alpha.md - Category: notebooks
+  time-series-modelling-and-analysis.md - Filename matches pattern: series
+  torch-datasets.md - Filename matches pattern: dataset
+  the-math-behind-artificial-intelligence.md - Category: books
+  guides.md - Filename matches pattern: guide
+  deeplearning4j.md - Filename matches pattern: learning
+  open-notebook.md - Filename matches pattern: book
+  grouplens-org.md - Category: datasets
+  how-to-lead-in-data-science.md - Category: books
+  2012-paper-diginorm.md - Filename matches pattern: paper
+  causal-inference-for-data-science.md - Category: books
+  langchain-semantic-search.md - Category: notebooks
+  awesome-chatgpt.md - Category: other papers
+  blue-team-guides.md - Filename matches pattern: guide
+  ghdx.md - Category: datasets
+  blog-posts.md - Filename matches pattern: blog
+  llm4opt.md - Category: other papers
+  rdatasets.md - Filename matches pattern: dataset
+  graph-algorithms-for-data-science.md - Category: books
+  probabilistic-machine-learning-an-introduction.md - Filename matches pattern: learning
+  datasetgpt.md - Filename matches pattern: dataset
+  wp-secure-guide.md - Filename matches pattern: guide
+  neurips2022-foundational-robustness-of-foundation-models.md - Category: llm tutorials and courses
+  hands-on-train-and-deploy-ml.md - Category: free courses
+  tutorials-guides.md - Filename matches pattern: tutorial
+  alternatives-comparisons.md - Filename matches pattern: alternatives
+  alrojo-tensorflow-tutorial.md - Filename matches pattern: tutorial
+  allen-downey-s-data-science-course.md - Filename matches pattern: course
+  ml-observability-fundamentals.md - Category: free courses
+  pyro-examples-gaussian-process.md - Category: uber-pyro-probabalistic-tutorials
+  clever-algorithms-for-machine-learning.md - Filename matches pattern: learning
+  best-data-science-courses-with-certificates.md - Filename matches pattern: course
+  essential-natural-language-processing.md - Category: books
+  introduction-to-prompt-hacking.md - Filename matches pattern: introduction-to
+  rock-paper-scissors.md - Filename matches pattern: paper
+  awesome-llm-hallucination.md - Category: other papers
+  open-data-index.md - Category: datasets
+  regression-a-friendly-guide.md - Filename matches pattern: guide
+  bloggi.md - Filename matches pattern: blog
+  deep-learning-in-production.md - Filename matches pattern: learning
+  cs324-large-language-models.md - Category: llm tutorials and courses
+  everyday-data-science.md - Category: books
+  classic-computer-science-problems-in-python.md - Category: books
+  machine-learning-q-and-ai.md - Filename matches pattern: learning
+  nlp-datasets.md - Filename matches pattern: dataset
+  chain-of-thought-hub.md - Category: other papers
+  awesome-llm-compression.md - Category: other papers
+  coursera-deep-learning-specialization.md - Filename matches pattern: learning
+  best-cv-resume-for-data-science-freshers.md - Category: tutorials
+  advances-in-evolutionary-algorithms.md - Category: books
+  guidellm.md - Filename matches pattern: guide
+  datasets.md - Filename matches pattern: dataset
+  covid-19.md - Category: datasets
+  ipython-notebooks.md - Filename matches pattern: book
+  research-papers.md - Filename matches pattern: paper
+  best-openclaw-alternatives.md - Filename matches pattern: alternatives
+  deep-learning-dl.md - Filename matches pattern: learning
+  things-to-know.md - Category: guides  tutorials
+  autotrain-advanced.md - Filename matches pattern: advanced
+  dive-into-deep-learning.md - Filename matches pattern: learning
+  understand-data-science-course-in-java.md - Filename matches pattern: course
+  machine-learning-ml.md - Filename matches pattern: learning
+  enron-email-dataset.md - Filename matches pattern: dataset
+  python-for-data-science-a-beginner-s-guide.md - Filename matches pattern: guide
+  alexander-rush-series.md - Filename matches pattern: series
+  reasoning-using-language-models.md - Category: other papers
+  awesome-hallucination-detection.md - Category: other papers
+  vision-language-model-transfer-learning-methods.md - Filename matches pattern: learning
+  julia-for-data-science.md - Category: books
+  awesome-llm-security.md - Category: other papers
+  crew-ai-wiki-with-examples-and-guides.md - Filename matches pattern: guide
+  ai-safety.md - Category: courses
+  machine-learning-in-matlab-octave.md - Filename matches pattern: learning
+  contractbook.md - Filename matches pattern: book
+  docuwriter-ai.md - Category: documentation
+  clarin-repository.md - Category: datasets
+  introduction-to-machine-learning-with-scikit-learn.md - Filename matches pattern: introduction-to
+  anthropic-courses.md - Filename matches pattern: course
+  bread-dataset-viewer.md - Filename matches pattern: dataset
+  5000-images-of-clothes.md - Filename matches pattern: images-of
+  machine-learning-with-python-tutorialspoint.md - Filename matches pattern: tutorial
+  build-a-career-in-data-science.md - Category: books
+  google-advanced-data-analytics-certificate.md - Filename matches pattern: advanced
+  hadoopilluminated-com.md - Category: datasets
+  365-data-science-course.md - Filename matches pattern: course
+  pyro-examples-variational-autoencoders.md - Category: uber-pyro-probabalistic-tutorials
+  kaggle.md - Category: credits
+  pycon-2015-scikit-learn-tutorial.md - Filename matches pattern: tutorial
+  awesome-machine-learning-on-source-code.md - Filename matches pattern: learning
+  data-science-projects.md - Filename matches pattern: data-science-projects
+  uc-irvine-machine-learning-repository.md - Filename matches pattern: learning
+  chatgpt-prompt-engineering.md - Category: llm tutorials and courses
+  machine-learning-system.md - Filename matches pattern: learning
+  national-centers-for-environmental-information.md - Category: datasets
+  datacite-org.md - Category: datasets
+  awesome-llm-systems.md - Category: other papers
+  awesome-llm-webapps.md - Category: other papers
+  nyc-taxi-visualization-blog.md - Filename matches pattern: blog
+  pink-gorilla-notebook.md - Filename matches pattern: book
+  time-series.md - Filename matches pattern: series
+  financialdata-net.md - Category: datasets
+  machine-learning.md - Filename matches pattern: learning
+  undata.md - Category: datasets
+  books.md - Filename matches pattern: book
+  ml-from-scratch.md - Filename matches pattern: from-scratch
+  google-dataset-search.md - Filename matches pattern: dataset
+  think-like-a-data-scientist.md - Category: books
+  awesome-gpt-3.md - Category: other papers
+  boost-your-day-to-day-efficiency-with-generative-ai.md - Category: courses
+  data-science-for-beginners.md - Filename matches pattern: beginner
+  awesome-machine-learning.md - Filename matches pattern: learning
+  nlintz-tensorflow-tutorials.md - Filename matches pattern: tutorial
+  cmu-advanced-nlp-2022-prompting.md - Filename matches pattern: advanced
+  1000-data-science-projects.md - Filename matches pattern: data-science-projects
+  pyro-examples-bayesian-optimization.md - Category: uber-pyro-probabalistic-tutorials
+  effective-data-science-infrastructure.md - Category: books
+  exploring-data-science.md - Category: books
+  tensorflow-book.md - Filename matches pattern: book
+  top-data-science-interview-questions.md - Filename matches pattern: interview-questions
+  cl-online-learning.md - Filename matches pattern: learning
+  coursera-gan-specialization.md - Filename matches pattern: course
+  awesome-machine-learning-with-ruby.md - Filename matches pattern: learning
+  data-science-ipython-notebooks.md - Filename matches pattern: book
+  minbpe.md - Category: llm tutorials and courses
+  neural-networks-from-scratch-by-sentdex.md - Filename matches pattern: from-scratch
+  pattern-recognition-and-machine-learning.md - Filename matches pattern: learning
+  data-scientist-with-r.md - Category: free courses
+  big-data-learnings.md - Filename matches pattern: learning
+  langchain-tutorials.md - Filename matches pattern: tutorial
+  pyro-examples-air-attend-infer-repeat.md - Category: uber-pyro-probabalistic-tutorials
+  mnist-example-running-with-dlang.md - Category: netflix-vectorflow-tutorials
+  ai-expert-roadmap.md - Filename matches pattern: roadmap
+  the-data-science-handbook.md - Filename matches pattern: book
+  introduction-to-prompt-engineering.md - Filename matches pattern: introduction-to
+  papers.md - Filename matches pattern: paper
+  grokking-machine-learning.md - Filename matches pattern: learning
+  graph-based-deep-learning.md - Filename matches pattern: learning
+  exploring-the-data-jungle.md - Category: books
+  data-science-your-way.md - Category: tutorials
+  ai-machine-learning.md - Filename matches pattern: learning
+  state-of-gpt.md - Category: llm tutorials and courses
+  mining-massive-datasets.md - Filename matches pattern: dataset
+  jupyter-notebooks.md - Filename matches pattern: book
