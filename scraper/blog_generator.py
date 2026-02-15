@@ -65,41 +65,275 @@ BLOG_CATEGORIES = {
     "Future of AI": 3,
 }
 
-# Trending topics
+# Trending topics - Expanded to 250+ for diversity
 TRENDING_TOPICS = [
+    # AI Agents & Autonomous Systems (40 topics)
     "autonomous AI agents revolutionizing workflows",
     "multi-agent systems for complex tasks",
-    "AI agent frameworks comparison",
-    "building your first AI agent",
-    "AI agents for customer service",
+    "AI agent frameworks comparison 2025",
+    "building your first AI agent step by step",
+    "AI agents for customer service automation",
     "coding agents that write software",
-    "research agents for academics",
-    "latest GPT developments",
-    "Claude vs GPT comparison",
-    "open source LLMs in 2025",
-    "fine-tuning language models",
-    "prompt engineering best practices",
-    "RAG systems explained",
-    "vector databases for AI",
-    "no-code AI automation tools",
-    "workflow automation with AI",
-    "RPA vs AI agents",
-    "automating repetitive tasks",
-    "AI-powered data processing",
-    "getting started with LangChain",
-    "building chatbots with AI",
+    "research agents for academics and scientists",
+    "AI agents for data analysis and insights",
+    "conversational AI agents best practices",
+    "AI agents for content creation and marketing",
+    "AI agents in supply chain optimization",
+    "AI agents for financial trading and analysis",
+    "AI agents for legal document review",
+    "AI agents in healthcare diagnostics",
+    "AI agents for personalized education",
+    "AI agents for cybersecurity threat detection",
+    "AI agents for social media management",
+    "AI agents for email automation",
+    "AI agents for project management",
+    "AI agents for recruitment and HR",
+    "AI agents for sales and lead generation",
+    "AI agents for inventory management",
+    "AI agents for quality assurance testing",
+    "AI agents for code review and debugging",
+    "AI agents for database optimization",
+    "AI agents for network monitoring",
+    "AI agents for fraud detection",
+    "AI agents for sentiment analysis",
+    "AI agents for recommendation systems",
+    "AI agents for predictive maintenance",
+    "AI agents for smart home automation",
+    "AI agents for vehicle fleet management",
+    "AI agents for energy grid optimization",
+    "AI agents for weather forecasting",
+    "AI agents for agricultural monitoring",
+    "AI agents for disaster response coordination",
+    "AI agents for urban planning and smart cities",
+    "AI agents for environmental monitoring",
+    "AI agents for wildlife conservation",
+    "AI agents for space exploration",
+    
+    # LLM Technology & Models (40 topics)
+    "latest GPT-4 and GPT-5 developments",
+    "Claude 3 vs GPT-4 ultimate comparison",
+    "open source LLMs in 2025 comprehensive guide",
+    "fine-tuning language models for your business",
+    "prompt engineering best practices 2025",
+    "small language models SLMs rising trend",
+    "multimodal AI models combining text image audio",
+    "LLM hallucination detection and prevention",
+    "LLM context window optimization techniques",
+    "LLM inference optimization for production",
+    "LLM quantization and compression methods",
+    "LLM evaluation metrics and benchmarks",
+    "LLM safety and alignment techniques",
+    "LLM fine-tuning vs RAG comparison",
+    "LLM prompt injection attacks and defenses",
+    "LLM for code generation best models",
+    "LLM for translation and localization",
+    "LLM for summarization techniques",
+    "LLM for question answering systems",
+    "LLM for dialogue and conversation",
+    "LLM for creative writing and storytelling",
+    "LLM for technical documentation",
+    "LLM for medical diagnosis support",
+    "LLM for legal contract analysis",
+    "LLM for financial report generation",
+    "LLM for scientific paper writing",
+    "LLM for educational content creation",
+    "LLM for marketing copy generation",
+    "LLM for product descriptions",
+    "LLM for customer support responses",
+    "LLM parameter efficient fine-tuning PEFT",
+    "LLM low-rank adaptation LoRA explained",
+    "LLM reinforcement learning from human feedback RLHF",
+    "LLM direct preference optimization DPO",
+    "LLM constitutional AI and safety",
+    "LLM chain of thought prompting",
+    "LLM few-shot and zero-shot learning",
+    "LLM retrieval augmented generation RAG",
+    "LLM mixture of experts MoE architecture",
+    "LLM transformer alternatives and innovations",
+    
+    # RAG & Vector Databases (25 topics)
+    "RAG systems explained comprehensive guide",
+    "vector databases for AI applications",
+    "building production RAG systems",
+    "RAG vs fine-tuning when to use each",
+    "chunking strategies for RAG systems",
+    "embedding models comparison 2025",
+    "vector similarity search optimization",
+    "hybrid search combining dense and sparse",
+    "RAG evaluation metrics and testing",
+    "RAG hallucination reduction techniques",
+    "RAG context window management",
+    "RAG for enterprise knowledge bases",
+    "RAG for customer support automation",
+    "RAG for legal document search",
+    "RAG for medical literature review",
+    "RAG for code search and documentation",
+    "Pinecone vs Weaviate vs Milvus comparison",
+    "Chroma vs Qdrant vector database showdown",
+    "building semantic search with embeddings",
+    "document preprocessing for RAG pipelines",
+    "metadata filtering in vector search",
+    "reranking strategies for RAG systems",
+    "RAG caching and performance optimization",
+    "RAG security and data privacy",
+    "RAG cost optimization strategies",
+    
+    # AI Tools & Frameworks (30 topics)
+    "no-code AI automation tools 2025",
+    "workflow automation with AI platforms",
+    "LangChain comprehensive tutorial",
+    "LlamaIndex for data framework",
+    "AutoGPT autonomous agent setup",
+    "BabyAGI task-driven autonomous agent",
+    "SuperAGI framework for AGI development",
+    "Semantic Kernel Microsoft AI orchestration",
+    "Haystack NLP framework guide",
+    "Hugging Face Transformers tutorial",
+    "OpenAI API integration best practices",
+    "Anthropic Claude API guide",
+    "Google Gemini API tutorial",
+    "Cohere AI platform overview",
+    "Replicate AI model deployment",
+    "Modal serverless AI infrastructure",
+    "Weights and Biases MLOps platform",
+    "MLflow experiment tracking guide",
+    "DVC data version control for ML",
+    "Great Expectations data quality testing",
+    "Evidently AI model monitoring",
+    "Streamlit AI app development",
+    "Gradio ML demo creation",
+    "FastAPI for ML model serving",
+    "Docker containers for ML deployment",
+    "Kubernetes for ML workloads",
+    "Ray distributed computing for AI",
+    "Dask parallel computing Python",
+    "Apache Spark for big data ML",
+    "TensorFlow vs PyTorch 2025 comparison",
+    
+    # AI in Industry Applications (30 topics)
+    "AI in healthcare 2025 revolution",
+    "AI transforming finance and banking",
+    "AI in education personalized learning",
+    "AI in retail customer experience",
+    "AI in manufacturing predictive maintenance",
+    "AI in agriculture precision farming",
+    "AI in transportation autonomous vehicles",
+    "AI in energy smart grid optimization",
+    "AI in telecommunications network management",
+    "AI in insurance claims processing",
+    "AI in real estate property valuation",
+    "AI in hospitality guest experience",
+    "AI in entertainment content recommendation",
+    "AI in gaming procedural generation",
+    "AI in sports performance analytics",
+    "AI in fashion trend forecasting",
+    "AI in food industry quality control",
+    "AI in pharmaceutical drug discovery",
+    "AI in biotechnology genetic research",
+    "AI in environmental science climate modeling",
+    "AI in construction project planning",
+    "AI in logistics route optimization",
+    "AI in aviation flight safety",
+    "AI in maritime shipping optimization",
+    "AI in mining resource exploration",
+    "AI in oil and gas exploration",
+    "AI in utilities demand forecasting",
+    "AI in government public services",
+    "AI in defense and security",
+    "AI in space exploration and research",
+    
+    # Technical Deep Dives (25 topics)
+    "RPA vs AI agents automation evolution",
+    "automating repetitive tasks with AI",
+    "AI-powered data processing pipelines",
     "deploying AI models to production",
-    "AI API integration guide",
-    "creating AI workflows",
-    "AI in healthcare 2025",
-    "AI transforming finance",
-    "AI in education",
-    "enterprise AI adoption",
-    "startup AI tools landscape",
-    "AI safety considerations",
-    "responsible AI development",
-    "future of work with AI",
-    "AI regulation updates",
+    "AI API integration comprehensive guide",
+    "creating AI workflows and pipelines",
+    "AI model versioning and management",
+    "AI model monitoring and observability",
+    "AI model explainability and interpretability",
+    "AI model bias detection and mitigation",
+    "AI model security and adversarial attacks",
+    "AI model compression and optimization",
+    "AI model quantization techniques",
+    "AI model pruning strategies",
+    "AI model distillation methods",
+    "AI model ensemble techniques",
+    "AI model transfer learning",
+    "AI model federated learning",
+    "AI model continual learning",
+    "AI model active learning",
+    "AI model semi-supervised learning",
+    "AI model self-supervised learning",
+    "AI model reinforcement learning",
+    "AI model meta-learning",
+    "AI model neural architecture search",
+    
+    # Ethics, Safety & Regulation (20 topics)
+    "AI safety considerations 2025",
+    "responsible AI development practices",
+    "AI regulation updates and compliance",
+    "AI ethics in practice guidelines",
+    "AI bias and fairness testing",
+    "AI transparency and explainability",
+    "AI privacy and data protection",
+    "AI accountability and governance",
+    "AI environmental impact and sustainability",
+    "AI job displacement and workforce transition",
+    "AI in decision making ethical considerations",
+    "AI copyright and intellectual property",
+    "AI misinformation and deepfakes",
+    "AI surveillance and civil liberties",
+    "AI weapons and autonomous systems",
+    "AI healthcare ethics and consent",
+    "AI financial fairness and discrimination",
+    "AI criminal justice bias",
+    "AI education equity and access",
+    "AI global governance and cooperation",
+    
+    # Future Trends & Innovation (20 topics)
+    "future of work with AI agents",
+    "enterprise AI adoption strategies",
+    "startup AI tools landscape 2025",
+    "AI democratization and accessibility",
+    "AI edge computing and on-device AI",
+    "AI quantum computing integration",
+    "AI neuromorphic computing advances",
+    "AI brain-computer interfaces",
+    "AI augmented reality applications",
+    "AI virtual reality experiences",
+    "AI Internet of Things IoT integration",
+    "AI 5G and 6G networks",
+    "AI blockchain and Web3",
+    "AI digital twins and simulation",
+    "AI synthetic data generation",
+    "AI generative design and creativity",
+    "AI human-AI collaboration",
+    "AI artificial general intelligence AGI progress",
+    "AI consciousness and sentience debates",
+    "AI long-term existential risks",
+    
+    # Practical Guides & Tutorials (20 topics)
+    "building chatbots with AI complete guide",
+    "creating conversational AI assistants",
+    "developing voice AI applications",
+    "building image recognition systems",
+    "creating video analysis AI",
+    "developing natural language processing apps",
+    "building recommendation engines",
+    "creating anomaly detection systems",
+    "developing time series forecasting models",
+    "building sentiment analysis tools",
+    "creating text classification systems",
+    "developing named entity recognition",
+    "building question answering systems",
+    "creating text summarization tools",
+    "developing machine translation systems",
+    "building speech recognition apps",
+    "creating text-to-speech systems",
+    "developing OCR optical character recognition",
+    "building document classification systems",
+    "creating knowledge graph applications",
 ]
 
 UNSPLASH_ACCESS_KEY = os.environ.get("UNSPLASH_ACCESS_KEY", "")
@@ -559,62 +793,91 @@ def main():
         return
 
     num_blogs = int(os.environ.get("BLOG_COUNT", "10"))
-    print(f"\nGenerating {num_blogs} blog posts...")
+    batch_size = 50  # Generate in batches to avoid API rate limits
+    print(f"\nGenerating {num_blogs} blog posts in batches of {batch_size}...")
 
     generated = 0
     attempts = 0
     max_attempts = num_blogs * 3
+    
+    # Calculate number of batches
+    num_batches = (num_blogs + batch_size - 1) // batch_size
+    
+    for batch_num in range(num_batches):
+        batch_start = batch_num * batch_size
+        batch_end = min(batch_start + batch_size, num_blogs)
+        batch_target = batch_end - batch_start
+        
+        print(f"\n{'='*60}")
+        print(f"BATCH {batch_num + 1}/{num_batches}: Generating {batch_target} blogs")
+        print(f"Progress: {generated}/{num_blogs} total blogs generated")
+        print(f"{'='*60}\n")
+        
+        batch_generated = 0
+        
+        while batch_generated < batch_target and attempts < max_attempts:
+            attempts += 1
 
-    while generated < num_blogs and attempts < max_attempts:
-        attempts += 1
+            topic = random.choice(TRENDING_TOPICS)
+            category = select_category()
 
-        topic = random.choice(TRENDING_TOPICS)
-        category = select_category()
+            print(f"[{generated + 1}/{num_blogs}] Generating: {topic} ({category})")
 
-        print(f"\n[{generated + 1}/{num_blogs}] Generating: {topic} ({category})")
+            # Get inline images for this blog
+            inline_images = get_multiple_images(category, 2)
 
-        # Get inline images for this blog
-        inline_images = get_multiple_images(category, 2)
+            # Sample agents and blogs for linking
+            sample_agents = random.sample(existing_agents, min(15, len(existing_agents))) if existing_agents else []
+            sample_blogs = random.sample(existing_blogs, min(10, len(existing_blogs))) if existing_blogs else []
 
-        # Sample agents and blogs for linking
-        sample_agents = random.sample(existing_agents, min(15, len(existing_agents))) if existing_agents else []
-        sample_blogs = random.sample(existing_blogs, min(10, len(existing_blogs))) if existing_blogs else []
+            blog = None
 
-        blog = None
+            # Try each API with retry logic
+            if not blog and groq_client:
+                blog = generate_blog_with_groq(topic, category, sample_agents, sample_blogs, inline_images, groq_client)
+                time.sleep(0.5)
 
-        # Try each API
-        if not blog and groq_client:
-            blog = generate_blog_with_groq(topic, category, sample_agents, sample_blogs, inline_images, groq_client)
-            time.sleep(0.5)
+            if not blog and gemini_model:
+                blog = generate_blog_with_gemini(topic, category, sample_agents, sample_blogs, inline_images, gemini_model)
+                time.sleep(0.5)
 
-        if not blog and gemini_model:
-            blog = generate_blog_with_gemini(topic, category, sample_agents, sample_blogs, inline_images, gemini_model)
-            time.sleep(0.5)
+            if not blog and openai_client:
+                blog = generate_blog_with_openai(topic, category, sample_agents, sample_blogs, inline_images, openai_client)
+                time.sleep(0.5)
 
-        if not blog and openai_client:
-            blog = generate_blog_with_openai(topic, category, sample_agents, sample_blogs, inline_images, openai_client)
-            time.sleep(0.5)
+            if not blog:
+                print("  Failed to generate")
+                continue
 
-        if not blog:
-            print("  Failed to generate")
-            continue
+            slug = re.sub(r'[^a-z0-9]+', '-', blog.slug.lower()).strip('-')
+            if slug in existing_slugs:
+                print(f"  Slug '{slug}' already exists, skipping")
+                continue
 
-        slug = re.sub(r'[^a-z0-9]+', '-', blog.slug.lower()).strip('-')
-        if slug in existing_slugs:
-            print(f"  Slug '{slug}' already exists, skipping")
-            continue
+            filepath = create_blog_file(blog, blogs_dir)
+            if filepath:
+                print(f"  ✓ Created: {filepath.name}")
+                existing_slugs.add(slug)
+                existing_blogs.append(slug)  # Add to list for future interlinking
+                generated += 1
+                batch_generated += 1
+            else:
+                print("  Failed to create file")
+        
+        # Batch complete summary
+        print(f"\nBatch {batch_num + 1} complete: {batch_generated}/{batch_target} blogs generated")
+        
+        # Small delay between batches
+        if batch_num < num_batches - 1:
+            print("Pausing 2 seconds before next batch...")
+            time.sleep(2)
 
-        filepath = create_blog_file(blog, blogs_dir)
-        if filepath:
-            print(f"  Created: {filepath}")
-            existing_slugs.add(slug)
-            existing_blogs.append(slug)  # Add to list for future interlinking
-            generated += 1
-        else:
-            print("  Failed to write file")
-
-    print(f"\n{'='*50}")
-    print(f"Done! Generated {generated} blog posts")
+    print(f"\n{'='*60}")
+    print(f"Blog generation complete!")
+    print(f"  Total generated: {generated}/{num_blogs}")
+    print(f"  Total attempts: {attempts}")
+    print(f"  Success rate: {(generated/attempts*100):.1f}%")
+    print(f"{'='*60}\n")
     print(f"Total blog posts: {len(list(blogs_dir.glob('*.md')))}")
 
 
