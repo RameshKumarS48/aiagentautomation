@@ -68,6 +68,7 @@ class AgentData:
 
 # GitHub awesome-lists and directories to scrape
 SOURCES = [
+    # Original sources
     {
         "name": "awesome-ai-agents",
         "url": "https://api.github.com/repos/e2b-dev/awesome-ai-agents/readme",
@@ -91,6 +92,198 @@ SOURCES = [
     {
         "name": "open-llms",
         "url": "https://api.github.com/repos/eugeneyan/open-llms/readme",
+        "type": "awesome-list"
+    },
+    # Expanded sources - AI Agents & Frameworks
+    {
+        "name": "best-ai-agents",
+        "url": "https://api.github.com/repos/SamurAIGPT/Best-AI-Agents/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "500-ai-agents-projects",
+        "url": "https://api.github.com/repos/NirDiamant/500-AI-Agents-Projects/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-langchain",
+        "url": "https://api.github.com/repos/kyrolabs/awesome-langchain/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-llm",
+        "url": "https://api.github.com/repos/Hannibal046/Awesome-LLM/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-chatgpt",
+        "url": "https://api.github.com/repos/humanloop/awesome-chatgpt/readme",
+        "type": "awesome-list"
+    },
+    # AI Automation & Workflows
+    {
+        "name": "awesome-ai-devtools",
+        "url": "https://api.github.com/repos/jamesmurdza/awesome-ai-devtools/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-llmops",
+        "url": "https://api.github.com/repos/tensorchord/Awesome-LLMOps/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-generative-ai",
+        "url": "https://api.github.com/repos/steven2358/awesome-generative-ai/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-ai-ml-dl",
+        "url": "https://api.github.com/repos/neomatrix369/awesome-ai-ml-dl/readme",
+        "type": "awesome-list"
+    },
+    # Coding & Development AI
+    {
+        "name": "awesome-ai-coding",
+        "url": "https://api.github.com/repos/sourcegraph/awesome-code-ai/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-copilot",
+        "url": "https://api.github.com/repos/jondot/awesome-copilot/readme",
+        "type": "awesome-list"
+    },
+    # Industry-specific AI
+    {
+        "name": "awesome-ai-for-business",
+        "url": "https://api.github.com/repos/dair-ai/awesome-AI-for-business/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-production-machine-learning",
+        "url": "https://api.github.com/repos/EthicalML/awesome-production-machine-learning/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-mlops",
+        "url": "https://api.github.com/repos/visenger/awesome-mlops/readme",
+        "type": "awesome-list"
+    },
+    # RAG & Knowledge Systems
+    {
+        "name": "awesome-rag",
+        "url": "https://api.github.com/repos/NirDiamant/RAG_Techniques/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-vector-search",
+        "url": "https://api.github.com/repos/currentslab/awesome-vector-search/readme",
+        "type": "awesome-list"
+    },
+    # Multimodal & Specialized AI
+    {
+        "name": "awesome-multimodal-ml",
+        "url": "https://api.github.com/repos/pliang279/awesome-multimodal-ml/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-vision-language-models",
+        "url": "https://api.github.com/repos/jingyi0000/VLM_survey/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-ai-security",
+        "url": "https://api.github.com/repos/DeepSpaceHarbor/Awesome-AI-Security/readme",
+        "type": "awesome-list"
+    },
+    # Open Source AI Projects
+    {
+        "name": "awesome-open-gpt",
+        "url": "https://api.github.com/repos/EwingYangs/awesome-open-gpt/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-local-ai",
+        "url": "https://api.github.com/repos/janhq/awesome-local-ai/readme",
+        "type": "awesome-list"
+    },
+    # Additional AI Tools & Products
+    {
+        "name": "awesome-ai-services",
+        "url": "https://api.github.com/repos/amusi/awesome-ai-awesomeness/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-gpt4",
+        "url": "https://api.github.com/repos/radi-cho/awesome-gpt4/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-claude",
+        "url": "https://api.github.com/repos/ianand/awesome-claude/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-gemini",
+        "url": "https://api.github.com/repos/henrycunh/awesome-gemini/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-ai-apis",
+        "url": "https://api.github.com/repos/TarrySingh/Artificial-Intelligence-Deep-Learning-Machine-Learning-Tutorials/readme",
+        "type": "awesome-list"
+    },
+    # Prompt Engineering & AI Interaction
+    {
+        "name": "awesome-prompt-engineering",
+        "url": "https://api.github.com/repos/promptslab/Awesome-Prompt-Engineering/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-chatgpt-prompts",
+        "url": "https://api.github.com/repos/f/awesome-chatgpt-prompts/readme",
+        "type": "awesome-list"
+    },
+    # Data & Analytics AI
+    {
+        "name": "awesome-data-science",
+        "url": "https://api.github.com/repos/academic/awesome-datascience/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-machine-learning",
+        "url": "https://api.github.com/repos/josephmisiti/awesome-machine-learning/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-deep-learning",
+        "url": "https://api.github.com/repos/ChristosChristofidis/awesome-deep-learning/readme",
+        "type": "awesome-list"
+    },
+    # AI for Specific Use Cases
+    {
+        "name": "awesome-ai-writing",
+        "url": "https://api.github.com/repos/abilzerian/awesome-ai-writing/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-ai-art",
+        "url": "https://api.github.com/repos/altryne/awesome-ai-art-image-synthesis/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-ai-music",
+        "url": "https://api.github.com/repos/ad-si/awesome-music-production/readme",
+        "type": "awesome-list"
+    },
+    {
+        "name": "awesome-ai-video",
+        "url": "https://api.github.com/repos/steven2358/awesome-generative-ai/readme",
+        "type": "awesome-list"
+    },
+    # No-Code & Low-Code AI
+    {
+        "name": "awesome-no-code-ai",
+        "url": "https://api.github.com/repos/kairichard/awesome-nocode-lowcode/readme",
         "type": "awesome-list"
     },
 ]
