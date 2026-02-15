@@ -26,14 +26,17 @@ def clean_content(content: str) -> str:
     content = re.sub(r'([.!?])\s+(#{1,6}\s+)', r'\1\n\n\2', content)
     
     # Step 2: Fix headers that are merged with text at the BEGINNING
-    # Pattern: "# Header text continues" -> "# Header\n\ntext continues"
+    # Pattern: "# Header Title text continues" -> "# Header Title\n\ntext continues"
+    # Only split if there's a clear sentence after the header (starts with capital, has multiple words)
     lines = content.split('\n')
     fixed_lines = []
     
     for line in lines:
-        # Check if line starts with header but has text after the header title
-        match = re.match(r'^(#{1,6}\s+[^#\n]+?)(\s+[A-Z][^#]+)$', line)
+        # Check if line starts with header but has a full sentence merged after it
+        # Must have: header, then at least 2-3 words that form a sentence
+        match = re.match(r'^(#{1,6}\s+.{10,60}?[.!?])\s+([A-Z][a-z]+\s+.{20,})$', line)
         if match:
+            # Header ends with punctuation, followed by a new sentence
             header = match.group(1).strip()
             text = match.group(2).strip()
             fixed_lines.append(header)
