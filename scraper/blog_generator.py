@@ -561,6 +561,11 @@ IMPORTANT:
 - Each paragraph should be separated by blank lines
 - Images should be on their own lines
 - Lists should have proper formatting
+- HEADERS MUST BE ON A SINGLE LINE - never split a ## header across multiple lines
+- WRONG: ## Conclusion and\n\nNext Steps
+- RIGHT: ## Conclusion and Next Steps
+- After a header, always put a blank line, then the paragraph text
+- Headers should be short (3-6 words), never include paragraph text
 
 Return ONLY valid JSON."""
 
