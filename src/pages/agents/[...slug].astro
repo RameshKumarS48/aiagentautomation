@@ -17,8 +17,8 @@ const data = agent.data;
 // Clean category name
 const cleanCategory = data.category.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').trim();
 
-// Get initial for logo
-const initial = data.name.charAt(0).toUpperCase();
+// Get initial for logo (safe for emojis)
+const initial = Array.from(data.name)[0];
 ---
 
 <BaseLayout
