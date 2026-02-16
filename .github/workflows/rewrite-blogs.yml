@@ -1,0 +1,64 @@
+name: Rewrite Blogs with New SEO Structure
+
+on:
+  workflow_dispatch: # Manual trigger only
+
+permissions:
+  contents: write
+
+jobs:
+  rewrite-blogs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r scraper/requirements.txt
+          pip install python-frontmatter
+
+      - name: Rewrite all blogs with new structure
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python scripts/rewrite_blogs.py
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git diff --staged --quiet || git commit -m "feat(blogs): rewrite all blogs with new SEO-optimised structure
+
+          - TL;DR / Quick Answer section with bullet points
+          - FAQ section with H3 questions and answers
+          - British English throughout
+          - Short paragraphs (2-3 lines max)
+          - No AI clichés or filler phrases
+          - Proper internal linking (agents + blog posts)
+          - External authority links
+          - Meta descriptions 140-160 chars"
+          git pull --rebase origin main || true
+          git push origin main

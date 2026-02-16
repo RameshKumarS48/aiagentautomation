@@ -425,7 +425,7 @@ def get_existing_blogs(content_dir: Path) -> List[str]:
 
 
 def get_blog_prompt(topic: str, category: str, sample_agents: List[str], sample_blogs: List[str], inline_images: List[tuple]) -> str:
-    """Generate comprehensive blog prompt with proper SEO and formatting."""
+    """Generate comprehensive SEO-optimised blog prompt."""
 
     agents_str = ', '.join(sample_agents[:10]) if sample_agents else 'None'
     blogs_str = ', '.join(sample_blogs[:8]) if sample_blogs else 'None'
@@ -435,13 +435,24 @@ def get_blog_prompt(topic: str, category: str, sample_agents: List[str], sample_
     for i, (url, alt) in enumerate(inline_images):
         images_md += f"Image {i+1}: ![{alt}]({url})\n"
 
-    return f"""You are a senior technical writer who writes engaging, practical content. Your writing sounds human - conversational yet authoritative. You never sound like AI-generated content.
+    return f"""You are an expert SEO content writer.
 
-TASK: Write a comprehensive, SEO-optimized blog post.
+Your task is to generate a high-quality, human-like, SEO-optimised blog post based on the inputs provided.
 
-Topic: {topic}
-Category: {category}
+Follow all instructions strictly.
+
+---
+
+INPUTS:
+Primary keyword: {topic}
+Secondary keywords: {category}, AI agents, automation, machine learning
+Search intent: informational
 Target audience: Developers, tech professionals, and business leaders
+Word count target: 2000-2500
+Tone: Confident, informative, conversational
+Language: British English
+
+---
 
 AVAILABLE FOR LINKING:
 - Agent pages (link format: [Agent Name](/agents/slug/)): {agents_str}
@@ -450,104 +461,141 @@ AVAILABLE FOR LINKING:
 INLINE IMAGES TO USE (place these naturally in the content):
 {images_md}
 
-STRICT REQUIREMENTS:
+---
 
-1. TITLE:
-   - Compelling, specific, under 60 characters
-   - Include primary keyword
-   - NO clickbait or generic titles
+GLOBAL WRITING RULES:
 
-2. EXCERPT (meta description):
-   - 140-160 characters
-   - Include primary keyword naturally
-   - Compelling reason to click
+1. Write in clear, natural, human-like language.
+2. Avoid AI clichés, fluff, and generic phrases.
+3. Do not use phrases like:
+   - "In today's fast-paced world"
+   - "Unlock the power of"
+   - "Game-changer"
+   - "Cutting-edge"
+   - "In conclusion"
+   - "To sum up"
+   - "As we've seen"
+   - "It's worth noting"
+   - "It goes without saying"
+   - "Leverage"
+   - "Seamless"
+   - "Revolutionary"
+   - "Robust"
+4. Use short paragraphs (2-3 lines max).
+5. Use bullet points where helpful.
+6. Keep sentences varied in length.
+7. Maintain a confident, informative tone.
+8. Do not mention SEO, keywords, or optimisation in the output.
+9. Do not repeat the same idea in multiple sections.
+10. Ensure the content is factually correct and useful.
+11. Use "you" to address the reader directly.
+12. Include specific numbers, tools, and real examples.
 
-3. CONTENT STRUCTURE (2000-2500 words):
+---
 
-   ## Introduction (150-200 words)
-   - Hook with a specific problem, scenario, or surprising fact
-   - NO generic openings like "In today's world..."
-   - State clearly what the reader will learn
-   - Include primary keyword in first 100 words
+SEO REQUIREMENTS:
 
-   ## [Descriptive H2 - Main Concept] (300-400 words)
-   - Deep dive into the core concept
-   - Include a real-world example with specific details
-   - Add one inline image here: ![alt](url)
-   - Link to 2 relevant agent pages naturally
+- Include the primary keyword in:
+  - The title
+  - The first 100 words
+  - At least one H2
+- Naturally incorporate secondary keywords.
+- Keep the title under 60 characters.
+- Write a meta description between 140-160 characters.
 
-   ## [Descriptive H2 - Practical Application] (300-400 words)
-   - How to actually apply this
-   - Step-by-step instructions where relevant
-   - Include code snippets if applicable
-   - Link to 1-2 related blog posts
+---
 
-   ## [Descriptive H2 - Tools & Solutions] (300-400 words)
-   - Specific tools, frameworks, or solutions
-   - Comparison or recommendations
-   - Add another inline image
-   - Link to 2-3 agent pages
+INTERNAL LINKING REQUIREMENTS:
+- Include minimum 5 links to agent pages (/agents/slug/)
+- Include minimum 3 links to other blog posts (/blog/slug/)
+- Links must be contextually relevant
+- Anchor text should be descriptive, not "click here"
 
-   ### [H3 Subsection if needed]
-   - Break down complex topics
+EXTERNAL LINKING REQUIREMENTS:
+- Include 2-3 links to authoritative external sources
+- Link to: official documentation, research papers, industry blogs
+- Good sources: OpenAI docs, Anthropic docs, Google AI blog, arXiv, GitHub repos, MIT Technology Review
+- External links should add genuine value
 
-   ## Step-by-Step Guide / Framework / Checklist (250-300 words)
-   - Numbered steps OR
-   - Actionable checklist OR
-   - Decision framework
-   - Make it practical and immediately usable
+---
 
-   ## Common Pitfalls to Avoid (200-250 words)
-   - 4-5 specific mistakes with explanations
-   - NOT generic advice
-   - Include why each is problematic
+OUTPUT STRUCTURE (follow this EXACTLY):
 
-   ## Key Takeaways (150-200 words)
-   - Summarize actionable points
-   - Forward-looking statement
-   - Clear call-to-action linking to [browse all agents](/agents/)
-   - Link to 1-2 related blog posts for further reading
+1) Title (H1)
+- SEO-optimised, under 60 characters
+- Clear benefit-driven headline
 
-4. INTERNAL LINKING REQUIREMENTS:
-   - Minimum 5 links to agent pages (/agents/slug/)
-   - Minimum 3 links to other blog posts (/blog/slug/)
-   - Links must be contextually relevant
-   - Anchor text should be descriptive, not "click here"
+2) Meta Description
+- 140-160 characters
+- Includes primary keyword
 
-5. EXTERNAL LINKING REQUIREMENTS (for SEO & authority):
-   - Include 2-3 links to authoritative external sources
-   - Link to: official documentation, research papers, industry blogs (TechCrunch, VentureBeat, etc.)
-   - Use rel="noopener" for external links
-   - Format: [Link Text](https://example.com)
-   - Examples of good sources:
-     * OpenAI documentation, Anthropic docs, Google AI blog
-     * arXiv papers for research topics
-     * GitHub repos for open-source tools
-     * Industry publications: The Verge, Ars Technica, MIT Technology Review
-   - External links should add value, not just be filler
+3) Introduction (100-150 words)
+- Start with the problem or question
+- Acknowledge reader intent
+- Briefly explain what they'll learn
+- Include primary keyword in first 100 words
+- Include one inline image after the intro
 
-6. SEO REQUIREMENTS:
-   - Primary keyword in: title, first paragraph, one H2, conclusion
-   - Use semantic variations throughout
-   - Short paragraphs (3-4 sentences max)
-   - Use bullet points and numbered lists
-   - Include the provided images with descriptive alt text
+4) Quick Answer / TL;DR
+- H2: Quick Answer
+- 3-5 bullet points summarising the key answer
+- Keep each bullet to 1-2 sentences
 
-7. WRITING STYLE:
-   - Conversational but professional
-   - Use "you" to address reader directly
-   - Include specific numbers, tools, examples
-   - Share opinions where appropriate
-   - NO buzzwords: leverage, unlock, game-changer, revolutionary, seamless, robust
-   - NO filler: "It's worth noting", "It goes without saying"
-   - NO AI patterns: "In conclusion", "To sum up", "As we've seen"
+5) Main Sections
+
+H2: [Core topic section with primary keyword]
+- Deep explanation with real-world examples
+- Bullets where appropriate
+- Link to 2 relevant agent pages
+- Include one inline image
+
+H2: [Secondary topic section]
+- Practical insights and applications
+- Step-by-step instructions where relevant
+- Link to 1-2 blog posts
+
+H2: [Step-by-step guide / comparison / breakdown]
+- Use H3s for sub-points
+- Numbered steps or actionable checklist
+- Link to 2-3 agent pages
+
+6) Real-World Examples
+H2: Real-World Applications
+- 2-3 specific, practical scenarios
+- Make the content credible and useful
+- Link to relevant agent pages
+
+7) Frequently Asked Questions
+
+H2: Frequently Asked Questions
+
+H3: [Question 1]
+- 40-60 word answer
+
+H3: [Question 2]
+- 40-60 word answer
+
+H3: [Question 3]
+- 40-60 word answer
+
+H3: [Question 4]
+- 40-60 word answer
+
+8) Key Takeaways
+H2: Key Takeaways
+- Short summary in 3-5 bullet points
+- Actionable closing insight
+- Link to [browse all agents](/agents/)
+- Link to 1-2 related blog posts for further reading
+
+---
 
 OUTPUT FORMAT - Return ONLY this JSON:
 
 {{
-  "title": "string",
-  "slug": "string",
-  "excerpt": "string - 140-160 chars",
+  "title": "string - under 60 chars",
+  "slug": "string - URL-friendly slug",
+  "excerpt": "string - 140-160 chars meta description",
   "tags": ["5-6 relevant tags"],
   "content": "string - full markdown content with proper line breaks, images, and links",
   "read_time": number (10-15),
@@ -556,16 +604,32 @@ OUTPUT FORMAT - Return ONLY this JSON:
   "featured": boolean
 }}
 
-IMPORTANT:
-- Content must have proper markdown line breaks (actual newlines, not \\n)
+---
+
+CRITICAL FORMATTING RULES:
+- Content must have proper markdown line breaks (actual newlines, not \\\\n)
 - Each paragraph should be separated by blank lines
 - Images should be on their own lines
-- Lists should have proper formatting
-- HEADERS MUST BE ON A SINGLE LINE - never split a ## header across multiple lines
-- WRONG: ## Conclusion and\n\nNext Steps
-- RIGHT: ## Conclusion and Next Steps
+- Lists should have proper formatting with blank lines around them
+- HEADERS MUST BE ON A SINGLE LINE - never split a header across lines
 - After a header, always put a blank line, then the paragraph text
-- Headers should be short (3-6 words), never include paragraph text
+- Headers should be short (3-6 words), never include paragraph text on the header line
+- Keep paragraphs to 2-3 lines maximum
+- Use * for bullet points, not -
+
+---
+
+QUALITY CHECK BEFORE OUTPUT:
+- Does the introduction match the search intent?
+- Is the primary keyword used naturally?
+- Are paragraphs short and readable (2-3 lines)?
+- Is the tone human and not robotic?
+- Is the structure followed exactly?
+- Are there at least 5 agent links and 3 blog links?
+- Is there a TL;DR section with bullet points?
+- Is there an FAQ section with 4 H3 questions?
+
+Only output the final JSON. Do not include explanations, notes, or metadata.
 
 Return ONLY valid JSON."""
 
