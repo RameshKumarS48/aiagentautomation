@@ -9892,6 +9892,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"nimbalyst.md": {
+	id: "nimbalyst.md";
+  slug: "nimbalyst";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "ninox.md": {
 	id: "ninox.md";
   slug: "ninox";
@@ -13724,6 +13731,13 @@ declare module 'astro:content' {
 "taranify.md": {
 	id: "taranify.md";
   slug: "taranify";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"taskade-genesis.md": {
+	id: "taskade-genesis.md";
+  slug: "taskade-genesis";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
