@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Rewrite all existing blogs with the new SEO-optimised structure.
-Uses existing topic/title from each blog and regenerates content
-with the new structure: TL;DR, FAQ, British English, etc.
+Handles rate limits with retries and processes in small batches.
+Tracks progress to resume from where it left off.
 """
 
 import os
@@ -13,9 +13,6 @@ import time
 import random
 from pathlib import Path
 from datetime import datetime
-
-# Add parent scraper dir to path
-sys.path.insert(0, str(Path(__file__).parent.parent / 'scraper'))
 
 try:
     import frontmatter
@@ -125,7 +122,6 @@ INTERNAL LINKING REQUIREMENTS:
 
 EXTERNAL LINKING REQUIREMENTS:
 - Include 2-3 links to authoritative external sources
-- Link to: official documentation, research papers, industry blogs
 - Good sources: OpenAI docs, Anthropic docs, Google AI blog, arXiv, GitHub repos, MIT Technology Review
 - External links should add genuine value
 
@@ -219,24 +215,11 @@ OUTPUT FORMAT - Return ONLY this JSON:
 CRITICAL FORMATTING RULES:
 - Content must have proper markdown line breaks (actual newlines, not \\\\n)
 - Each paragraph should be separated by blank lines
-- Images should be on their own lines
 - HEADERS MUST BE ON A SINGLE LINE - never split a header across lines
 - After a header, always put a blank line, then the paragraph text
 - Headers should be short (3-6 words)
 - Keep paragraphs to 2-3 lines maximum
 - Use * for bullet points, not -
-
----
-
-QUALITY CHECK BEFORE OUTPUT:
-- Does the introduction match the search intent?
-- Is the primary keyword used naturally?
-- Are paragraphs short and readable (2-3 lines)?
-- Is the tone human and not robotic?
-- Is the structure followed exactly?
-- Are there at least 5 agent links and 3 blog links?
-- Is there a TL;DR section with bullet points?
-- Is there an FAQ section with 4 H3 questions?
 
 Only output the final JSON. Do not include explanations, notes, or metadata.
 
@@ -250,81 +233,103 @@ def escape_yaml(text: str) -> str:
     return text.replace('\\', '\\\\').replace('"', '\\"').replace('\n', ' ')
 
 
-def rewrite_with_groq(prompt: str, client) -> dict:
-    """Rewrite using Groq API."""
-    try:
-        response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            max_tokens=8000,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        text = response.choices[0].message.content
-        json_match = re.search(r'\{[\s\S]*\}', text)
-        if json_match:
-            return json.loads(json_match.group())
-    except json.JSONDecodeError:
-        try:
-            cleaned = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', ' ', json_match.group())
-            return json.loads(cleaned)
-        except:
-            pass
-    except Exception as e:
-        print(f"  Groq error: {e}")
-    return None
-
-
-def rewrite_with_gemini(prompt: str, model) -> dict:
-    """Rewrite using Gemini API."""
-    try:
-        response = model.generate_content(prompt)
-        text = response.text
-        json_match = re.search(r'\{[\s\S]*\}', text)
-        if json_match:
-            return json.loads(json_match.group())
-    except json.JSONDecodeError:
-        try:
-            cleaned = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', ' ', json_match.group())
-            return json.loads(cleaned)
-        except:
-            pass
-    except Exception as e:
-        print(f"  Gemini error: {e}")
-    return None
-
-
-def rewrite_with_openai(prompt: str, client) -> dict:
-    """Rewrite using OpenAI API."""
-    try:
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            max_tokens=8000,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        text = response.choices[0].message.content
-        json_match = re.search(r'\{[\s\S]*\}', text)
-        if json_match:
-            return json.loads(json_match.group())
-    except json.JSONDecodeError:
-        try:
-            cleaned = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', ' ', json_match.group())
-            return json.loads(cleaned)
-        except:
-            pass
-    except Exception as e:
-        print(f"  OpenAI error: {e}")
+def call_api_with_retry(prompt: str, groq_client=None, gemini_model=None, openai_client=None, max_retries=3) -> dict:
+    """Call AI API with retry logic and exponential backoff."""
+    
+    apis = []
+    if groq_client:
+        apis.append(('groq', groq_client))
+    if gemini_model:
+        apis.append(('gemini', gemini_model))
+    if openai_client:
+        apis.append(('openai', openai_client))
+    
+    for attempt in range(max_retries):
+        for api_name, client in apis:
+            try:
+                if api_name == 'groq':
+                    response = client.chat.completions.create(
+                        model="llama-3.3-70b-versatile",
+                        max_tokens=8000,
+                        messages=[{"role": "user", "content": prompt}]
+                    )
+                    text = response.choices[0].message.content
+                    
+                elif api_name == 'gemini':
+                    response = client.generate_content(prompt)
+                    text = response.text
+                    
+                elif api_name == 'openai':
+                    response = client.chat.completions.create(
+                        model="gpt-4o-mini",
+                        max_tokens=8000,
+                        messages=[{"role": "user", "content": prompt}]
+                    )
+                    text = response.choices[0].message.content
+                
+                # Parse JSON
+                json_match = re.search(r'\{[\s\S]*\}', text)
+                if json_match:
+                    try:
+                        data = json.loads(json_match.group())
+                        if data.get('content') and len(data['content']) > 500:
+                            return data
+                    except json.JSONDecodeError:
+                        cleaned = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', ' ', json_match.group())
+                        try:
+                            data = json.loads(cleaned)
+                            if data.get('content') and len(data['content']) > 500:
+                                return data
+                        except:
+                            pass
+                
+            except Exception as e:
+                error_str = str(e)
+                if '429' in error_str or 'rate_limit' in error_str or 'quota' in error_str:
+                    # Extract wait time if available
+                    wait_match = re.search(r'(\d+)m(\d+)', error_str)
+                    if wait_match:
+                        wait_mins = int(wait_match.group(1))
+                        wait_secs = int(wait_match.group(2))
+                        total_wait = min(wait_mins * 60 + wait_secs + 5, 120)  # Cap at 2 minutes
+                        print(f"    Rate limited on {api_name}, waiting {total_wait}s...")
+                        time.sleep(total_wait)
+                    else:
+                        wait = min(30 * (2 ** attempt), 120)
+                        print(f"    Rate limited on {api_name}, waiting {wait}s...")
+                        time.sleep(wait)
+                    continue
+                else:
+                    print(f"    {api_name} error: {str(e)[:100]}")
+                    time.sleep(2)
+                    continue
+        
+        # Between retries
+        if attempt < max_retries - 1:
+            backoff = 15 * (attempt + 1)
+            print(f"    Retry {attempt + 2}/{max_retries} in {backoff}s...")
+            time.sleep(backoff)
+    
     return None
 
 
 def fix_split_headers(content: str) -> str:
     """Fix any split headers in generated content."""
-    # Fix headers ending with prepositions followed by continuation
     content = re.sub(
-        r'^(#{1,4}\s+\S+(?:\s+\S+){0,2}:?)\s*\n\n(\S+(?:\s+\S+){0,5})\s*$',
+        r'^(#{1,4}\s+\S+(?:\s+\S+){0,3})\s*\n\n([A-Z][^\n]+)',
         lambda m: f"{m.group(1)} {m.group(2)}",
         content,
         flags=re.MULTILINE
     )
     return content
+
+
+def has_new_structure(content: str) -> bool:
+    """Check if a blog already has the new structure (TL;DR + FAQ)."""
+    body = content.split('---', 2)[-1] if '---' in content else content
+    has_tldr = bool(re.search(r'^##\s*(Quick Answer|TL;DR)', body, re.MULTILINE | re.IGNORECASE))
+    has_faq = bool(re.search(r'^##\s*Frequently Asked Questions', body, re.MULTILINE | re.IGNORECASE))
+    return has_tldr and has_faq
 
 
 def main():
@@ -361,16 +366,33 @@ def main():
     
     print(f"Available APIs: {', '.join(apis)}")
     
-    # Get all blog files
+    # Get all blog files, skip already-rewritten ones
     blog_files = sorted(blogs_dir.glob("*.md"))
-    total = len(blog_files)
+    
+    to_rewrite = []
+    already_done = 0
+    for f in blog_files:
+        content = f.read_text()
+        if has_new_structure(content):
+            already_done += 1
+        else:
+            to_rewrite.append(f)
+    
+    total = len(to_rewrite)
+    print(f"\nAlready rewritten: {already_done}")
+    print(f"Need to rewrite: {total}")
+    
+    if total == 0:
+        print("All blogs already have the new structure!")
+        return
     
     print(f"\nRewriting {total} blogs with new SEO structure...\n")
     
     success = 0
     failed = 0
+    batch_size = 5
     
-    for i, blog_file in enumerate(blog_files):
+    for i, blog_file in enumerate(to_rewrite):
         try:
             post = frontmatter.load(blog_file)
         except Exception as e:
@@ -397,23 +419,16 @@ def main():
         
         prompt = get_rewrite_prompt(topic, topic, category, tags, sample_agents, sample_blogs)
         
-        data = None
-        
-        # Try each API
-        if not data and groq_client:
-            data = rewrite_with_groq(prompt, groq_client)
-            time.sleep(0.5)
-        
-        if not data and gemini_model:
-            data = rewrite_with_gemini(prompt, gemini_model)
-            time.sleep(0.5)
-        
-        if not data and openai_client:
-            data = rewrite_with_openai(prompt, openai_client)
-            time.sleep(0.5)
+        data = call_api_with_retry(
+            prompt,
+            groq_client=groq_client,
+            gemini_model=gemini_model,
+            openai_client=openai_client,
+            max_retries=3
+        )
         
         if not data:
-            print(f"  ✗ Failed to generate content")
+            print(f"  ✗ Failed after retries")
             failed += 1
             continue
         
@@ -460,13 +475,20 @@ related_posts:
         print(f"  ✓ Rewritten successfully")
         success += 1
         
-        # Rate limiting
-        time.sleep(0.3)
+        # Rate limiting between requests
+        time.sleep(3)
+        
+        # Extra pause between batches
+        if (i + 1) % batch_size == 0 and i + 1 < total:
+            print(f"\n  --- Batch pause ({success}/{total} done, waiting 15s) ---\n")
+            time.sleep(15)
     
     print(f"\n{'='*60}")
     print(f"Blog rewrite complete!")
     print(f"  Success: {success}/{total}")
     print(f"  Failed: {failed}/{total}")
+    print(f"  Previously done: {already_done}")
+    print(f"  Total blogs: {len(list(blogs_dir.glob('*.md')))}")
     print(f"{'='*60}")
 
 
