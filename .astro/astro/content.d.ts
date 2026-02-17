@@ -204,6 +204,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"aakash-gupta-prompt-engineering-in-2025.md": {
+	id: "aakash-gupta-prompt-engineering-in-2025.md";
+  slug: "aakash-gupta-prompt-engineering-in-2025";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "accord-framework.md": {
 	id: "accord-framework.md";
   slug: "accord-framework";
@@ -284,6 +291,20 @@ declare module 'astro:content' {
 "adrenaline.md": {
 	id: "adrenaline.md";
   slug: "adrenaline";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"advanced-prompt-engineering.md": {
+	id: "advanced-prompt-engineering.md";
+  slug: "advanced-prompt-engineering";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"advanced-prompt-hacking.md": {
+	id: "advanced-prompt-hacking.md";
+  slug: "advanced-prompt-hacking";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -505,9 +526,23 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"ai-agents-in-langgraph.md": {
+	id: "ai-agents-in-langgraph.md";
+  slug: "ai-agents-in-langgraph";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "ai-agents.md": {
 	id: "ai-agents.md";
   slug: "ai-agents";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"ai-alignment-forum.md": {
+	id: "ai-alignment-forum.md";
+  slug: "ai-alignment-forum";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -753,6 +788,13 @@ declare module 'astro:content' {
 "ai-residency-programs-information.md": {
 	id: "ai-residency-programs-information.md";
   slug: "ai-residency-programs-information";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"ai-safety.md": {
+	id: "ai-safety.md";
+  slug: "ai-safety";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -1107,9 +1149,44 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"anthropic-claude-4-best-practices.md": {
+	id: "anthropic-claude-4-best-practices.md";
+  slug: "anthropic-claude-4-best-practices";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "anthropic-courses.md": {
 	id: "anthropic-courses.md";
   slug: "anthropic-courses";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"anthropic-discord.md": {
+	id: "anthropic-discord.md";
+  slug: "anthropic-discord";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"anthropic-effective-context-engineering-for-ai-agents.md": {
+	id: "anthropic-effective-context-engineering-for-ai-agents.md";
+  slug: "anthropic-effective-context-engineering-for-ai-agents";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"anthropic-interactive-tutorial.md": {
+	id: "anthropic-interactive-tutorial.md";
+  slug: "anthropic-interactive-tutorial";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"anthropic-prompt-engineering-overview.md": {
+	id: "anthropic-prompt-engineering-overview.md";
+  slug: "anthropic-prompt-engineering-overview";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -2024,6 +2101,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"best-100-stable-diffusion-prompts.md": {
+	id: "best-100-stable-diffusion-prompts.md";
+  slug: "best-100-stable-diffusion-prompts";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "best-practices.md": {
 	id: "best-practices.md";
   slug: "best-practices";
@@ -2409,6 +2493,20 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"building-agentic-rag-with-llamaindex.md": {
+	id: "building-agentic-rag-with-llamaindex.md";
+  slug: "building-agentic-rag-with-llamaindex";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"building-systems-with-the-chatgpt-api.md": {
+	id: "building-systems-with-the-chatgpt-api.md";
+  slug: "building-systems-with-the-chatgpt-api";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "buildt.md": {
 	id: "buildt.md";
   slug: "buildt";
@@ -2678,6 +2776,13 @@ declare module 'astro:content' {
 "chatgpt-for-discord-bot.md": {
 	id: "chatgpt-for-discord-bot.md";
   slug: "chatgpt-for-discord-bot";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"chatgpt-for-everyone.md": {
+	id: "chatgpt-for-everyone.md";
+  slug: "chatgpt-for-everyone";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -3928,6 +4033,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"dalle-prompt-book.md": {
+	id: "dalle-prompt-book.md";
+  slug: "dalle-prompt-book";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "dalle2.md": {
 	id: "dalle2.md";
   slug: "dalle2";
@@ -4306,6 +4418,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"deeplearning-ai-community.md": {
+	id: "deeplearning-ai-community.md";
+  slug: "deeplearning-ai-community";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "deepnote.md": {
 	id: "deepnote.md";
   slug: "deepnote";
@@ -4516,6 +4635,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"digitalocean-prompt-engineering-best-practices.md": {
+	id: "digitalocean-prompt-engineering-best-practices.md";
+  slug: "digitalocean-prompt-engineering-best-practices";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "dingo.md": {
 	id: "dingo.md";
   slug: "dingo";
@@ -4687,6 +4813,13 @@ declare module 'astro:content' {
 "dronahq.md": {
 	id: "dronahq.md";
   slug: "dronahq";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"dspy-stanford-nlp.md": {
+	id: "dspy-stanford-nlp.md";
+  slug: "dspy-stanford-nlp";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -5713,6 +5846,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"functions-tools-and-agents-with-langchain.md": {
+	id: "functions-tools-and-agents-with-langchain.md";
+  slug: "functions-tools-and-agents-with-langchain";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "fynix.md": {
 	id: "fynix.md";
   slug: "fynix";
@@ -5814,6 +5954,13 @@ declare module 'astro:content' {
 "generative-ai-a-creative-new-world.md": {
 	id: "generative-ai-a-creative-new-world.md";
   slug: "generative-ai-a-creative-new-world";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"generative-ai-with-llms-deeplearning-ai-aws.md": {
+	id: "generative-ai-with-llms-deeplearning-ai-aws.md";
+  slug: "generative-ai-with-llms-deeplearning-ai-aws";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -6136,6 +6283,20 @@ declare module 'astro:content' {
 "google-gemini-code-assist.md": {
 	id: "google-gemini-code-assist.md";
   slug: "google-gemini-code-assist";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"google-gemini-prompting-strategies.md": {
+	id: "google-gemini-prompting-strategies.md";
+  slug: "google-gemini-prompting-strategies";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"google-prompting-essentials.md": {
+	id: "google-prompting-essentials.md";
+  slug: "google-prompting-essentials";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -6917,6 +7078,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"ibm-2026-guide-to-prompt-engineering.md": {
+	id: "ibm-2026-guide-to-prompt-engineering.md";
+  slug: "ibm-2026-guide-to-prompt-engineering";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "ibm-data-prep-kit.md": {
 	id: "ibm-data-prep-kit.md";
   slug: "ibm-data-prep-kit";
@@ -6934,6 +7102,13 @@ declare module 'astro:content' {
 "icml.md": {
 	id: "icml.md";
   slug: "icml";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"icse-2025-aiware-prompt-engineering-tutorial.md": {
+	id: "icse-2025-aiware-prompt-engineering-tutorial.md";
+  slug: "icse-2025-aiware-prompt-engineering-tutorial";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -7960,6 +8135,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"learn-prompting-learnprompting-org.md": {
+	id: "learn-prompting-learnprompting-org.md";
+  slug: "learn-prompting-learnprompting-org";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "learn-prompting.md": {
 	id: "learn-prompting.md";
   slug: "learn-prompting";
@@ -8005,6 +8187,13 @@ declare module 'astro:content' {
 "lepton-ai.md": {
 	id: "lepton-ai.md";
   slug: "lepton-ai";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"lesswrong.md": {
+	id: "lesswrong.md";
+  slug: "lesswrong";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -8096,6 +8285,13 @@ declare module 'astro:content' {
 "lil-bots.md": {
 	id: "lil-bots.md";
   slug: "lil-bots";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"lilian-weng-s-prompt-engineering-guide.md": {
+	id: "lilian-weng-s-prompt-engineering-guide.md";
+  slug: "lilian-weng-s-prompt-engineering-guide";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -8730,6 +8926,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"making-pre-trained-language-models-better-few-shot-learners.md": {
+	id: "making-pre-trained-language-models-better-few-shot-learners.md";
+  slug: "making-pre-trained-language-models-better-few-shot-learners";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "malware-analyst.md": {
 	id: "malware-analyst.md";
   slug: "malware-analyst";
@@ -8754,6 +8957,13 @@ declare module 'astro:content' {
 "manifest.md": {
 	id: "manifest.md";
   slug: "manifest";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"many-shot-jailbreaking.md": {
+	id: "many-shot-jailbreaking.md";
+  slug: "many-shot-jailbreaking";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -9122,6 +9332,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"microsoft-azure-ai-fundamentals-generative-ai.md": {
+	id: "microsoft-azure-ai-fundamentals-generative-ai.md";
+  slug: "microsoft-azure-ai-fundamentals-generative-ai";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "microsoft-azure-neural-tts.md": {
 	id: "microsoft-azure-neural-tts.md";
   slug: "microsoft-azure-neural-tts";
@@ -9146,6 +9363,20 @@ declare module 'astro:content' {
 "microsoft-professional-program-for-data-science.md": {
 	id: "microsoft-professional-program-for-data-science.md";
   slug: "microsoft-professional-program-for-data-science";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"microsoft-prompt-engineering-docs.md": {
+	id: "microsoft-prompt-engineering-docs.md";
+  slug: "microsoft-prompt-engineering-docs";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"microsoft-prompt-engineering-in-azure-ai-studio.md": {
+	id: "microsoft-prompt-engineering-in-azure-ai-studio.md";
+  slug: "microsoft-prompt-engineering-in-azure-ai-studio";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -9300,6 +9531,13 @@ declare module 'astro:content' {
 "mistral-rs.md": {
 	id: "mistral-rs.md";
   slug: "mistral-rs";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"mit-6-s191-introduction-to-deep-learning.md": {
+	id: "mit-6-s191-introduction-to-deep-learning.md";
+  slug: "mit-6-s191-introduction-to-deep-learning";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -10326,6 +10564,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"openai-developer-community.md": {
+	id: "openai-developer-community.md";
+  slug: "openai-developer-community";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "openai-discord.md": {
 	id: "openai-discord.md";
   slug: "openai-discord";
@@ -10343,6 +10588,13 @@ declare module 'astro:content' {
 "openai-evals.md": {
 	id: "openai-evals.md";
   slug: "openai-evals";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"openai-gpt-4-1-prompting-guide.md": {
+	id: "openai-gpt-4-1-prompting-guide.md";
+  slug: "openai-gpt-4-1-prompting-guide";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -10371,6 +10623,13 @@ declare module 'astro:content' {
 "openai-prompt-engineering-guide.md": {
 	id: "openai-prompt-engineering-guide.md";
   slug: "openai-prompt-engineering-guide";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"openai.md": {
+	id: "openai.md";
+  slug: "openai";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -11397,9 +11656,23 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"prompt-engineering-guide-dair-ai-promptingguide-ai.md": {
+	id: "prompt-engineering-guide-dair-ai-promptingguide-ai.md";
+  slug: "prompt-engineering-guide-dair-ai-promptingguide-ai";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "prompt-engineering-guide.md": {
 	id: "prompt-engineering-guide.md";
   slug: "prompt-engineering-guide";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"prompt-engineering-specialization-vanderbilt.md": {
+	id: "prompt-engineering-specialization-vanderbilt.md";
+  slug: "prompt-engineering-specialization-vanderbilt";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -11512,6 +11785,13 @@ declare module 'astro:content' {
 "promptslab-discord.md": {
 	id: "promptslab-discord.md";
   slug: "promptslab-discord";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"promptslab.md": {
+	id: "promptslab.md";
+  slug: "promptslab";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -13364,6 +13644,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"stanford-cs336-language-modeling-from-scratch.md": {
+	id: "stanford-cs336-language-modeling-from-scratch.md";
+  slug: "stanford-cs336-language-modeling-from-scratch";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "stanford-nlp-for-net.md": {
 	id: "stanford-nlp-for-net.md";
   slug: "stanford-nlp-for-net";
@@ -13966,6 +14253,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"the-complete-prompt-engineering-for-ai-bootcamp.md": {
+	id: "the-complete-prompt-engineering-for-ai-bootcamp.md";
+  slug: "the-complete-prompt-engineering-for-ai-bootcamp";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "the-data-science-toolbox.md": {
 	id: "the-data-science-toolbox.md";
   slug: "the-data-science-toolbox";
@@ -14193,6 +14487,13 @@ declare module 'astro:content' {
 "toolhive.md": {
 	id: "toolhive.md";
   slug: "toolhive";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"tools-and-code.md": {
+	id: "tools-and-code.md";
+  slug: "tools-and-code";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
@@ -14774,6 +15075,13 @@ declare module 'astro:content' {
 "vibe-compiler-vibec.md": {
 	id: "vibe-compiler-vibec.md";
   slug: "vibe-compiler-vibec";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
+"vibe-engineering-manning.md": {
+	id: "vibe-engineering-manning.md";
+  slug: "vibe-engineering-manning";
   body: string;
   collection: "agents";
   data: InferEntrySchema<"agents">
