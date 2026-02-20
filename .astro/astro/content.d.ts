@@ -1849,6 +1849,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"awesome-code-docs.md": {
+	id: "awesome-code-docs.md";
+  slug: "awesome-code-docs";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "awesome-dl4nlp.md": {
 	id: "awesome-dl4nlp.md";
   slug: "awesome-dl4nlp";
