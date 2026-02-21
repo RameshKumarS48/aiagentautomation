@@ -12902,6 +12902,13 @@ declare module 'astro:content' {
   collection: "agents";
   data: InferEntrySchema<"agents">
 } & { render(): Render[".md"] };
+"seedance-2-0.md": {
+	id: "seedance-2-0.md";
+  slug: "seedance-2-0";
+  body: string;
+  collection: "agents";
+  data: InferEntrySchema<"agents">
+} & { render(): Render[".md"] };
 "seede-ai.md": {
 	id: "seede-ai.md";
   slug: "seede-ai";
