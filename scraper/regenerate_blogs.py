@@ -46,96 +46,124 @@ def get_regeneration_prompt(title: str, category: str, sample_agents: List[str])
 
     agents_str = ', '.join(sample_agents[:8]) if sample_agents else 'None'
 
-    return f"""You are a senior human content writer and editor.
-You write like an experienced practitioner, not like an AI, not like a marketer, and not like a textbook.
+    return f"""You are a strict SEO blog generation engine.
 
-Your writing must:
-- Sound natural, grounded, and opinionated where appropriate
-- Avoid generic filler, buzzwords, or vague claims
-- Be useful, specific, and practical
-- Feel like it was written by a real person with domain knowledge
-- Never mention AI language models or that content was generated
+Your task is to generate a fully SEO-optimised blog post while following the structure exactly as provided below.
 
-TASK: Rewrite this blog post professionally.
+You must follow these rules strictly:
+
+Do not rename headings.
+Do not add extra sections.
+Do not remove sections.
+Do not add commentary, notes, or explanations.
+Do not include AI disclaimers.
+Do not wrap the output in code blocks.
+Output clean markdown only.
+If the structure is violated, regenerate internally before responding.
+
+TASK: Regenerate this blog post professionally with the new structure.
 
 Original Title: {title}
-Category: {category}
-Target audience: Developers, tech professionals, and business leaders interested in AI automation
-Available agents for internal linking: {agents_str}
 
-STRUCTURE (Follow exactly):
+---
 
-1. Title: Keep similar to original but make it compelling. Under 60 characters.
+Content Inputs:
+Primary Keyword: {title}
+Secondary Keywords: {category}, AI agents, automation, machine learning
+Target Audience: Developers, tech professionals, and business leaders
+Search Intent: informational
+Tone: Authoritative, clear, concise
+Language: British English
+Word Count Target: 1200-1500 words
 
-2. Meta Description (excerpt): 140-160 characters. Clear summary with primary keyword.
+---
 
-3. Introduction (100-150 words):
-   - Start with a concrete situation, problem, or observation
-   - No definitions or history unless necessary
-   - End with what the reader will gain
+SEO Requirements:
 
-4. Main Sections (4-5 H2 sections):
-   - Each has a clear, specific heading
-   - Contains practical insights, not generic explanations
-   - Include real-world examples with specific details
-   - Use short lists where useful
-   - NO paragraphs over 4-5 lines
-   - Include 3-5 internal links to agents using format [Agent Name](/agents/agent-slug/)
+Include the primary keyword in:
+- H1
+- Introduction
+- At least one H2
+- Conclusion
 
-5. Practical Section (H2: "Step-by-Step Guide" or "Practical Framework" or "Checklist"):
-   Include ONE of: numbered step-by-step process, checklist with checkboxes, framework, or comparison table
+Distribute secondary keywords naturally.
+Use short paragraphs (2-4 lines).
+Avoid keyword stuffing.
+Use bullet points where specified.
+Maintain logical flow and strong readability.
 
-6. Common Mistakes (H2):
-   3-5 bullet points. Short, direct, practical mistakes people make.
+---
 
-7. Conclusion (100-150 words):
-   - Summarize key insights
-   - End with forward-looking or practical takeaway
-   - Link to related content on the site
-   - NO clichés like "in conclusion" or "to sum up"
-
-BANNED PHRASES (Never use these):
-- "In today's fast-paced world"
-- "It's important to note that"
-- "Leverage"
-- "Unlock the power of"
-- "Game-changer"
-- "Revolutionary"
-- "Seamless"
-- "Robust solution"
-- "Dive into"
-- "Navigate the landscape"
-- "Harness the power"
-- "At the end of the day"
-- "Moving forward"
-
-STYLE:
-- Use short, clear sentences
-- Prefer concrete nouns and verbs
-- Include specific numbers, tools, and examples
-- Conversational but professional tone
-- At least one concrete example per main section
-- Use bullet points and numbered lists liberally
+AVAILABLE FOR LINKING:
+- Agent pages (link format: [Agent Name](/agents/slug/)): {agents_str}
+- Link to /categories/ page where relevant
+- End with CTA linking to [browse all agents](/agents/)
 
 SEO & LINKING:
 - Primary keyword in title and first 100 words
 - 3-5 internal links to /agents/ pages naturally woven in
 - 2-3 internal links to /blog/ for related topics (use format [Related Post](/blog/slug/))
-- Link to /categories/ page where relevant
-- End with CTA linking to [browse all agents](/agents/)
+
+---
+
+Return output in EXACT markdown structure below:
+
+# {{primary_keyword}}: A Complete Guide for {{target_audience}}
+
+## Introduction
+
+(120-150 words. Clearly define the topic and match search intent.)
+
+## What is {{primary_keyword}}?
+
+(200-250 words. Clear, structured explanation.)
+
+## Key Benefits of {{primary_keyword}}
+
+(Use bullet points. 250-300 words total.)
+
+## How {{primary_keyword}} Works
+
+(250-300 words. Step-by-step explanation.)
+
+## Common Mistakes to Avoid
+
+(200-250 words. Practical insights.)
+
+## FAQs
+
+### What is the main purpose of {{primary_keyword}}?
+
+(80-100 words.)
+
+### Is {{primary_keyword}} suitable for {{target_audience}}?
+
+(80-100 words.)
+
+### How do I get started with {{primary_keyword}}?
+
+(80-100 words.)
+
+## Conclusion
+
+(120-150 words. Summarise and reinforce value.)
+
+The response must begin directly with the H1 heading and follow the structure exactly.
+
+---
 
 OUTPUT FORMAT - Return ONLY this JSON:
 
-{{
+{{{{
   "title": "string - under 60 chars, clear and specific",
   "slug": "string - URL-friendly slug",
   "excerpt": "string - 140-160 char meta description with keyword",
   "tags": ["array of 5-6 relevant tags"],
-  "content": "string - full markdown blog post (1400-1800 words) following the exact structure above with proper line breaks and formatting",
-  "read_time": number - estimated minutes (7-12),
+  "content": "string - full markdown blog post (1200-1500 words) following the exact structure above with proper line breaks and formatting",
+  "read_time": number - estimated minutes (6-10),
   "related_agents": ["3-5 agent slugs from available list"],
   "featured": boolean
-}}
+}}}}
 
 Return ONLY valid JSON, no other text."""
 

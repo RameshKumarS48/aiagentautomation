@@ -47,72 +47,53 @@ def get_rewrite_prompt(title: str, topic: str, category: str, tags: list,
     blogs_str = ', '.join(sample_blogs[:8]) if sample_blogs else 'None'
     tags_str = ', '.join(tags) if tags else category
 
-    return f"""You are an expert SEO content writer.
+    return f"""You are a strict SEO blog generation engine.
 
-Your task is to generate a high-quality, human-like, SEO-optimised blog post based on the inputs provided.
+Your task is to generate a fully SEO-optimised blog post while following the structure exactly as provided below.
 
-Follow all instructions strictly.
+You must follow these rules strictly:
+
+Do not rename headings.
+Do not add extra sections.
+Do not remove sections.
+Do not add commentary, notes, or explanations.
+Do not include AI disclaimers.
+Do not wrap the output in code blocks.
+Output clean markdown only.
+If the structure is violated, regenerate internally before responding.
 
 ---
 
-INPUTS:
-Primary keyword: {topic}
-Secondary keywords: {tags_str}
-Search intent: informational
-Target audience: Developers, tech professionals, and business leaders
-Word count target: 2000-2500
-Tone: Confident, informative, conversational
+Content Inputs:
+Primary Keyword: {topic}
+Secondary Keywords: {tags_str}
+Target Audience: Developers, tech professionals, and business leaders
+Search Intent: informational
+Tone: Authoritative, clear, concise
 Language: British English
+Word Count Target: 1200-1500 words
+
+---
+
+SEO Requirements:
+
+Include the primary keyword in:
+- H1
+- Introduction
+- At least one H2
+- Conclusion
+
+Distribute secondary keywords naturally.
+Use short paragraphs (2-4 lines).
+Avoid keyword stuffing.
+Use bullet points where specified.
+Maintain logical flow and strong readability.
 
 ---
 
 AVAILABLE FOR LINKING:
 - Agent pages (link format: [Agent Name](/agents/slug/)): {agents_str}
 - Other blog posts (link format: [Post Title](/blog/slug/)): {blogs_str}
-
----
-
-GLOBAL WRITING RULES:
-
-1. Write in clear, natural, human-like language.
-2. Avoid AI clichés, fluff, and generic phrases.
-3. Do not use phrases like:
-   - "In today's fast-paced world"
-   - "Unlock the power of"
-   - "Game-changer"
-   - "Cutting-edge"
-   - "In conclusion"
-   - "To sum up"
-   - "As we've seen"
-   - "It's worth noting"
-   - "It goes without saying"
-   - "Leverage"
-   - "Seamless"
-   - "Revolutionary"
-   - "Robust"
-4. Use short paragraphs (2-3 lines max).
-5. Use bullet points where helpful.
-6. Keep sentences varied in length.
-7. Maintain a confident, informative tone.
-8. Do not mention SEO, keywords, or optimisation in the output.
-9. Do not repeat the same idea in multiple sections.
-10. Ensure the content is factually correct and useful.
-11. Use "you" to address the reader directly.
-12. Include specific numbers, tools, and real examples.
-
----
-
-SEO REQUIREMENTS:
-
-- Include the primary keyword in:
-  - The title
-  - The first 100 words
-  - At least one H2
-- Naturally incorporate secondary keywords.
-- Keep the title under 60 characters.
-- Write a meta description between 140-160 characters.
-
----
 
 INTERNAL LINKING REQUIREMENTS:
 - Include minimum 5 links to agent pages (/agents/slug/)
@@ -127,88 +108,65 @@ EXTERNAL LINKING REQUIREMENTS:
 
 ---
 
-OUTPUT STRUCTURE (follow this EXACTLY):
+Return output in EXACT markdown structure below:
 
-1) Title (H1)
-- SEO-optimised, under 60 characters
-- Clear benefit-driven headline
+# {{primary_keyword}}: A Complete Guide for {{target_audience}}
 
-2) Meta Description
-- 140-160 characters
-- Includes primary keyword
+## Introduction
 
-3) Introduction (100-150 words)
-- Start with the problem or question
-- Acknowledge reader intent
-- Briefly explain what they'll learn
-- Include primary keyword in first 100 words
+(120-150 words. Clearly define the topic and match search intent.)
 
-4) Quick Answer / TL;DR
-- H2: Quick Answer
-- 3-5 bullet points summarising the key answer
-- Keep each bullet to 1-2 sentences
+## What is {{primary_keyword}}?
 
-5) Main Sections
+(200-250 words. Clear, structured explanation.)
 
-H2: [Core topic section with primary keyword]
-- Deep explanation with real-world examples
-- Bullets where appropriate
-- Link to 2 relevant agent pages
+## Key Benefits of {{primary_keyword}}
 
-H2: [Secondary topic section]
-- Practical insights and applications
-- Step-by-step instructions where relevant
-- Link to 1-2 blog posts
+(Use bullet points. 250-300 words total.)
 
-H2: [Step-by-step guide / comparison / breakdown]
-- Use H3s for sub-points
-- Numbered steps or actionable checklist
-- Link to 2-3 agent pages
+## How {{primary_keyword}} Works
 
-6) Real-World Examples
-H2: Real-World Applications
-- 2-3 specific, practical scenarios
-- Make the content credible and useful
-- Link to relevant agent pages
+(250-300 words. Step-by-step explanation.)
 
-7) Frequently Asked Questions
+## Common Mistakes to Avoid
 
-H2: Frequently Asked Questions
+(200-250 words. Practical insights.)
 
-H3: [Question 1]
-- 40-60 word answer
+## FAQs
 
-H3: [Question 2]
-- 40-60 word answer
+### What is the main purpose of {{primary_keyword}}?
 
-H3: [Question 3]
-- 40-60 word answer
+(80-100 words.)
 
-H3: [Question 4]
-- 40-60 word answer
+### Is {{primary_keyword}} suitable for {{target_audience}}?
 
-8) Key Takeaways
-H2: Key Takeaways
-- Short summary in 3-5 bullet points
-- Actionable closing insight
-- Link to [browse all agents](/agents/)
-- Link to 1-2 related blog posts for further reading
+(80-100 words.)
+
+### How do I get started with {{primary_keyword}}?
+
+(80-100 words.)
+
+## Conclusion
+
+(120-150 words. Summarise and reinforce value.)
+
+The response must begin directly with the H1 heading and follow the structure exactly.
 
 ---
 
 OUTPUT FORMAT - Return ONLY this JSON:
 
-{{
+{{{{
   "title": "string - under 60 chars",
   "slug": "string - URL-friendly slug",
   "excerpt": "string - 140-160 chars meta description",
   "tags": ["5-6 relevant tags"],
-  "content": "string - full markdown content with proper line breaks",
-  "read_time": number (10-15),
+  "content": "string - full markdown content following the exact structure above with proper line breaks",
+  "read_time": number (6-10),
   "related_agents": ["5 agent slugs used in content"],
   "related_posts": ["3 blog slugs used in content"],
   "featured": boolean
-}}
+}}}}
 
 ---
 
@@ -217,8 +175,7 @@ CRITICAL FORMATTING RULES:
 - Each paragraph should be separated by blank lines
 - HEADERS MUST BE ON A SINGLE LINE - never split a header across lines
 - After a header, always put a blank line, then the paragraph text
-- Headers should be short (3-6 words)
-- Keep paragraphs to 2-3 lines maximum
+- Keep paragraphs to 2-4 lines maximum
 - Use * for bullet points, not -
 
 Only output the final JSON. Do not include explanations, notes, or metadata.
@@ -325,11 +282,11 @@ def fix_split_headers(content: str) -> str:
 
 
 def has_new_structure(content: str) -> bool:
-    """Check if a blog already has the new structure (TL;DR + FAQ)."""
+    """Check if a blog already has the new structure (What is + Key Benefits)."""
     body = content.split('---', 2)[-1] if '---' in content else content
-    has_tldr = bool(re.search(r'^##\s*(Quick Answer|TL;DR)', body, re.MULTILINE | re.IGNORECASE))
-    has_faq = bool(re.search(r'^##\s*Frequently Asked Questions', body, re.MULTILINE | re.IGNORECASE))
-    return has_tldr and has_faq
+    has_what_is = bool(re.search(r'^##\s*What is', body, re.MULTILINE | re.IGNORECASE))
+    has_benefits = bool(re.search(r'^##\s*Key Benefits', body, re.MULTILINE | re.IGNORECASE))
+    return has_what_is and has_benefits
 
 
 def main():
